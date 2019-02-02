@@ -1,84 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/txtv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_above="@id/vf"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:textSize="40sp"/>
+
+        <ViewFlipper
+            android:id="@+id/vf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/image1"
+                    android:layout_width="432dp"
+                    android:layout_height="349dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/image1" />
+                  />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/image2"
+                    android:layout_width="432dp"
+                    android:layout_height="349dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/image2" />
+            />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/image3"
+                    android:layout_width="432dp"
+                    android:layout_height="349dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/image3" />
+
+             />
+            </FrameLayout>
+        </ViewFlipper>
+
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_gravity="center"
-    android:background="#ffffff"
-    tools:context=".MainActivity">
-<ViewFlipper
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/vf">
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    android:id="@+id/dot"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:layout_marginTop="15dp"
+    android:layout_height="wrap_content">
 
-        <ImageView
-            android:layout_width="432dp"
-            android:layout_height="349dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/image1"
-            android:id="@+id/image1"/>
+</LinearLayout>
 
-        <TextView
-            android:layout_width="269dp"
-            android:layout_height="107dp"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:id="@+id/t1"
-            android:text="CREATE"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="#FFD700"
-            android:textColorHighlight="@android:drawable/dialog_holo_dark_frame" />
-    </FrameLayout>
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
 
-        <ImageView
-            android:layout_width="432dp"
-            android:layout_height="349dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/image2"
-            android:id="@+id/image2"/>
-
-        <TextView
-            android:layout_width="269dp"
-            android:layout_height="107dp"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:id="@+id/t2"
-            android:text="CREATE"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="#FFD700"
-            android:textColorHighlight="@android:drawable/dialog_holo_dark_frame" />
-    </FrameLayout>
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:layout_width="432dp"
-            android:layout_height="349dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/image3"
-            android:id="@+id/image3"/>
-
-        <TextView
-            android:layout_width="269dp"
-            android:layout_height="107dp"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:id="@+id/t3"
-            android:text="CREATE"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="#FFD700"
-            android:textColorHighlight="@android:drawable/dialog_holo_dark_frame" />
-    </FrameLayout>
-</ViewFlipper>
-
-</LinearLayout></layout>
+    </RelativeLayout>
