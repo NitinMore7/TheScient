@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         out.setDuration(3000);
         tt.setText(text[i]);
         Intent i1=new Intent(MainActivity.this,Gallery.class);
-       // startActivity(i1);
+        startActivity(i1);
         vfMyViewFlipper.setOnTouchListener(new OnFlingListner(this) {
 
             @Override
