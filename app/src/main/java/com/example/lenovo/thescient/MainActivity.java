@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         final Animation out = new AlphaAnimation(1.0f, 0.0f);
         out.setDuration(3000);
         tt.setText(text[i]);
-        Intent i1=new Intent(MainActivity.this,Gallery.class);
+        Intent i1=new Intent(MainActivity.this,project.class);
         startActivity(i1);
         vfMyViewFlipper.setOnTouchListener(new OnFlingListner(this) {
 

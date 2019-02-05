@@ -2,6 +2,7 @@ package com.example.lenovo.thescient;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,9 @@ public class MyPagerAdapter extends PagerAdapter {
     public MyPagerAdapter(int[] layouts, Context context) {
         this.layouts = layouts;
         this.context = context;
+    }
+
+    public MyPagerAdapter(FragmentManager supportFragmentManager) {
     }
 
     @Override
