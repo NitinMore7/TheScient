@@ -18,16 +18,17 @@
             android:layout_width="match_parent"
             android:layout_height="250dp"
 
-            app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:collapsedTitleTextAppearance="@android:color/transparent"
             app:contentScrim="?attr/colorAccent">
-            <ImageButton
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:background="@android:color/white"
                 android:src="@mipmap/image3"
                 android:fitsSystemWindows="true"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                app:layout_collapseMode="parallax"/>
 
 
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -36,11 +37,14 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="250dp">
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/rv">
+            android:id="@+id/rv"
+            android:elevation="5dp">
 
         </android.support.v7.widget.RecyclerView>
     </android.support.v4.widget.NestedScrollView>
