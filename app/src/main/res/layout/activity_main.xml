@@ -70,15 +70,15 @@
             </FrameLayout>
         </ViewFlipper>
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:id="@+id/dot"
-    android:gravity="center"
-    android:orientation="horizontal"
-    android:layout_marginTop="15dp"
-    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/dot"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content">
 
-</LinearLayout>
+    </LinearLayout>
 
 
     </RelativeLayout>
