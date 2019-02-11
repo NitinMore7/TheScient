@@ -6,7 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class Rproject extends AppCompatActivity {
-EditText name,roll,dept,cno,email,purpose,duration,hmac;
+EditText name,roll,dept,cno,email,visibility,abstrac,budget,timeline;
 Button submitt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

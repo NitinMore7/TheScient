@@ -1,5 +1,7 @@
 package com.example.lenovo.thescient;
 
+import org.w3c.dom.Text;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -15,5 +17,18 @@ public interface Api {
             @Field("email") String email,
             @Field("projectTitle") String projectTitle,
             @Field("projectIdea") String projectIdea
+    );
+
+    @FormUrlEncoded
+    @POST("/applyForFacilities")
+    Call<ResponseBody> fac(
+            @Field("name") String name,
+            @Field("roll") String roll,
+            @Field("department") String department,
+            @Field("contactNumber") String contactNumber,
+            @Field("emailID") String emailID,
+            @Field("purpose") Text purpose,
+            @Field("duration") Integer duration,
+            @Field("heavyMachinery") Text heavyMachinery
     );
 }

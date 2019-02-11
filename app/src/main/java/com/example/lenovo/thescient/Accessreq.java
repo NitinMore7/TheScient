@@ -5,8 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Accessreq extends AppCompatActivity {
     EditText name,roll,dept,cno,email,purpose,duration,hmac;
@@ -34,7 +40,7 @@ public class Accessreq extends AppCompatActivity {
                 String cnoa=cno.getText().toString();
                 String emaila=email.getText().toString();
                 Text purposea=((Text)purpose.getText());
-                String durationa=duration.getText().toString();
+                Integer durationa=Integer.parseInt(duration.getText().toString());
                 Text hmaca= ((Text) hmac.getText());
                 if(namea.isEmpty())
                 {
@@ -58,7 +64,39 @@ public class Accessreq extends AppCompatActivity {
                 }
                 else if(purposea.toString().isEmpty())
                 {
+                    purpose.setError("Purpose Required");
+                }
+                else if(durationa.toString().isEmpty())
+                {
+                    duration.setError("Duration Required");
+                }
+                else if(hmaca.toString().isEmpty())
+                {
+                    hmac.setError("Can't be empty");
+                }
+                else {
+                    Call<ResponseBody> call=Rettrofitclient
+                            .getInstance()
+                            .getApi()
+                            .fac(namea,rolla,depta,cnoa,emaila,purposea,durationa,hmaca);
 
+                    call.enqueue(new Callback<ResponseBody>() {
+                        @Override
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            try {
+                                if(response.code()==200)
+                                {
+                                    Toast.makeText(getApplicationContext()," Request Successful ",Toast.LENGTH_LONG).show();}
+                                else
+                                {Toast.makeText(getApplicationContext()," Request Failed ",Toast.LENGTH_LONG).show();}
+                            }catch (Exception e){}
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
+                        }
+                    });
                 }
             }
         });
