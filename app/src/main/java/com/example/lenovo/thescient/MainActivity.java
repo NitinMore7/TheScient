@@ -1,20 +1,26 @@
 package com.example.lenovo.thescient;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.view.GestureDetectorCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
+
+import com.viewpagerindicator.CirclePageIndicator;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
     ViewFlipper vfMyViewFlipper;
@@ -29,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private GestureDetectorCompat mDetector;
     BottomSheetBehavior bottomSheetBehavior;
     ImageView bulb_transition;
+    int count = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -173,7 +180,32 @@ public class MainActivity extends AppCompatActivity {
                     bulb_transition.setImageResource(R.drawable.i58);
             }
         });
-        dots=(LinearLayout)findViewById(R.id.dotLayout) ;
+        final List<Integer> list = new ArrayList<>();
+        list.add(R.drawable.image1);
+        list.add(R.drawable.i0);
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
+        SimplePager simplePager = new SimplePager(this,list);
+        viewPager.setAdapter(simplePager);
+        CirclePageIndicator titleIndicator = (CirclePageIndicator) findViewById(R.id.indicator);
+        titleIndicator.setViewPager(viewPager);
+        final Handler handler = new Handler();
+        final Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                if(count == list.size()){
+                    count = 0;
+                }
+                viewPager.setCurrentItem(count++);
+            }
+        };
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(runnable);
+            }
+        },2000,2000);
+        /*dots=(LinearLayout)findViewById(R.id.dotLayout) ;
         vfMyViewFlipper = (ViewFlipper) findViewById(R.id.vf);
         tt=(TextView)findViewById(R.id.txtv);
         final Animation in = new AlphaAnimation(0.0f, 1.0f);
@@ -232,7 +264,7 @@ public class MainActivity extends AppCompatActivity {
                     vfMyViewFlipper.setInAnimation(getApplicationContext(),R.anim.fade_in);
                     vfMyViewFlipper.startFlipping();
         }
-    }
+    }*/
 
 
    /* private void prepareDots(int currentslidep){
@@ -251,4 +283,5 @@ public class MainActivity extends AppCompatActivity {
 
     }*/
     }
+}
 
