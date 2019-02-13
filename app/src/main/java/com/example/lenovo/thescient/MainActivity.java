@@ -1,6 +1,7 @@
 package com.example.lenovo.thescient;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -9,6 +10,7 @@ import android.support.v4.view.GestureDetectorCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -41,11 +43,35 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //prepareDots(custom_position++);
+        final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.layout_main);
+        Typeface karla_regular =  Typeface.createFromAsset(getAssets(),"fonts/Karla-Regular.ttf");
+        Typeface karla_bold =  Typeface.createFromAsset(getAssets(),"fonts/Karla-Bold.ttf");
+        TextView about_us_title = (TextView)findViewById(R.id.About_us_title);
+        TextView Made_By = (TextView) findViewById(R.id.Made_by);
+        LinearLayout bottom_sheet1 = (LinearLayout) findViewById(R.id.bottom_sheet);
+        TextView home = (TextView) bottom_sheet1.findViewById(R.id.home);
+        Made_By.setTypeface(karla_regular);
+        about_us_title.setTypeface(karla_bold);
+        about_us_title.setText("About Us");
+        about_us_title.setGravity(Gravity.CENTER);
+        TextView about_us = (TextView) findViewById(R.id.About_us);
+        about_us.setTypeface(karla_regular);
+        about_us.setText(
+                "SCIEnT is a multi-disciplinary innovation centre, " +
+                "providing opportunities to students to delve into the ever expanding world of technology, " +
+                "and discover, hands on, the incredible scope for innovation that the world offers today. " +
+                "The lab allows students to explore and experiment with technology, " +
+                "without having to deal with the fear and cost of failure. " +
+                "At SCIEnT, students are offered a multitude of tools, machines, " +
+                "consumables and services, and a space in which to work, learn and grow.");
+        about_us.setGravity(Gravity.CENTER);
         final LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);
         bulb_transition = (ImageView) findViewById(R.id.bulb_transition);
         bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet);
         bottomSheetBehavior.setHideable(false);
         bottomSheetBehavior.setPeekHeight(150);
+        if(bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_COLLAPSED){
+        }
         bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View view, int i) {
@@ -55,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSlide(@NonNull View view, float v) {
                 Log.d("Offset",v+"");
+                linearLayout.setAlpha(1-v);
                 if(v<=0.150){
                     bulb_transition.setVisibility(View.INVISIBLE);
                 }else{

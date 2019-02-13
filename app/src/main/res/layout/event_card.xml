@@ -10,10 +10,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         card_view:cardCornerRadius="12dp"
-        card_view:cardBackgroundColor="#d7dee8"
-        card_view:contentPadding="12dp">
+        card_view:cardBackgroundColor="@android:color/black"
+        card_view:contentPadding="5dp">
         <LinearLayout
-            android:background="#d7dee8"
+            android:background="@android:color/holo_orange_light"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
