@@ -29,7 +29,7 @@ public class Accessreq extends AppCompatActivity {
         purpose=(EditText)findViewById(R.id.edt_purpose);
         duration=(EditText)findViewById(R.id.edt_duration);
         hmac=(EditText)findViewById(R.id.edt_Hmac);
-        submitt=(Button)findViewById(R.id.btnsubmit);
+        submitt=(Button)findViewById(R.id.btn_areq);
 
         submitt.setOnClickListener(new View.OnClickListener() {
             @Override
