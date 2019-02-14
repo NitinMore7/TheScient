@@ -14,6 +14,11 @@
             android:exported="true"></activity>
         <activity android:name=".Accessreq"
             android:exported="true"/>
+        <activity android:name=".contactus"></activity>
+        <activity
+            android:name=".Events"
+            android:exported="true" />
+        <activity android:name=".Accessreq" />
         <activity android:name=".Rproject" />
         <activity
             android:name=".Register"
@@ -24,7 +29,7 @@
         <activity android:name=".project" />
         <activity android:name=".Gallery" />
         <activity android:name=".faq" />
-        <activity android:name=".WelcomeActivity"></activity>
+        <activity android:name=".WelcomeActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

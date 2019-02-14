@@ -31,4 +31,17 @@ public interface Api {
             @Field("duration") Integer duration,
             @Field("heavyMachinery") Text heavyMachinery
     );
+    @FormUrlEncoded
+    @POST("/applyForProjects")
+    Call<ResponseBody> rpro(
+            @Field("name") String name,
+            @Field("roll") String roll,
+            @Field("department") String department,
+            @Field("contactNumber") String contactNumber,
+            @Field("emailID") String emailID,
+            @Field("visibility") Enum visibility,
+            @Field("abstract") Text abstrac,
+            @Field("budget") Integer budget,
+            @Field("timeline") Text timeline
+    );
 }
