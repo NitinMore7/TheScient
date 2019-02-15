@@ -1,6 +1,7 @@
 package com.example.lenovo.thescient;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -49,7 +50,42 @@ public class MainActivity extends AppCompatActivity {
         TextView about_us_title = (TextView)findViewById(R.id.About_us_title);
         TextView Made_By = (TextView) findViewById(R.id.Made_by);
         LinearLayout bottom_sheet1 = (LinearLayout) findViewById(R.id.bottom_sheet);
-        TextView home = (TextView) bottom_sheet1.findViewById(R.id.home);
+        TextView registration = (TextView) bottom_sheet1.findViewById(R.id.Regitration);
+        TextView gallery = (TextView) bottom_sheet1.findViewById(R.id.gallery);
+        TextView events = (TextView) bottom_sheet1.findViewById(R.id.events);
+        TextView projects = (TextView) bottom_sheet1.findViewById(R.id.Project);
+        TextView resources = (TextView) bottom_sheet1.findViewById(R.id.Resources);
+        TextView contact = (TextView) bottom_sheet1.findViewById(R.id.Contact);
+        gallery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),Gallery.class));
+            }
+        });
+        events.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),Events.class));
+            }
+        });
+        projects.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),project.class));
+            }
+        });
+        resources.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         Made_By.setTypeface(karla_regular);
         about_us_title.setTypeface(karla_bold);
         about_us_title.setText("About Us");
