@@ -44,4 +44,12 @@ public interface Api {
             @Field("budget") Integer budget,
             @Field("timeline") Text timeline
     );
+    @FormUrlEncoded
+    @POST("/applyForProjects")
+    Call<ResponseBody> mesa(
+            @Field("name") String name,
+            @Field("phone") String phone,
+            @Field("email") String email,
+            @Field("msg") String msg
+    );
 }
