@@ -51,8 +51,185 @@
         android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:paddingTop="10dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="10dp"
+            android:gravity="center_horizontal"
+            android:text="CONTACT US"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact Details"
+            android:paddingRight="5dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="30dp"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Student Team Head(Suhel Ahamad) :"
+            android:paddingRight="5dp"
+            android:paddingBottom="1dp"
+            android:paddingTop="30dp"
+            android:paddingLeft="10dp"
+            android:textStyle="bold"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_suhelno"
+            android:text=" +91-9944641883/9894127474"
+            android:paddingRight="5dp"
+            android:paddingLeft="10dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="3dp"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Admin Incharge(Mr. Ganesh):"
+            android:paddingRight="5dp"
+            android:paddingLeft="10dp"
+            android:paddingBottom="1dp"
+            android:paddingTop="30dp"
+            android:textStyle="bold"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+91-9944641883/9894127474"
+            android:paddingRight="5dp"
+            android:paddingBottom="30dp"
+            android:paddingLeft="10dp"
 
+            android:paddingTop="3dp"
+            android:textSize="15dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/email"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:text="scient.nitt@gmail.com /  scient@nitt.edu"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:paddingLeft="5dp"
+            android:paddingTop="20dp"
+            android:paddingRight="5dp"
+
+            android:src="@drawable/scient"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SEND US A MESSAGE"
+            android:paddingRight="5dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:textStyle="bold"
+            android:paddingTop="30dp"
+            android:gravity="center"
+            android:textSize="20dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Full  Name"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:id="@+id/txt_fname"
+            android:textSize="15dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edt_fname"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textSize="12dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email Id"
+            android:paddingRight="5dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="10dp"
+            android:id="@+id/txt_femail"
+            android:textSize="15dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edt_femail"
+            android:paddingTop="10dp"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:paddingBottom="10dp"
+            android:textSize="12dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact Number"
+            android:id="@+id/txt_fCno"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textSize="15dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edt_fCno"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textSize="12dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Message"
+            android:id="@+id/txt_msg"
+            android:paddingRight="5dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="10dp"
+            android:textSize="15dp"/>
+        <EditText
+            android:id="@+id/edt_msg"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:paddingTop="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="10dp"
+            android:textSize="12dp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/active"
+            android:text="Send Message"
+            android:paddingLeft="5dp"
+            android:id="@+id/btn_sndmsg"/>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
     </LinearLayout>
