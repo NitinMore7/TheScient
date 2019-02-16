@@ -6,10 +6,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:background="#ffffff"
         android:orientation="vertical"
         tools:context=".MainActivity">
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg"
+        android:scaleType="centerCrop"/>
         <LinearLayout
             android:id="@+id/layout_main"
             android:layout_width="match_parent"
@@ -53,26 +56,26 @@
         </android.support.v7.widget.Toolbar>
 
             <RelativeLayout
+                android:id="@+id/relative_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
                 <android.support.v4.view.ViewPager
                     android:id="@+id/view_pager"
                     android:layout_width="match_parent"
-                    android:layout_height="350dp"></android.support.v4.view.ViewPager>
-
+                    android:layout_height="350dp">
+                </android.support.v4.view.ViewPager>
                 <com.viewpagerindicator.CirclePageIndicator
                     android:id="@+id/indicator"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="300dp"
+                    android:layout_marginTop="325dp"
                     app:fillColor="@android:color/holo_orange_light"
-                    app:snap="@bool/default_circle_indicator_snap"
                     app:strokeColor="@android:color/holo_orange_light" />
             </RelativeLayout>
             <TextView
                 android:id="@+id/About_us_title"
                 android:textSize="20sp"
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView

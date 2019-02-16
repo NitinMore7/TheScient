@@ -15,10 +15,6 @@
         <activity android:name=".Accessreq"
             android:exported="true"/>
         <activity android:name=".contactus"></activity>
-        <activity
-            android:name=".Events"
-            android:exported="true" />
-        <activity android:name=".Accessreq" />
         <activity android:name=".Rproject" />
         <activity
             android:name=".Register"

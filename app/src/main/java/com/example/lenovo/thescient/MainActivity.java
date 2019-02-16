@@ -21,9 +21,6 @@ import android.widget.ViewFlipper;
 import com.viewpagerindicator.CirclePageIndicator;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
     ViewFlipper vfMyViewFlipper;
@@ -55,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         TextView events = (TextView) bottom_sheet1.findViewById(R.id.events);
         TextView projects = (TextView) bottom_sheet1.findViewById(R.id.Project);
         TextView resources = (TextView) bottom_sheet1.findViewById(R.id.Resources);
-        TextView contact = (TextView) bottom_sheet1.findViewById(R.id.Contact);
+        final TextView contact = (TextView) bottom_sheet1.findViewById(R.id.Contact);
         gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -243,31 +240,72 @@ public class MainActivity extends AppCompatActivity {
                     bulb_transition.setImageResource(R.drawable.i58);
             }
         });
-        final List<Integer> list = new ArrayList<>();
-        list.add(R.drawable.image1);
-        list.add(R.drawable.i0);
+        final ArrayList<Slide_Objects> arrayList = new ArrayList<>();
+        arrayList.add(new Slide_Objects(R.drawable.carousel1,"IDEA","GET STARTED ON YOUR NEXT PROJECT"));
+        arrayList.add(new Slide_Objects(R.drawable.carousel2,"INNOVATE","GET STARTED ON YOUR NEXT PROJECT"));
+        arrayList.add(new Slide_Objects(R.drawable.carousel3,"CREATE","GET STARTED ON YOUR NEXT PROJECT"));
         final ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
-        SimplePager simplePager = new SimplePager(this,list);
+        Handler handler1 = new Handler();
+        handler1.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                viewPager.setCurrentItem(1);
+            }
+        },5000);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            Handler handler = new Handler();
+            Runnable runnable1 = new Runnable() {
+                @Override
+                public void run() {
+                    viewPager.setCurrentItem(1);
+                }
+            };
+            Runnable runnable2 = new Runnable() {
+                @Override
+                public void run() {
+                    viewPager.setCurrentItem(2);
+                }
+            };
+            Runnable runnable3 = new Runnable() {
+                @Override
+                public void run() {
+                    viewPager.setCurrentItem(0);
+                }
+            };
+            @Override
+            public void onPageScrolled(int i, float v, int i1) {
+
+            }
+
+            @Override
+            public void onPageSelected(int i) {
+                if(i == 0 ){
+                    handler.removeCallbacks(runnable2);
+                    handler.removeCallbacks(runnable3);
+                    handler = new Handler();
+                    handler.postDelayed(runnable1,5000);
+                }else if(i == 1){
+                    handler.removeCallbacks(runnable1);
+                    handler.removeCallbacks(runnable3);
+                    handler = new Handler();
+                    handler.postDelayed(runnable2,5000);
+                }else if(i == 2){
+                    handler.removeCallbacks(runnable1);
+                    handler.removeCallbacks(runnable2);
+                    handler = new Handler();
+                    handler.postDelayed(runnable3,5000);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+
+            }
+        });
+        SimplePager simplePager = new SimplePager(this,arrayList);
         viewPager.setAdapter(simplePager);
         CirclePageIndicator titleIndicator = (CirclePageIndicator) findViewById(R.id.indicator);
         titleIndicator.setViewPager(viewPager);
-        final Handler handler = new Handler();
-        final Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                if(count == list.size()){
-                    count = 0;
-                }
-                viewPager.setCurrentItem(count++);
-            }
-        };
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                handler.post(runnable);
-            }
-        },2000,2000);
         /*dots=(LinearLayout)findViewById(R.id.dotLayout) ;
         vfMyViewFlipper = (ViewFlipper) findViewById(R.id.vf);
         tt=(TextView)findViewById(R.id.txtv);
