@@ -193,19 +193,25 @@ public class contactus extends AppCompatActivity {
         gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), Gallery.class));
+                startActivity(new Intent(getBaseContext(),Gallery.class));
+                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+
             }
         });
         events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), Events.class));
+                startActivity(new Intent(getBaseContext(),Events.class));
+                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+
             }
         });
         projects.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), project.class));
+                startActivity(new Intent(getBaseContext(),project.class));
+                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+
             }
         });
         resources.setOnClickListener(new View.OnClickListener() {
