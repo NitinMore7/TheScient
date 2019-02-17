@@ -188,6 +188,14 @@ public class Events extends AppCompatActivity {
             }
         });
         Typeface karla_regular =  Typeface.createFromAsset(getAssets(),"fonts/Karla-Regular.ttf");
+        ImageView home = (ImageView) findViewById(R.id.Home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),MainActivity.class));
+                overridePendingTransition(R.anim.left_to_right,R.anim.stay);
+            }
+        });
         LinearLayout bottom_sheet1 = (LinearLayout) findViewById(R.id.bottom_sheet);
         TextView Made_By = (TextView) findViewById(R.id.Made_by);
         TextView registration = (TextView) bottom_sheet1.findViewById(R.id.Regitration);

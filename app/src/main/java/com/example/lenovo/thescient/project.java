@@ -42,6 +42,14 @@ public class project extends AppCompatActivity {
         setContentView(R.layout.activity_project);
         final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.acitivity_project);
         final LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);
+        ImageView home = (ImageView) findViewById(R.id.Home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),MainActivity.class));
+                overridePendingTransition(R.anim.left_to_right,R.anim.stay);
+            }
+        });
         bulb_transition = (ImageView) findViewById(R.id.bulb_transition);
         bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet);
         bottomSheetBehavior.setHideable(false);

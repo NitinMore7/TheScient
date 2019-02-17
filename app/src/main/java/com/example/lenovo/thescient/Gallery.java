@@ -35,6 +35,14 @@ public class Gallery extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
         final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.activity_gallery);
+        ImageView home = (ImageView) findViewById(R.id.Home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),MainActivity.class));
+                overridePendingTransition(R.anim.left_to_right,R.anim.stay);
+            }
+        });
         final LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);
         bulb_transition = (ImageView) findViewById(R.id.bulb_transition);
         bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet);

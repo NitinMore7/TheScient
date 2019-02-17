@@ -36,6 +36,14 @@ public class ideasub extends AppCompatActivity {
        project=(EditText)findViewById(R.id.edtpro);
        projectidea=(EditText)findViewById(R.id.edtprojectidea);
         idea=(Button)findViewById(R.id.btnsubmit);
+        ImageView home = (ImageView) findViewById(R.id.Home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),MainActivity.class));
+                overridePendingTransition(R.anim.left_to_right,R.anim.stay);
+            }
+        });
         final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.activity_ideasub);
         final LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);
         bulb_transition = (ImageView) findViewById(R.id.bulb_transition);

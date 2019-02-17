@@ -19,15 +19,6 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class contactus extends AppCompatActivity {
     BottomSheetBehavior bottomSheetBehavior;
@@ -41,6 +32,14 @@ public class contactus extends AppCompatActivity {
         setContentView(R.layout.activity_contactus);
         final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.activity_contactus);
         final LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);
+        ImageView home = (ImageView) findViewById(R.id.Home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),MainActivity.class));
+                overridePendingTransition(R.anim.left_to_right,R.anim.stay);
+            }
+        });
         bulb_transition = (ImageView) findViewById(R.id.bulb_transition);
         bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet);
         bottomSheetBehavior.setHideable(false);
