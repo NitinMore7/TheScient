@@ -1,5 +1,8 @@
 package com.example.lenovo.thescient;
 
+import android.widget.EditText;
+import android.widget.TextView;
+
 import org.w3c.dom.Text;
 
 import okhttp3.ResponseBody;
@@ -45,7 +48,7 @@ public interface Api {
             @Field("timeline") Text timeline
     );
     @FormUrlEncoded
-    @POST("/applyForProjects")
+    @POST("/sendMessage")
     Call<ResponseBody> mesa(
             @Field("name") String name,
             @Field("phone") String phone,
