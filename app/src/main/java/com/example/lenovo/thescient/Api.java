@@ -1,5 +1,6 @@
 package com.example.lenovo.thescient;
 
+import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -30,9 +31,9 @@ public interface Api {
             @Field("department") String department,
             @Field("contactNumber") String contactNumber,
             @Field("emailID") String emailID,
-            @Field("purpose") Text purpose,
+            @Field("purpose") TextUtils purpose,
             @Field("duration") Integer duration,
-            @Field("heavyMachinery") Text heavyMachinery
+            @Field("heavyMachinery") TextUtils heavyMachinery
     );
     @FormUrlEncoded
     @POST("/applyForProjects")

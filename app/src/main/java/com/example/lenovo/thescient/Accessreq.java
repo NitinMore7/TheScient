@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -245,9 +246,9 @@ public class Accessreq extends AppCompatActivity {
                 String depta=dept.getText().toString();
                 String cnoa=cno.getText().toString();
                 String emaila=email.getText().toString();
-                Text purposea=((Text)purpose.getText());
+                TextUtils purposea= (TextUtils) purpose.getText();
                 Integer durationa=Integer.parseInt(duration.getText().toString());
-                Text hmaca= ((Text) hmac.getText());
+                TextUtils hmaca= (TextUtils) hmac.getText();
                 if(namea.isEmpty())
                 {
                     name.setError("Name Required");
@@ -259,6 +260,7 @@ public class Accessreq extends AppCompatActivity {
                 else if(depta.isEmpty())
                 {
                     dept.setError("Department Is Required");
+
                 }
                 else if(cnoa.length()<9)
                 {
@@ -294,7 +296,8 @@ public class Accessreq extends AppCompatActivity {
                                 {
                                     Toast.makeText(getApplicationContext()," Request Successful ",Toast.LENGTH_LONG).show();}
                                 else
-                                {Toast.makeText(getApplicationContext()," Request Failed ",Toast.LENGTH_LONG).show();}
+                                {Toast.makeText(getApplicationContext()," Request Failed ",Toast.LENGTH_LONG).show();
+                                Log.e("TAG",""+response);}
                             }catch (Exception e){}
                         }
 
