@@ -86,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
         contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),contactus.class));
+                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
 
             }
         });

@@ -1,5 +1,9 @@
 package com.example.lenovo.thescient;
 
+import android.text.TextUtils;
+import android.widget.EditText;
+import android.widget.TextView;
+
 import org.w3c.dom.Text;
 
 import okhttp3.ResponseBody;
@@ -27,9 +31,9 @@ public interface Api {
             @Field("department") String department,
             @Field("contactNumber") String contactNumber,
             @Field("emailID") String emailID,
-            @Field("purpose") Text purpose,
+            @Field("purpose") TextUtils purpose,
             @Field("duration") Integer duration,
-            @Field("heavyMachinery") Text heavyMachinery
+            @Field("heavyMachinery") TextUtils heavyMachinery
     );
     @FormUrlEncoded
     @POST("/applyForProjects")
@@ -45,7 +49,7 @@ public interface Api {
             @Field("timeline") Text timeline
     );
     @FormUrlEncoded
-    @POST("/applyForProjects")
+    @POST("/sendMessage")
     Call<ResponseBody> mesa(
             @Field("name") String name,
             @Field("phone") String phone,

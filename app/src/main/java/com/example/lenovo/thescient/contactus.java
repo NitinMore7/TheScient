@@ -188,7 +188,7 @@ public class contactus extends AppCompatActivity {
         TextView gallery = (TextView) bottom_sheet1.findViewById(R.id.gallery);
         TextView events = (TextView) bottom_sheet1.findViewById(R.id.events);
         TextView projects = (TextView) bottom_sheet1.findViewById(R.id.Project);
-        TextView resources = (TextView) bottom_sheet1.findViewById(R.id.Resources);
+        final TextView resources = (TextView) bottom_sheet1.findViewById(R.id.Resources);
         final TextView contact = (TextView) bottom_sheet1.findViewById(R.id.Contact);
         gallery.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -254,7 +254,9 @@ public class contactus extends AppCompatActivity {
                                 if (response.code() == 200) {
                                     Toast.makeText(getApplicationContext(), " Request Successful ", Toast.LENGTH_LONG).show();
                                 } else {
+
                                     Toast.makeText(getApplicationContext(), " Request Failed ", Toast.LENGTH_LONG).show();
+                                    Log.d("Tag",""+response);
                                 }
                             } catch (Exception e) {
                             }

@@ -16,16 +16,21 @@
             android:exported="true"></activity>
         <activity android:name=".Accessreq"
             android:exported="true"/>
-        <activity android:name=".contactus"></activity>
+        <activity android:name=".contactus"
+            android:exported="true"></activity>
+
         <activity android:name=".Rproject" />
         <activity
             android:name=".Register"
             android:label="@string/title_activity_register"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true"/>
         <activity android:name=".ideasub"
             android:exported="true"/>
         <activity android:name=".project" />
-        <activity android:name=".Gallery" />
+        <activity android:name=".Gallery"
+            android:exported="true"
+            />
         <activity android:name=".faq" />
         <activity android:name=".WelcomeActivity" />
         <activity android:name=".MainActivity">
@@ -35,7 +40,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".contactus$contactus" />
     </application>
 
 </manifest>
