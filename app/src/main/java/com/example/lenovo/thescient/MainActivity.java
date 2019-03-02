@@ -247,9 +247,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         final ArrayList<Slide_Objects> arrayList = new ArrayList<>();
-        arrayList.add(new Slide_Objects(R.drawable.carousel1,"IDEA","GET STARTED ON YOUR NEXT PROJECT"));
-        arrayList.add(new Slide_Objects(R.drawable.carousel2,"INNOVATE","GET STARTED ON YOUR NEXT PROJECT"));
-        arrayList.add(new Slide_Objects(R.drawable.carousel3,"CREATE","GET STARTED ON YOUR NEXT PROJECT"));
+        arrayList.add(new Slide_Objects(R.drawable.carousel1compressed,"IDEA","GET STARTED ON YOUR NEXT PROJECT"));
+        arrayList.add(new Slide_Objects(R.drawable.carousel2compressed,"INNOVATE","GET STARTED ON YOUR NEXT PROJECT"));
+        arrayList.add(new Slide_Objects(R.drawable.carousel3compressed,"CREATE","GET STARTED ON YOUR NEXT PROJECT"));
         final ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         Handler handler1 = new Handler();
         handler1.postDelayed(new Runnable() {
