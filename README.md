@@ -1,3 +1,3 @@
-####Scient APP
+## Scient APP
 
-The official application Scient Lab, NITT
+The official android application for Scient Lab, NITT
