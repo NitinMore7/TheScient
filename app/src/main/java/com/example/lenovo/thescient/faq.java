@@ -32,6 +32,7 @@ public class faq extends ExpandableListActivity {
         setContentView(R.layout.activity_faq);
         final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.acitivity_faq);
         final LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);
+        final ImageView arrow = (ImageView) bottom_sheet.findViewById(R.id.arrow);
         ImageView home = (ImageView) findViewById(R.id.Home);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +44,7 @@ public class faq extends ExpandableListActivity {
         bulb_transition = (ImageView) findViewById(R.id.bulb_transition);
         bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet);
         bottomSheetBehavior.setHideable(false);
-        bottomSheetBehavior.setPeekHeight(150);
+        bottomSheetBehavior.setPeekHeight(125);
         if(bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_COLLAPSED){
         }
         bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
@@ -55,6 +56,7 @@ public class faq extends ExpandableListActivity {
             @Override
             public void onSlide(@NonNull View view, float v) {
                 Log.d("Offset",v+"");
+                arrow.setRotation(v*180);
                 linearLayout.setAlpha(1-v);
                 if(v<=0.150){
                     bulb_transition.setVisibility(View.INVISIBLE);

@@ -22,12 +22,10 @@
         app:contentInsetLeft="0dp"
         app:contentInsetRight="0dp"
         app:contentInsetStart="0dp">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
-
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/Home"
                 android:layout_width="56dp"
@@ -37,21 +35,19 @@
                 android:src="@drawable/homeiconoutlinerecolour"
                 app:civ_border_width="2dp"
                 app:civ_border_color="@android:color/black"/>
-
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:scaleType="fitXY"
+                android:scaleType="centerInside"
+                android:background="@android:color/white"
                 android:src="@drawable/toolbar_image3" />
         </LinearLayout>
-
     </android.support.v7.widget.Toolbar>
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
     <LinearLayout
         android:id="@+id/dotLayout"
         android:layout_width="match_parent"
@@ -60,16 +56,13 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:orientation="horizontal">
-
     </LinearLayout>
-
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_above="@id/dotLayout"
         android:alpha=".5"
         android:background="@android:color/white" />
-
     <Button
         android:id="@+id/btn_next"
         android:layout_width="wrap_content"
@@ -79,7 +72,6 @@
         android:background="@null"
         android:text="NEXT"
         android:textColor="@android:color/white" />
-
     <Button
         android:id="@+id/btn_skip"
         android:layout_width="wrap_content"

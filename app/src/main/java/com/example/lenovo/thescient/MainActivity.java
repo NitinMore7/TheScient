@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.layout_main);
         Typeface karla_regular =  Typeface.createFromAsset(getAssets(),"fonts/Karla-Regular.ttf");
         Typeface karla_bold =  Typeface.createFromAsset(getAssets(),"fonts/Karla-Bold.ttf");
+        Typeface high_tide = Typeface.createFromAsset(getAssets(),"fonts/HighTide-Demo.ttf");
+        TextView title = (TextView) findViewById(R.id.title);
         TextView about_us_title = (TextView)findViewById(R.id.About_us_title);
         TextView Made_By = (TextView) findViewById(R.id.Made_by);
         LinearLayout bottom_sheet1 = (LinearLayout) findViewById(R.id.bottom_sheet);
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         TextView projects = (TextView) bottom_sheet1.findViewById(R.id.Project);
         TextView resources = (TextView) bottom_sheet1.findViewById(R.id.Resources);
         final TextView contact = (TextView) bottom_sheet1.findViewById(R.id.Contact);
+        final ImageView arrow = (ImageView) bottom_sheet1.findViewById(R.id.arrow);
         gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         bulb_transition = (ImageView) findViewById(R.id.bulb_transition);
         bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet);
         bottomSheetBehavior.setHideable(false);
-        bottomSheetBehavior.setPeekHeight(150);
+        bottomSheetBehavior.setPeekHeight(125);
         if(bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_COLLAPSED){
         }
         bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
@@ -122,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSlide(@NonNull View view, float v) {
                 Log.d("Offset",v+"");
+                arrow.setRotation(v*180);
                 linearLayout.setAlpha(1-v);
                 if(v<=0.150){
                     bulb_transition.setVisibility(View.INVISIBLE);
