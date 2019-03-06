@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,8 +14,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -246,9 +243,9 @@ public class Accessreq extends AppCompatActivity {
                 String depta=dept.getText().toString();
                 String cnoa=cno.getText().toString();
                 String emaila=email.getText().toString();
-                TextUtils purposea= (TextUtils) purpose.getText();
+                String purposea= String.valueOf(purpose.getText());
                 Integer durationa=Integer.parseInt(duration.getText().toString());
-                TextUtils hmaca= (TextUtils) hmac.getText();
+                String hmaca= String.valueOf(hmac.getText());
                 if(namea.isEmpty())
                 {
                     name.setError("Name Required");

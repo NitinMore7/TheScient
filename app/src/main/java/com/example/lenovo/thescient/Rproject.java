@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,8 +15,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -228,7 +227,7 @@ Button submitt;public enum visi{open,closed}
             }
         });
         Made_By.setTypeface(karla_regular);
-        submitt=(Button)findViewById(R.id.btnsubmit);
+        submitt=(Button)findViewById(R.id.btn_prosub);
         name=(EditText)findViewById(R.id.edt_namer);
         roll=(EditText)findViewById(R.id.edt_rollnor);
         dept=(EditText)findViewById(R.id.edt_deptr);
@@ -248,9 +247,10 @@ Button submitt;public enum visi{open,closed}
                 String cnoa=cno.getText().toString();
                 String emaila=email.getText().toString();
                 visi visibilitya=visi.valueOf(visibility.getText().toString());
-                Text abstraca=(Text)abstrac.getText();
+
+                Editable abstraca=abstrac.getText();
                 Integer budgetr=Integer.parseInt(budget.getText().toString());
-                Text timeliner= ((Text) timeline.getText());
+                Editable timeliner= timeline.getText();
                 if(namea.isEmpty())
                 {
                     name.setError("Name Required");

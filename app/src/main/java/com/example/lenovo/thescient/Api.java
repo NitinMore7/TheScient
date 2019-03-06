@@ -1,10 +1,6 @@
 package com.example.lenovo.thescient;
 
-import android.text.TextUtils;
-import android.widget.EditText;
-import android.widget.TextView;
-
-import org.w3c.dom.Text;
+import android.text.Editable;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -31,9 +27,9 @@ public interface Api {
             @Field("department") String department,
             @Field("contactNumber") String contactNumber,
             @Field("emailID") String emailID,
-            @Field("purpose") TextUtils purpose,
+            @Field("purpose") String purpose,
             @Field("duration") Integer duration,
-            @Field("heavyMachinery") TextUtils heavyMachinery
+            @Field("heavyMachinery") String heavyMachinery
     );
     @FormUrlEncoded
     @POST("/applyForProjects")
@@ -44,9 +40,9 @@ public interface Api {
             @Field("contactNumber") String contactNumber,
             @Field("emailID") String emailID,
             @Field("visibility") Enum visibility,
-            @Field("abstract") Text abstrac,
+            @Field("abstract") Editable abstrac,
             @Field("budget") Integer budget,
-            @Field("timeline") Text timeline
+            @Field("timeline") Editable timeline
     );
     @FormUrlEncoded
     @POST("/sendMessage")

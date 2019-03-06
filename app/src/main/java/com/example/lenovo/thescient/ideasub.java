@@ -203,7 +203,7 @@ public class ideasub extends AppCompatActivity {
                 overridePendingTransition(R.anim.right_to_left,R.anim.stay);
 
             }
-        });
+        });;
         events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
