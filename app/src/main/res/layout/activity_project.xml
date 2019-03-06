@@ -35,19 +35,20 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/Home"
                     android:layout_width="56dp"
                     android:layout_height="56dp"
                     android:layout_gravity="center"
                     android:padding="5dp"
-                    android:src="@drawable/homeiconrecoloured" />
+                    android:src="@drawable/homeiconoutlinerecolour"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="@android:color/black"/>
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:padding="7dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/toolbar_image3" />
             </LinearLayout>

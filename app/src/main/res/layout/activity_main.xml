@@ -13,77 +13,82 @@
         android:layout_height="match_parent"
         android:src="@drawable/bg"
         android:scaleType="centerCrop"/>
-        <LinearLayout
-            android:id="@+id/layout_main"
+
+    <LinearLayout
+        android:id="@+id/layout_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="56dp"
+            android:background="@android:color/holo_orange_light"
+            android:contentInsetStart="0dp"
+            android:contentInsetLeft="0dp"
+            android:contentInsetEnd="0dp"
+            android:contentInsetRight="0dp"
+            app:contentInsetEnd="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetStart="0dp">
 
-            <android.support.v7.widget.Toolbar
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:background="@android:color/holo_orange_light"
-                android:contentInsetStart="0dp"
-                android:contentInsetLeft="0dp"
-                android:contentInsetEnd="0dp"
-                android:contentInsetRight="0dp"
-                app:contentInsetEnd="0dp"
-                app:contentInsetLeft="0dp"
-                app:contentInsetRight="0dp"
-                app:contentInsetStart="0dp">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-                <LinearLayout
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    android:src="@drawable/logo_bulb"
+                    app:civ_border_color="@android:color/black"
+                    app:civ_border_width="2dp" />
+
+                <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
-                        android:layout_gravity="center"
-                        android:padding="5dp"
-                        android:src="@drawable/logo_bulb" />
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:padding="7dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/toolbar_image3" />
-                </LinearLayout>
+                    android:gravity="center"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/toolbar_image3" />
+            </LinearLayout>
 
         </android.support.v7.widget.Toolbar>
 
-            <RelativeLayout
-                android:id="@+id/relative_view"
+        <RelativeLayout
+            android:id="@+id/relative_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/view_pager"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <android.support.v4.view.ViewPager
-                    android:id="@+id/view_pager"
-                    android:layout_width="match_parent"
-                    android:layout_height="350dp">
-                </android.support.v4.view.ViewPager>
-                <com.viewpagerindicator.CirclePageIndicator
-                    android:id="@+id/indicator"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="325dp"
-                    app:fillColor="@android:color/holo_orange_light"
-                    app:strokeColor="@android:color/holo_orange_light" />
-            </RelativeLayout>
-            <TextView
-                android:id="@+id/About_us_title"
-                android:textSize="20sp"
-                android:layout_marginTop="20dp"
+                android:layout_height="350dp"></android.support.v4.view.ViewPager>
+
+            <com.viewpagerindicator.CirclePageIndicator
+                android:id="@+id/indicator"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:id="@+id/About_us"
-                android:layout_marginTop="2dp"
-                android:textSize="15sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="325dp"
+                app:fillColor="@android:color/holo_orange_light"
+                app:strokeColor="@android:color/holo_orange_light" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/About_us_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/About_us"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="15sp" />
+    </LinearLayout>
         <include layout="@layout/bottom_sheet"/>
     </android.support.design.widget.CoordinatorLayout>

@@ -23,12 +23,12 @@ public class SimplePager extends PagerAdapter {
         this.context = context;
         this.arrayList = arrayList;
     }
-    @Override
+
     public int getCount() {
         return arrayList.size();
     }
 
-    @Override
+
     public boolean isViewFromObject(@NonNull View view, @NonNull Object o) {
         View viewGroup = (View)o;
         TextView textViewTitle = (TextView) viewGroup.findViewById(R.id.text_pager);
@@ -41,7 +41,6 @@ public class SimplePager extends PagerAdapter {
     }
 
     @NonNull
-    @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         Integer image_resId = arrayList.get(position).getmImageId();
         String textTitle = arrayList.get(position).getmTitle();
