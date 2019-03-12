@@ -13,14 +13,18 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -239,18 +243,21 @@ public class Gallery extends AppCompatActivity {
         RecyclerView.LayoutManager rvLa=layoutManager;
         recyclerView.setLayoutManager(rvLa);
         mgaArrayList=new ArrayList<>();
-        StringRequest request = new StringRequest(Url1, new Response.Listener<String>() {
+        JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, Url1, null, new Response.Listener<JSONObject>() {
             @Override
-            public void onResponse(String string) {
-                parseJsonData(string);
+            public void onResponse(JSONObject response) {
+                try {
+                    JSONArray filename = response.getJSONArray("filenames");
+                    parseJsonData(filename);
+                } catch (Exception e) {
+                }
             }
         }, new Response.ErrorListener() {
             @Override
-            public void onErrorResponse(VolleyError volleyError) {
-
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
             }
-        });
-        RequestQueue rQueue = Volley.newRequestQueue(Gallery.this);
+        }); RequestQueue rQueue = Volley.newRequestQueue(Gallery.this);
         rQueue.add(request);
     }
 
@@ -259,9 +266,8 @@ public class Gallery extends AppCompatActivity {
 
     }
 
-    void parseJsonData(String jsonString) {
+    void parseJsonData(JSONArray jsonarray) {
         try {String[] a=new String[10];
-            JSONArray jsonarray = new JSONArray(jsonString);
             for (int i = 0; i < jsonarray.length(); i++) {
                 {a[i]= "https://scient.nitt.edu/images/gallery/"+(String) jsonarray.get(i);
                     mgaArrayList.add(new mga(a[i]));
