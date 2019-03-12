@@ -41,9 +41,10 @@ Button submitt;public enum visi{open,closed}
             }
         });
         bulb_transition = (ImageView) findViewById(R.id.bulb_transition);
+        final ImageView arrow = (ImageView) bottom_sheet.findViewById(R.id.arrow);
         bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet);
         bottomSheetBehavior.setHideable(false);
-        bottomSheetBehavior.setPeekHeight(150);
+        bottomSheetBehavior.setPeekHeight(125);
         if(bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_COLLAPSED){
         }
         bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
@@ -55,6 +56,7 @@ Button submitt;public enum visi{open,closed}
             @Override
             public void onSlide(@NonNull View view, float v) {
                 Log.d("Offset",v+"");
+                arrow.setRotation(v*180);
                 linearLayout.setAlpha(1-v);
                 if(v<=0.150){
                     bulb_transition.setVisibility(View.INVISIBLE);

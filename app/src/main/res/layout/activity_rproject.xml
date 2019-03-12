@@ -43,7 +43,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:scaleType="fitXY"
+                android:scaleType="centerInside"
+                android:background="@android:color/white"
                 android:src="@drawable/toolbar_image3" />
         </LinearLayout>
 

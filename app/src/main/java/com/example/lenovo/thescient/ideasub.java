@@ -46,10 +46,11 @@ public class ideasub extends AppCompatActivity {
         });
         final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.activity_ideasub);
         final LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);
+        final ImageView arrow = (ImageView) bottom_sheet.findViewById(R.id.arrow);
         bulb_transition = (ImageView) findViewById(R.id.bulb_transition);
         bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet);
         bottomSheetBehavior.setHideable(false);
-        bottomSheetBehavior.setPeekHeight(150);
+        bottomSheetBehavior.setPeekHeight(125);
         if(bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_COLLAPSED){
         }
         bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
@@ -61,6 +62,7 @@ public class ideasub extends AppCompatActivity {
             @Override
             public void onSlide(@NonNull View view, float v) {
                 Log.d("Offset",v+"");
+                arrow.setRotation(v*180);
                 linearLayout.setAlpha(1-v);
                 if(v<=0.150){
                     bulb_transition.setVisibility(View.INVISIBLE);

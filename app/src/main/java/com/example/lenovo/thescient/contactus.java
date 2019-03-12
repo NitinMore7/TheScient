@@ -43,7 +43,9 @@ public class contactus extends AppCompatActivity {
         bulb_transition = (ImageView) findViewById(R.id.bulb_transition);
         bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet);
         bottomSheetBehavior.setHideable(false);
-        bottomSheetBehavior.setPeekHeight(150);
+        bottomSheetBehavior.setPeekHeight(125);
+        LinearLayout bottom_sheet1 = (LinearLayout) findViewById(R.id.bottom_sheet);
+        final ImageView arrow = (ImageView) bottom_sheet1.findViewById(R.id.arrow);
         if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_COLLAPSED) {
         }
         bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
@@ -55,6 +57,7 @@ public class contactus extends AppCompatActivity {
             @Override
             public void onSlide(@NonNull View view, float v) {
                 Log.d("Offset", v + "");
+                arrow.setRotation(v*180);
                 linearLayout.setAlpha(1 - v);
                 if (v <= 0.150) {
                     bulb_transition.setVisibility(View.INVISIBLE);
@@ -182,7 +185,6 @@ public class contactus extends AppCompatActivity {
             }
         });
         Typeface karla_regular = Typeface.createFromAsset(getAssets(), "fonts/Karla-Regular.ttf");
-        LinearLayout bottom_sheet1 = (LinearLayout) findViewById(R.id.bottom_sheet);
         TextView Made_By = (TextView) findViewById(R.id.Made_by);
         TextView registration = (TextView) bottom_sheet1.findViewById(R.id.Regitration);
         TextView gallery = (TextView) bottom_sheet1.findViewById(R.id.gallery);

@@ -42,6 +42,7 @@ public class project extends AppCompatActivity {
         setContentView(R.layout.activity_project);
         final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.acitivity_project);
         final LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);
+        final ImageView arrow = (ImageView) bottom_sheet.findViewById(R.id.arrow);
         ImageView home = (ImageView) findViewById(R.id.Home);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +54,7 @@ public class project extends AppCompatActivity {
         bulb_transition = (ImageView) findViewById(R.id.bulb_transition);
         bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet);
         bottomSheetBehavior.setHideable(false);
-        bottomSheetBehavior.setPeekHeight(150);
+        bottomSheetBehavior.setPeekHeight(125);
         if(bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_COLLAPSED){
         }
         bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
@@ -66,6 +67,7 @@ public class project extends AppCompatActivity {
             public void onSlide(@NonNull View view, float v) {
                 Log.d("Offset",v+"");
                 linearLayout.setAlpha(1-v);
+                arrow.setRotation(v*180);
                 if(v<=0.150){
                     bulb_transition.setVisibility(View.INVISIBLE);
                 }else{

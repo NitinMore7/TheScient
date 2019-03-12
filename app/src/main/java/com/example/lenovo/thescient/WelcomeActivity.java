@@ -43,9 +43,10 @@ public class WelcomeActivity extends AppCompatActivity {
         final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.activity_rproject);
         final LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);
         bulb_transition = (ImageView) findViewById(R.id.bulb_transition);
+        final ImageView arrow = (ImageView) bottom_sheet.findViewById(R.id.arrow);
         bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet);
         bottomSheetBehavior.setHideable(false);
-        bottomSheetBehavior.setPeekHeight(150);
+        bottomSheetBehavior.setPeekHeight(125);
         ImageView home = (ImageView) findViewById(R.id.Home);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +66,7 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void onSlide(@NonNull View view, float v) {
                 Log.d("Offset",v+"");
+                arrow.setRotation(v*180);
                 linearLayout.setAlpha(1-v);
                 if(v<=0.150){
                     bulb_transition.setVisibility(View.INVISIBLE);

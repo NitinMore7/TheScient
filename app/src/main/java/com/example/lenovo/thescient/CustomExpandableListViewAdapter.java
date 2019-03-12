@@ -39,7 +39,15 @@ public class CustomExpandableListViewAdapter extends BaseExpandableListAdapter {
             @Override
             public void onClick(View v) {
                 Toast.makeText(v.getContext(),intentstring + " was clicked",Toast.LENGTH_SHORT).show();
-
+                if(i==0)
+                { Intent j=new Intent(context,Rproject.class);
+                context.startActivity(j);}
+                if(i==1)
+                { Intent j=new Intent(context,Accessreq.class);
+                    context.startActivity(j);}
+                if(i==0)
+                { Intent j=new Intent(context,confrence.class);
+                    context.startActivity(j);}
 
             }
         });
