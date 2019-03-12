@@ -83,7 +83,8 @@ public class MainActivity extends AppCompatActivity {
         resources.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(getBaseContext(),Register.class));
+                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
             }
         });
         contact.setOnClickListener(new View.OnClickListener() {
