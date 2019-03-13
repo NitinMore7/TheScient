@@ -15,18 +15,20 @@ import java.util.List;
 public class CustomExpandableListViewAdapter extends BaseExpandableListAdapter {
     private Context context;
     private List<String> listtitles;
-    private List<String> listChildIntents;
+    private List<List<String>> listChildIntents;
 
-    public CustomExpandableListViewAdapter(Context context, List<String> listtitles,List<String> listChildIntents) {
+    public CustomExpandableListViewAdapter(Context context, List<String> listtitles,List<List<String>> listChildIntents) {
         this.context = context;
         this.listtitles = listtitles;
         this.listChildIntents=listChildIntents;
+
+
     }
 
 
     @Override
     public View getChildView(final int i, final int i1, boolean b, View view, ViewGroup viewGroup) {
-        final String intentstring = (String) getChild(i,i1);
+        final List<String> intentstring = (List<String>) getChild(i,i1);
         if (view == null){
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.list_item_contents,null);
@@ -34,12 +36,23 @@ public class CustomExpandableListViewAdapter extends BaseExpandableListAdapter {
         }
 
         TextView intentText=view.findViewById(R.id.intent_list_text);
+        TextView intmid=view.findViewById(R.id.txtmid);
         Button button=view.findViewById(R.id.button);
+        intmid.setText(intentstring.get(1));
+        intentText.setText(intentstring.get(0));
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(),intentstring + " was clicked",Toast.LENGTH_SHORT).show();
 
+                if(i==0)
+                { Intent j=new Intent(context,Rproject.class);
+                context.startActivity(j);}
+                if(i==1)
+                { Intent j=new Intent(context,Accessreq.class);
+                    context.startActivity(j);}
+                if(i==2)
+                { Intent j=new Intent(context,confrence.class);
+                    context.startActivity(j);}
 
             }
         });

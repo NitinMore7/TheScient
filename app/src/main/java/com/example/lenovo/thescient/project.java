@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,9 +17,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -245,25 +248,29 @@ public class project extends AppCompatActivity {
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         RecyclerView.LayoutManager rv=layoutManager;
         recyclerView.setLayoutManager(rv);
+        ViewCompat.setNestedScrollingEnabled(recyclerView,false);
         marray=new ArrayList<>();
-        StringRequest request=new StringRequest(URL, new Response.Listener<String>() {
+        JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
-            public void onResponse(String response) {
-                setUI(response);
+            public void onResponse(JSONObject response) {
+                try {
+                    JSONArray responseJSONArray = response.getJSONArray("projects");
+                    setUI(responseJSONArray);
+                } catch (Exception e) {
+                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
         RequestQueue requestQueue= Volley.newRequestQueue(project.this);
         requestQueue.add(request);
     }
-    private void setUI(String jsonString){
+    private void setUI(JSONArray jsonarray){
 
             try{
-                JSONArray jsonarray = new JSONArray(jsonString);
                 for (int i = 0; i < jsonarray.length(); i++) {
                     JSONObject h=jsonarray.getJSONObject(i);
                     Toast.makeText(getApplicationContext(), ""+jsonarray.getJSONObject(i).get("projectImage"),Toast.LENGTH_LONG).show();

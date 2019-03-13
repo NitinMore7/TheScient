@@ -57,6 +57,13 @@ public class MainActivity extends AppCompatActivity {
         FrameLayout resources =  bottom_sheet1.findViewById(R.id.Resources);
         final FrameLayout contact =  bottom_sheet1.findViewById(R.id.Contact);
         final ImageView arrow = (ImageView) bottom_sheet1.findViewById(R.id.arrow);
+        registration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),Register.class));
+                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+            }
+        });
         gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -319,83 +326,10 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(simplePager);
         CirclePageIndicator titleIndicator = (CirclePageIndicator) findViewById(R.id.indicator);
         titleIndicator.setViewPager(viewPager);
-        /*dots=(LinearLayout)findViewById(R.id.dotLayout) ;
-        vfMyViewFlipper = (ViewFlipper) findViewById(R.id.vf);
-        tt=(TextView)findViewById(R.id.txtv);
-        final Animation in = new AlphaAnimation(0.0f, 1.0f);
-        in.setDuration(3000);
-        final Animation out = new AlphaAnimation(1.0f, 0.0f);
-        out.setDuration(3000);
-        tt.setText(text[i]);
-        Intent i1=new Intent(MainActivity.this,Register.class);
-        startActivity(i1);
-        
-        vfMyViewFlipper.setOnTouchListener(new OnFlingListner(this) {
-
-            @Override
-            public void onRightToLeft() {
-                vfMyViewFlipper.setInAnimation(getApplicationContext(), R.anim.fade_in);
-                vfMyViewFlipper.showPrevious();
-                if(custom_position>3)
-                    custom_position=0;
-            }
-
-            @Override
-            public void onLeftToRight() {
-
-                vfMyViewFlipper.setInAnimation(getApplicationContext(), R.anim.fade_in);
-                vfMyViewFlipper.showNext();
-                if (custom_position<0)
-                    custom_position=2;
-            }
-
-            @Override
-            public void onBottomToTop() {
-
-            }
-
-            @Override
-            public void onTopToBottom() {
-
-            }
-        });
-
-        vfMyViewFlipper.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
 
 
 
-    }
-    public void flipperhandler(View view)
-    {
-        switch (view.getId()){
-            default:vfMyViewFlipper.setFlipInterval(1000);
-                    vfMyViewFlipper.setAutoStart(true);
-                    vfMyViewFlipper.setInAnimation(getApplicationContext(),R.anim.fade_in);
-                    vfMyViewFlipper.startFlipping();
-        }
-    }*/
 
-
-   /* private void prepareDots(int currentslidep){
-        ImageView dot[]=new ImageView[3];
-        for(int i=0;i<3;i++)
-        {
-            dot[i]=new ImageView(this);
-            if(i==currentslidep)
-                dot[i].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.active_dots));
-            else
-                dot[i].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.inactive));
-            LinearLayout.LayoutParams layoutParams=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-            layoutParams.setMargins(4,0,4,0);
-            dots.addView(dot[i],layoutParams);
-        }
-
-    }*/
     }
 }
 
