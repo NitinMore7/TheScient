@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -197,12 +198,12 @@ public class contactus extends AppCompatActivity {
         });
         Typeface karla_regular = Typeface.createFromAsset(getAssets(), "fonts/Karla-Regular.ttf");
         TextView Made_By = (TextView) findViewById(R.id.Made_by);
-        TextView registration = (TextView) bottom_sheet1.findViewById(R.id.Regitration);
-        TextView gallery = (TextView) bottom_sheet1.findViewById(R.id.gallery);
-        TextView events = (TextView) bottom_sheet1.findViewById(R.id.events);
-        TextView projects = (TextView) bottom_sheet1.findViewById(R.id.Project);
-        final TextView resources = (TextView) bottom_sheet1.findViewById(R.id.Resources);
-        final TextView contact = (TextView) bottom_sheet1.findViewById(R.id.Contact);
+        FrameLayout registration = bottom_sheet1.findViewById(R.id.Regitration);
+        FrameLayout gallery =  bottom_sheet1.findViewById(R.id.gallery);
+        FrameLayout events =  bottom_sheet1.findViewById(R.id.events);
+        FrameLayout projects =  bottom_sheet1.findViewById(R.id.Project);
+        final FrameLayout resources = bottom_sheet1.findViewById(R.id.Resources);
+        final FrameLayout contact = bottom_sheet1.findViewById(R.id.Contact);
         gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

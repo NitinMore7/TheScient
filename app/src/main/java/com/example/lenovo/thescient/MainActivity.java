@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -49,12 +50,12 @@ public class MainActivity extends AppCompatActivity {
         TextView about_us_title = (TextView)findViewById(R.id.About_us_title);
         TextView Made_By = (TextView) findViewById(R.id.Made_by);
         LinearLayout bottom_sheet1 = (LinearLayout) findViewById(R.id.bottom_sheet);
-        TextView registration = (TextView) bottom_sheet1.findViewById(R.id.Regitration);
-        TextView gallery = (TextView) bottom_sheet1.findViewById(R.id.gallery);
-        TextView events = (TextView) bottom_sheet1.findViewById(R.id.events);
-        TextView projects = (TextView) bottom_sheet1.findViewById(R.id.Project);
-        TextView resources = (TextView) bottom_sheet1.findViewById(R.id.Resources);
-        final TextView contact = (TextView) bottom_sheet1.findViewById(R.id.Contact);
+        FrameLayout registration =  bottom_sheet1.findViewById(R.id.Regitration);
+        FrameLayout gallery =  bottom_sheet1.findViewById(R.id.gallery);
+        FrameLayout events =  bottom_sheet1.findViewById(R.id.events);
+        FrameLayout projects =  bottom_sheet1.findViewById(R.id.Project);
+        FrameLayout resources =  bottom_sheet1.findViewById(R.id.Resources);
+        final FrameLayout contact =  bottom_sheet1.findViewById(R.id.Contact);
         final ImageView arrow = (ImageView) bottom_sheet1.findViewById(R.id.arrow);
         gallery.setOnClickListener(new View.OnClickListener() {
             @Override
