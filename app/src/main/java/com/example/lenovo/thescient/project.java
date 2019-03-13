@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -246,6 +247,7 @@ public class project extends AppCompatActivity {
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         RecyclerView.LayoutManager rv=layoutManager;
         recyclerView.setLayoutManager(rv);
+        ViewCompat.setNestedScrollingEnabled(recyclerView,false);
         marray=new ArrayList<>();
         JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
