@@ -13,7 +13,7 @@
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="@android:color/holo_orange_light"
+        android:background="@color/scient_color"
         android:contentInsetStart="0dp"
         android:contentInsetLeft="0dp"
         android:contentInsetEnd="0dp"
@@ -26,15 +26,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
-            <de.hdodenhof.circleimageview.CircleImageView
+            <ImageView
                 android:id="@+id/Home"
                 android:layout_width="56dp"
                 android:layout_height="56dp"
                 android:layout_gravity="center"
                 android:padding="5dp"
-                android:src="@drawable/homeiconoutlinerecolour"
-                app:civ_border_width="2dp"
-                app:civ_border_color="@android:color/black"/>
+                android:background="@color/scient_color"
+                android:src="@drawable/homeiconoutlinerecolour"/>
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

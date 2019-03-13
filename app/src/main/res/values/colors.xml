@@ -5,4 +5,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="active">#D4AF37</color>
     <color name="inactive">#83878b</color>
+    <color name="scient_color">#E0BB24</color>
 </resources>

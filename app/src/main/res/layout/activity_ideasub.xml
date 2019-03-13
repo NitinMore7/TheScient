@@ -16,7 +16,7 @@
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:background="@android:color/holo_orange_light"
+            android:background="@color/scient_color"
             android:contentInsetStart="0dp"
             android:contentInsetLeft="0dp"
             android:contentInsetEnd="0dp"
@@ -31,37 +31,27 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <de.hdodenhof.circleimageview.CircleImageView
+                <ImageView
                     android:id="@+id/Home"
                     android:layout_width="56dp"
                     android:layout_height="56dp"
                     android:layout_gravity="center"
                     android:padding="5dp"
                     android:src="@drawable/homeiconoutlinerecolour"
-                    app:civ_border_width="2dp"
-                    app:civ_border_color="@android:color/black"/>
+                    android:background="@color/scient_color"/>
 
-                <ImageView
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:scaleType="centerInside"
-                    android:background="@android:color/white"
-                    android:src="@drawable/toolbar_image3" />
+                    android:gravity="center_vertical"
+                    android:padding="15dp"
+                    android:background="@color/scient_color"
+                    android:textSize="22dp"
+                    android:fontFamily="@font/karlaregular"
+                    android:text="Idea Submission"/>
             </LinearLayout>
 
         </android.support.v7.widget.Toolbar>
-    <TextView
-
-        android:paddingTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="51dp"
-        android:layout_gravity="center"
-        android:text="YOUR PROJECT IDEA"
-        android:textStyle="bold"
-        android:gravity="center_vertical"
-        android:textSize="30dp"/>
-
     <TextView
         android:id="@+id/txtnam"
         android:layout_width="151dp"
