@@ -268,9 +268,16 @@ public class Gallery extends AppCompatActivity {
 
     void parseJsonData(JSONArray jsonarray) {
         try {String[] a=new String[10];
+            String[]b =new String[10];
             for (int i = 0; i < jsonarray.length(); i++) {
-                {a[i]= "https://scient.nitt.edu/images/gallery/"+(String) jsonarray.get(i);
-                    mgaArrayList.add(new mga(a[i]));
+                {  String a1=(String)jsonarray.get(i);
+                    if(a1.lastIndexOf(".")>0)
+                    b[i]=a1.substring(0,a1.lastIndexOf("."));
+
+
+                    a[i]= "https://scient.nitt.edu/images/gallery/"+(String) jsonarray.get(i);
+
+                    mgaArrayList.add(new mga(a[i],b[i]));
                    // Toast.makeText(getApplicationContext(),""+a[i],Toast.LENGTH_SHORT).show();
                 }
                 Galleryadapter galleryadapter=new Galleryadapter(this,mgaArrayList);
