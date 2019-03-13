@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -34,7 +35,9 @@ public class Galleryadapter extends RecyclerView.Adapter<Galleryadapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         mga item=mgaArrayList.get(i);
         ImageView imageView=viewHolder.imageView;
-        Picasso.get().load(item.getImg()).resize(250,250).into(imageView);
+        TextView textView=viewHolder.textView;
+        Picasso.get().load(item.getImg()).resize(250,300).into(imageView);
+        textView.setText(item.getString());
     }
 
     @Override
@@ -44,10 +47,12 @@ public class Galleryadapter extends RecyclerView.Adapter<Galleryadapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imageView;
+        TextView textView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView=itemView.findViewById(R.id.img);
+            textView=itemView.findViewById(R.id.txt_gtxt);
         }
     }
 }
