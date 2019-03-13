@@ -15,9 +15,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -245,24 +247,27 @@ public class project extends AppCompatActivity {
         RecyclerView.LayoutManager rv=layoutManager;
         recyclerView.setLayoutManager(rv);
         marray=new ArrayList<>();
-        StringRequest request=new StringRequest(URL, new Response.Listener<String>() {
+        JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
-            public void onResponse(String response) {
-                setUI(response);
+            public void onResponse(JSONObject response) {
+                try {
+                    JSONArray responseJSONArray = response.getJSONArray("projects");
+                    setUI(responseJSONArray);
+                } catch (Exception e) {
+                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
         RequestQueue requestQueue= Volley.newRequestQueue(project.this);
         requestQueue.add(request);
     }
-    private void setUI(String jsonString){
+    private void setUI(JSONArray jsonarray){
 
             try{
-                JSONArray jsonarray = new JSONArray(jsonString);
                 for (int i = 0; i < jsonarray.length(); i++) {
                     JSONObject h=jsonarray.getJSONObject(i);
                     Toast.makeText(getApplicationContext(), ""+jsonarray.getJSONObject(i).get("projectImage"),Toast.LENGTH_LONG).show();
