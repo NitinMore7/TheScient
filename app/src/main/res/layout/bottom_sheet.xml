@@ -21,12 +21,6 @@
                 android:layout_height="16dp"
                 android:src="@drawable/arrow"/>
         </FrameLayout>
-        <ImageView
-            android:id="@+id/bulb_transition"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"/>
     </LinearLayout>
 
     <LinearLayout

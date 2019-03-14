@@ -29,7 +29,7 @@
                 android:id="@+id/proimg_overlap_bg"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:background="@drawable/gradient_black_bg"
+                android:background="@android:color/darker_gray"
                 android:layout_gravity="center"/>
 
             <TextView
