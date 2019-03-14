@@ -55,6 +55,8 @@ public class Accessreq extends AppCompatActivity {
         FrameLayout events =  bottom_sheet1.findViewById(R.id.events);
         FrameLayout projects =  bottom_sheet1.findViewById(R.id.Project);
         FrameLayout resources =  bottom_sheet1.findViewById(R.id.Resources);
+        FrameLayout idea=bottom_sheet1.findViewById(R.id.Idea_sub);
+        FrameLayout faq1=bottom_sheet1.findViewById(R.id.faq);
         final FrameLayout contact =  bottom_sheet1.findViewById(R.id.Contact);
         final ImageView arrow = (ImageView) bottom_sheet1.findViewById(R.id.arrow);
         gallery.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +79,21 @@ public class Accessreq extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getBaseContext(),project.class));
+                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+
+            }
+        });
+        idea.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),ideasub.class));
+                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+            }
+        });
+        faq1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),faq.class));
                 overridePendingTransition(R.anim.right_to_left,R.anim.stay);
 
             }
