@@ -17,6 +17,7 @@
         android:background="@color/scient_color"
         android:contentInsetStart="0dp"
         android:contentInsetLeft="0dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         android:contentInsetEnd="0dp"
         android:contentInsetRight="0dp"
         app:contentInsetEnd="0dp"
@@ -42,6 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
+                android:textColor="@android:color/black"
                 android:padding="15dp"
                 android:background="@color/scient_color"
                 android:textSize="22dp"
@@ -50,6 +52,9 @@
         </LinearLayout>
 
     </android.support.v7.widget.Toolbar>
+        <View android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/toolbar_dropshadow"/>
     <ExpandableListView
 
         android:layout_width="match_parent"

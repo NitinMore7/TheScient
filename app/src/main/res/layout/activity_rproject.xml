@@ -18,6 +18,7 @@
         android:contentInsetStart="0dp"
         android:contentInsetLeft="0dp"
         android:contentInsetEnd="0dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         android:contentInsetRight="0dp"
         app:contentInsetEnd="0dp"
         app:contentInsetLeft="0dp"
@@ -41,15 +42,19 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:textColor="@android:color/black"
                 android:gravity="center_vertical"
                 android:padding="15dp"
-                android:background="@android:color/holo_orange_light"
+                android:background="@color/scient_color"
                 android:textSize="22dp"
                 android:fontFamily="@font/karlaregular"
                 android:text="Project Registration"/>
         </LinearLayout>
 
     </android.support.v7.widget.Toolbar>
+        <View android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/toolbar_dropshadow"/>
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -64,6 +69,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:text="Name"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
@@ -72,6 +78,7 @@
                 android:textSize="15dp"/>
             <EditText
                 android:layout_width="match_parent"
+                android:textColor="@android:color/black"
                 android:layout_height="wrap_content"
                 android:id="@+id/edt_namer"
                 android:paddingRight="5dp"
@@ -82,6 +89,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btn_prosub"
+                android:textColor="@android:color/black"
                 android:textSize="20dp"
                 android:text="Register"
                 />
@@ -90,6 +98,7 @@
                 android:layout_height="wrap_content"
                 android:text="Roll No"
                 android:paddingRight="5dp"
+                android:textColor="@android:color/black"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 android:id="@+id/txt_rollnor"
@@ -99,6 +108,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/edt_rollnor"
                 android:paddingTop="10dp"
+                android:textColor="@android:color/black"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:textSize="12dp" />
@@ -109,6 +119,7 @@
                 android:id="@+id/txt_depr"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
+                android:textColor="@android:color/black"
                 android:paddingTop="10dp"
                 android:textSize="15dp"/>
             <EditText
@@ -116,6 +127,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/edt_deptr"
                 android:paddingRight="5dp"
+                android:textColor="@android:color/black"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 android:textSize="12dp" />
@@ -123,6 +135,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Contact Number"
+                android:textColor="@android:color/black"
                 android:id="@+id/txt_Cnor"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
@@ -132,6 +145,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edt_Cnor"
+                android:textColor="@android:color/black"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
@@ -141,6 +155,7 @@
                 android:layout_height="wrap_content"
                 android:text="Email Id"
                 android:id="@+id/txt_emailr"
+                android:textColor="@android:color/black"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
@@ -149,6 +164,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edt_emailr"
+                android:textColor="@android:color/black"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
@@ -156,6 +172,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:text="Visibility"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
@@ -167,6 +184,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edt_visibilityr"
+                android:textColor="@android:color/black"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
@@ -174,6 +192,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:text="Abstract"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
@@ -183,6 +202,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:id="@+id/edt_abstractr"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
@@ -191,6 +211,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:text="Budget"
                 android:id="@+id/txt_budget"
                 android:paddingRight="5dp"
@@ -200,6 +221,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:id="@+id/edt_budgetr"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
@@ -208,6 +230,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:text="Timeline"
                 android:id="@+id/txt_timeline"
                 android:paddingRight="5dp"
@@ -218,6 +241,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edt_timeliner"
+                android:textColor="@android:color/black"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"

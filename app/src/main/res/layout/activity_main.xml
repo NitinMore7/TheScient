@@ -28,6 +28,7 @@
             android:contentInsetLeft="0dp"
             android:contentInsetEnd="0dp"
             android:contentInsetRight="0dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             app:contentInsetEnd="0dp"
             app:contentInsetLeft="0dp"
             app:contentInsetRight="0dp"
@@ -47,6 +48,9 @@
             </LinearLayout>
 
         </android.support.v7.widget.Toolbar>
+        <View android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/toolbar_dropshadow"/>
         <RelativeLayout
             android:id="@+id/relative_view"
             android:layout_width="match_parent"
@@ -76,12 +80,14 @@
                 android:id="@+id/About_us_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:layout_marginTop="20dp"
                 android:textSize="20sp" />
             <TextView
                 android:id="@+id/About_us"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:layout_marginTop="2dp" />
         </LinearLayout>
        </ScrollView>

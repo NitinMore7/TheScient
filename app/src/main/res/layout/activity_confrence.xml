@@ -19,6 +19,7 @@
                 android:textStyle="bold"
                 android:textSize="20dp"
                 android:paddingTop="10dp"
+                android:textColor="@android:color/black"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:gravity="center_horizontal"
@@ -26,6 +27,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:text="Name"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
@@ -35,6 +37,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:id="@+id/edt_hbname"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
@@ -43,6 +46,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:text="Roll No"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
@@ -52,6 +56,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:id="@+id/edt_hbrollno"
                 android:paddingTop="10dp"
                 android:paddingRight="5dp"
@@ -60,6 +65,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:text="Department"
                 android:id="@+id/txt_hbdep"
                 android:paddingRight="5dp"
@@ -69,6 +75,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:id="@+id/edt_hbdept"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
@@ -78,6 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Contact Number"
+                android:textColor="@android:color/black"
                 android:id="@+id/txt_hbCno"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
@@ -88,12 +96,14 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/edt_hbCno"
                 android:paddingRight="5dp"
+                android:textColor="@android:color/black"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 android:textSize="12dp" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:text="Email Id"
                 android:id="@+id/txt_hbemail"
                 android:paddingRight="5dp"
@@ -103,6 +113,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:id="@+id/edt_hbemail"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
@@ -111,6 +122,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:text="Number of attendees"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
@@ -121,6 +133,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:id="@+id/edt_hbnatte"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
@@ -129,6 +142,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:text="Purpose"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
@@ -139,6 +153,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edt_hbpurpose"
+                android:textColor="@android:color/black"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
@@ -146,6 +161,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:text="Date"
                 android:id="@+id/txt_hbdate"
                 android:paddingRight="5dp"
@@ -155,6 +171,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:id="@+id/edt_hbdate"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
@@ -163,6 +180,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:text="Start Time"
                 android:id="@+id/txt_hbstart"
                 android:paddingRight="5dp"
@@ -173,6 +191,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edt_hbstart"
+                android:textColor="@android:color/black"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
@@ -190,6 +209,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:id="@+id/edt_hbend"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
@@ -198,6 +218,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:id="@+id/btn_hbsubmit"
                 android:textSize="20dp"
                 android:text="Register"/>

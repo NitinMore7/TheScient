@@ -17,6 +17,7 @@
         android:background="@android:color/holo_orange_light"
         android:contentInsetStart="0dp"
         android:contentInsetLeft="0dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         android:contentInsetEnd="0dp"
         android:contentInsetRight="0dp"
         app:contentInsetEnd="0dp"
@@ -44,12 +45,16 @@
                 android:gravity="center_vertical"
                 android:padding="15dp"
                 android:background="@color/scient_color"
+                android:textColor="@android:color/black"
                 android:textSize="22dp"
                 android:fontFamily="@font/karlaregular"
                 android:text="Events"/>
         </LinearLayout>
 
     </android.support.v7.widget.Toolbar>
+        <View android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/toolbar_dropshadow"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_event"
         android:layout_width="match_parent"
