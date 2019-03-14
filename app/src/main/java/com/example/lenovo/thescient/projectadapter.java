@@ -40,12 +40,14 @@ public class projectadapter extends RecyclerView.Adapter<projectadapter.ViewHold
         final ExpandableWeightLayout expandableWeightLayout=viewHolder.expandableWeightLayout;
         CardView cardView=viewHolder.cardView;
         Picasso.get().load(item.getProjectImage()).resize(250,250).into(imageView);
-        TextView txt1=viewHolder.txt1;TextView txt2=viewHolder.txt2;
+        TextView txt1=viewHolder.txt1;
+        final TextView txt2=viewHolder.txt2;
         txt1.setText(item.getProjectTitle());
         txt2.setText(item.getdesc());
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                txt2.setVisibility(View.VISIBLE);
                 expandableWeightLayout.toggle();
             }
         });
