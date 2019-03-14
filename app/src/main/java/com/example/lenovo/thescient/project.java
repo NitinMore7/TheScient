@@ -1,5 +1,6 @@
 package com.example.lenovo.thescient;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -37,6 +38,7 @@ public class project extends AppCompatActivity {
    ArrayList<promga> marray;
     BottomSheetBehavior bottomSheetBehavior;
     ImageView bulb_transition;
+    ProgressDialog progressDialog;
 
 
     @Override
@@ -47,6 +49,10 @@ public class project extends AppCompatActivity {
         final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.acitivity_project);
         final LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);
         final ImageView arrow = (ImageView) bottom_sheet.findViewById(R.id.arrow);
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.setMessage("Fetching Projects...");
+        progressDialog.show();
         ImageView home = (ImageView) findViewById(R.id.Home);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -203,30 +209,13 @@ public class project extends AppCompatActivity {
         FrameLayout registration =  bottom_sheet1.findViewById(R.id.Regitration);
         FrameLayout gallery =  bottom_sheet1.findViewById(R.id.gallery);
         FrameLayout events =  bottom_sheet1.findViewById(R.id.events);
-        FrameLayout projects =  bottom_sheet1.findViewById(R.id.Project);
-        FrameLayout idea=bottom_sheet1.findViewById(R.id.Idea_sub);
-        FrameLayout faq1=bottom_sheet1.findViewById(R.id.faq);
+        final FrameLayout projects =  bottom_sheet1.findViewById(R.id.Project);
         FrameLayout resources =  bottom_sheet1.findViewById(R.id.Resources);
         final FrameLayout contact =  bottom_sheet1.findViewById(R.id.Contact);
         gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getBaseContext(),Gallery.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
-
-            }
-        });
-        idea.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),ideasub.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
-            }
-        });
-        faq1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),faq.class));
                 overridePendingTransition(R.anim.right_to_left,R.anim.stay);
 
             }
@@ -273,6 +262,9 @@ public class project extends AppCompatActivity {
                 try {
                     JSONArray responseJSONArray = response.getJSONArray("projects");
                     setUI(responseJSONArray);
+                    if(progressDialog.isShowing()){
+                        progressDialog.dismiss();
+                    }
                 } catch (Exception e) {
                 }
             }
@@ -290,7 +282,6 @@ public class project extends AppCompatActivity {
             try{
                 for (int i = 0; i < jsonarray.length(); i++) {
                     JSONObject h=jsonarray.getJSONObject(i);
-                    Toast.makeText(getApplicationContext(), ""+jsonarray.getJSONObject(i).get("projectImage"),Toast.LENGTH_LONG).show();
                    String img= h.getString("projectImage");
                    String title=h.getString("projectTitle");
                    String dec=h.getString("projectDesc");
@@ -299,7 +290,9 @@ public class project extends AppCompatActivity {
                 projectadapter pro=new projectadapter(this,marray);
                 recyclerView.setAdapter(pro);
 
-            }catch (Exception e){e.printStackTrace();}
+            }catch (Exception e){
+                e.printStackTrace();
+            }
 
 
 

@@ -10,10 +10,12 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@drawable/bg"/>
+
     <LinearLayout
         android:id="@+id/acitivity_project"
         android:orientation="vertical"
         android:layout_width="match_parent"
+        android:paddingBottom="125px"
         android:layout_height="match_parent">
     <android.support.design.widget.AppBarLayout
         android:id="@+id/proappbar"
