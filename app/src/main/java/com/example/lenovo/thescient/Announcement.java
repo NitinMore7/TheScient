@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -15,7 +16,20 @@ public class Announcement extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_announcement);
+        if(!NetworkAvailability.isNetworkAvailable(getBaseContext())){
+            setContentView(R.layout.nointernet);
+            FloatingActionButton refresh = findViewById(R.id.Refresh);
+            refresh.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                    startActivity(new Intent(getBaseContext(),Announcement.class));
+                }
+            });
+        }else{
+            setContentView(R.layout.activity_announcement);
+            final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.acitivity_announcements);
+        }
         ImageView home = (ImageView) findViewById(R.id.Home);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,7 +39,6 @@ public class Announcement extends AppCompatActivity {
             }
         });
         LinearLayout bottom_sheet1 = (LinearLayout) findViewById(R.id.bottom_sheet);
-        final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.acitivity_announcements);
         FrameLayout registration =  bottom_sheet1.findViewById(R.id.Regitration);
         FrameLayout gallery =  bottom_sheet1.findViewById(R.id.gallery);
         FrameLayout events =  bottom_sheet1.findViewById(R.id.events);
@@ -116,8 +129,23 @@ public class Announcement extends AppCompatActivity {
             @Override
             public void onSlide(@NonNull View view, float v) {
                 arrow.setRotation(v * 180);
-                linearLayout.setAlpha(1 - v);
+                if(NetworkAvailability.isNetworkAvailable(getBaseContext())){
+                    final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.acitivity_announcements);
+                    linearLayout.setAlpha(1 - v);
+                }
             }
         });
+    }
+    @Override
+    protected void onStop() {
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+        super.onStop();
+    }
+    @Override
+    public void onBackPressed() {
+        finish();
+        startActivity(new Intent(getBaseContext(),MainActivity.class));
+        overridePendingTransition(R.anim.left_to_right,R.anim.stay);
+        super.onBackPressed();
     }
 }
