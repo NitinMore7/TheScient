@@ -223,10 +223,11 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(simplePager);
         CirclePageIndicator titleIndicator = (CirclePageIndicator) findViewById(R.id.indicator);
         titleIndicator.setViewPager(viewPager);
-
-
-
-
+    }
+    @Override
+    protected void onStop() {
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+        super.onStop();
     }
 }
 

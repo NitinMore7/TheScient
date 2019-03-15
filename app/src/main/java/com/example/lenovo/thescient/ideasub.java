@@ -3,7 +3,9 @@ package com.example.lenovo.thescient;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -27,13 +29,73 @@ public class ideasub extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ideasub);
-       full=(EditText)findViewById(R.id.edtnam);
-       phone=(EditText)findViewById(R.id.edtphn);
-       email=(EditText)findViewById(R.id.edtemail);
-       project=(EditText)findViewById(R.id.edtpro);
-       projectidea=(EditText)findViewById(R.id.edtprojectidea);
-        idea=(Button)findViewById(R.id.btnsubmit);
+        if(!NetworkAvailability.isNetworkAvailable(getBaseContext())){
+            setContentView(R.layout.nointernet);
+            FloatingActionButton refresh = findViewById(R.id.Refresh);
+            refresh.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                    startActivity(new Intent(getBaseContext(),ideasub.class));
+                }
+            });
+        }else{
+            setContentView(R.layout.activity_ideasub);
+            full=(EditText)findViewById(R.id.edtnam);
+            phone=(EditText)findViewById(R.id.edtphn);
+            email=(EditText)findViewById(R.id.edtemail);
+            project=(EditText)findViewById(R.id.edtpro);
+            projectidea=(EditText)findViewById(R.id.edtprojectidea);
+            idea=(Button)findViewById(R.id.btnsubmit);
+            idea.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String fulla=full.getText().toString();
+                    String phonea=phone.getText().toString();
+                    String emaila=email.getText().toString();
+                    String projecta=project.getText().toString();
+                    String projectia=projectidea.getText().toString();
+                    if(fulla.isEmpty()){
+                        full.setError("Name required");
+                    }
+                    if(phonea.isEmpty())
+                    {
+                        phone.setError("Phone number is required");
+                    }
+                    if(emaila.isEmpty())
+                    {
+                        email.setError("Email is required");
+                    }
+                    if(projecta.isEmpty())
+                    {
+                        project.setError("Project name required");
+                    }
+
+                    Call<ResponseBody> call=Rettrofitclient
+                            .getInstance()
+                            .getApi()
+                            .name(fulla,phonea,emaila,projecta,projectia);
+
+                    call.enqueue(new Callback<ResponseBody>() {
+                        @Override
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                           try {
+                               if(response.code()==200)
+                               {Toast.makeText(getApplicationContext()," Request Successful ",Toast.LENGTH_LONG).show();}
+                            else
+                               {Toast.makeText(getApplicationContext()," Request Failed ",Toast.LENGTH_LONG).show();}
+                           }catch (Exception e){}
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                }
+            });
+        }
         ImageView home = (ImageView) findViewById(R.id.Home);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,7 +104,6 @@ public class ideasub extends AppCompatActivity {
                 overridePendingTransition(R.anim.left_to_right,R.anim.stay);
             }
         });
-        final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.activity_ideasub);
         final LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);
         final ImageView arrow = (ImageView) bottom_sheet.findViewById(R.id.arrow);
         Typeface karla_regular =  Typeface.createFromAsset(getAssets(),"fonts/Karla-Regular.ttf");
@@ -127,59 +188,35 @@ public class ideasub extends AppCompatActivity {
         bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet);
         bottomSheetBehavior.setHideable(false);
         bottomSheetBehavior.setPeekHeight(125);
-        bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet);
-        bottomSheetBehavior.setHideable(false);
-        bottomSheetBehavior.setPeekHeight(125);
         Made_By.setTypeface(karla_regular);
-
-        idea.setOnClickListener(new View.OnClickListener() {
+        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
-            public void onClick(View v) {
-                String fulla=full.getText().toString();
-                String phonea=phone.getText().toString();
-                String emaila=email.getText().toString();
-                String projecta=project.getText().toString();
-                String projectia=projectidea.getText().toString();
-                if(fulla.isEmpty()){
-                    full.setError("Name required");
-                }
-                if(phonea.isEmpty())
-                {
-                    phone.setError("Phone number is required");
-                }
-                if(emaila.isEmpty())
-                {
-                    email.setError("Email is required");
-                }
-                if(projecta.isEmpty())
-                {
-                    project.setError("Project name required");
-                }
-
-                Call<ResponseBody> call=Rettrofitclient
-                        .getInstance()
-                        .getApi()
-                        .name(fulla,phonea,emaila,projecta,projectia);
-
-                call.enqueue(new Callback<ResponseBody>() {
-                    @Override
-                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                       try {
-                           if(response.code()==200)
-                           {Toast.makeText(getApplicationContext()," Request Successful ",Toast.LENGTH_LONG).show();}
-                        else
-                           {Toast.makeText(getApplicationContext()," Request Failed ",Toast.LENGTH_LONG).show();}
-                       }catch (Exception e){}
-                    }
-
-                    @Override
-                    public void onFailure(Call<ResponseBody> call, Throwable t) {
-                        Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
-                    }
-                });
+            public void onStateChanged(@NonNull View view, int i) {
 
             }
-        });
 
+            @Override
+            public void onSlide(@NonNull View view, float v) {
+                arrow.setRotation(v * 180);
+                if(NetworkAvailability.isNetworkAvailable(getBaseContext())){
+                    final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.activity_ideasub);
+                    linearLayout.setAlpha(1 - v);
+                }
+            }
+        });
+    }
+    @Override
+    protected void onStop() {
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+        super.onStop();
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        startActivity(new Intent(getBaseContext(),MainActivity.class));
+        overridePendingTransition(R.anim.left_to_right,R.anim.stay);
+        super.onBackPressed();
     }
 }

@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -38,16 +39,53 @@ public class project extends AppCompatActivity {
     ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_project);
-        final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.acitivity_project);
+        if(!NetworkAvailability.isNetworkAvailable(getBaseContext())){
+            setContentView(R.layout.nointernet);
+            FloatingActionButton refresh = findViewById(R.id.Refresh);
+            refresh.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                    startActivity(new Intent(getBaseContext(),project.class));
+                }
+            });
+        }else{
+            setContentView(R.layout.activity_project);
+            progressDialog=new ProgressDialog(this);
+            progressDialog.setCanceledOnTouchOutside(false);
+            progressDialog.setMessage("Fetching Projects...");
+            progressDialog.show();
+            String URL="https://scient.nitt.edu/projects-images";
+            recyclerView=(RecyclerView)findViewById(R.id.prorv);
+            LinearLayoutManager layoutManager=new LinearLayoutManager(this);
+            RecyclerView.LayoutManager rv=layoutManager;
+            recyclerView.setLayoutManager(rv);
+            ViewCompat.setNestedScrollingEnabled(recyclerView,false);
+            marray=new ArrayList<>();
+            JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        JSONArray responseJSONArray = response.getJSONArray("projects");
+                        setUI(responseJSONArray);
+                        if(progressDialog.isShowing()){
+                            progressDialog.dismiss();
+                        }
+                    } catch (Exception e) {
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+            RequestQueue requestQueue= Volley.newRequestQueue(project.this);
+            requestQueue.add(request);
+        }
         final LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);
-        final ImageView arrow = (ImageView) bottom_sheet.findViewById(R.id.arrow);
-        progressDialog=new ProgressDialog(this);
-        progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.setMessage("Fetching Projects...");
-        progressDialog.show();
+        final ImageView arrow = (ImageView) bottom_sheet.findViewById(R.id.arrow);;
         ImageView home = (ImageView) findViewById(R.id.Home);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,37 +185,13 @@ public class project extends AppCompatActivity {
             @Override
             public void onSlide(@NonNull View view, float v) {
                 arrow.setRotation(v * 180);
-                linearLayout.setAlpha(1 - v);
+                if(NetworkAvailability.isNetworkAvailable(getBaseContext())){
+                    final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.acitivity_project);
+                    linearLayout.setAlpha(1 - v);
+                }
             }
         });
         Made_By.setTypeface(karla_regular);
-        String URL="https://scient.nitt.edu/projects-images";
-        recyclerView=(RecyclerView)findViewById(R.id.prorv);
-        LinearLayoutManager layoutManager=new LinearLayoutManager(this);
-        RecyclerView.LayoutManager rv=layoutManager;
-        recyclerView.setLayoutManager(rv);
-        ViewCompat.setNestedScrollingEnabled(recyclerView,false);
-        marray=new ArrayList<>();
-        JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    JSONArray responseJSONArray = response.getJSONArray("projects");
-                    setUI(responseJSONArray);
-                    if(progressDialog.isShowing()){
-                        progressDialog.dismiss();
-                    }
-                } catch (Exception e) {
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-        RequestQueue requestQueue= Volley.newRequestQueue(project.this);
-        requestQueue.add(request);
     }
     private void setUI(JSONArray jsonarray){
 
@@ -195,8 +209,17 @@ public class project extends AppCompatActivity {
             }catch (Exception e){
                 e.printStackTrace();
             }
-
-
-
+    }
+    @Override
+    protected void onStop() {
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+        super.onStop();
+    }
+    @Override
+    public void onBackPressed() {
+        finish();
+        startActivity(new Intent(getBaseContext(),MainActivity.class));
+        overridePendingTransition(R.anim.left_to_right,R.anim.stay);
+        super.onBackPressed();
     }
 }

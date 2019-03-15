@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ExpandableListAdapter;
@@ -30,64 +31,90 @@ public class Register extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-        Typeface karla_regular =  Typeface.createFromAsset(getAssets(),"fonts/Karla-Regular.ttf");
+        if(!NetworkAvailability.isNetworkAvailable(getBaseContext())){
+            setContentView(R.layout.nointernet);
+            FloatingActionButton refresh = findViewById(R.id.Refresh);
+            refresh.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                    startActivity(new Intent(getBaseContext(),Register.class));
+                }
+            });
+        }else {
+            setContentView(R.layout.activity_register);
+            expandableListView = findViewById(R.id.expandableListView);
+            listtitles = getExpandableListTitles();
+            intenttexts = getExpandableListitemIntentTexts();
+
+            expandableListAdapter = new CustomExpandableListViewAdapter(this, listtitles, intenttexts);
+            expandableListView.setAdapter(expandableListAdapter);
+            expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+                @Override
+                public void onGroupExpand(int i) {
+                    if (lastExpandedPos != -1 && i != lastExpandedPos) {
+                        expandableListView.collapseGroup(lastExpandedPos);
+                    }
+                    lastExpandedPos = i;
+                }
+            });
+        }
+        Typeface karla_regular = Typeface.createFromAsset(getAssets(), "fonts/Karla-Regular.ttf");
         ImageView home = (ImageView) findViewById(R.id.Home);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),MainActivity.class));
-                overridePendingTransition(R.anim.left_to_right,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), MainActivity.class));
+                overridePendingTransition(R.anim.left_to_right, R.anim.stay);
             }
         });
         LinearLayout bottom_sheet1 = (LinearLayout) findViewById(R.id.bottom_sheet);
-        final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.acitivity_register);
         TextView Made_By = (TextView) findViewById(R.id.Made_by);
-        FrameLayout registration =  bottom_sheet1.findViewById(R.id.Regitration);
-        FrameLayout gallery =  bottom_sheet1.findViewById(R.id.gallery);
-        FrameLayout events =  bottom_sheet1.findViewById(R.id.events);
-        FrameLayout projects =  bottom_sheet1.findViewById(R.id.Project);
-        FrameLayout resources =  bottom_sheet1.findViewById(R.id.Resources);
+        FrameLayout registration = bottom_sheet1.findViewById(R.id.Regitration);
+        FrameLayout gallery = bottom_sheet1.findViewById(R.id.gallery);
+        FrameLayout events = bottom_sheet1.findViewById(R.id.events);
+        FrameLayout projects = bottom_sheet1.findViewById(R.id.Project);
+        FrameLayout resources = bottom_sheet1.findViewById(R.id.Resources);
         FrameLayout idea = bottom_sheet1.findViewById(R.id.Idea_sub);
         FrameLayout faq1 = bottom_sheet1.findViewById(R.id.faq);
-        final FrameLayout contact =  bottom_sheet1.findViewById(R.id.Contact);
+        final FrameLayout contact = bottom_sheet1.findViewById(R.id.Contact);
         final ImageView arrow = (ImageView) bottom_sheet1.findViewById(R.id.arrow);
         FrameLayout announcements = bottom_sheet1.findViewById(R.id.Announcements);
         announcements.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Announcement.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), Announcement.class));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
             }
         });
         registration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Register.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), Register.class));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
             }
         });
         gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Gallery.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), Gallery.class));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
 
             }
         });
         events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Events.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), Events.class));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
 
             }
         });
         projects.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),project.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), project.class));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
 
             }
         });
@@ -100,23 +127,23 @@ public class Register extends AppCompatActivity {
         contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),contactus.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), contactus.class));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
 
             }
         });
         idea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),ideasub.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), ideasub.class));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
             }
         });
         faq1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),faq.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), faq.class));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
 
             }
         });
@@ -133,26 +160,13 @@ public class Register extends AppCompatActivity {
             @Override
             public void onSlide(@NonNull View view, float v) {
                 arrow.setRotation(v * 180);
-                linearLayout.setAlpha(1 - v);
+                if(NetworkAvailability.isNetworkAvailable(getBaseContext())){
+                    final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.acitivity_register);
+                    linearLayout.setAlpha(1 - v);
+                }
             }
         });
         Made_By.setTypeface(karla_regular);
-        expandableListView=findViewById(R.id.expandableListView);
-        listtitles=getExpandableListTitles();
-        intenttexts=getExpandableListitemIntentTexts();
-
-        expandableListAdapter=new CustomExpandableListViewAdapter(this,listtitles,intenttexts);
-        expandableListView.setAdapter(expandableListAdapter);
-        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-            @Override
-            public void onGroupExpand(int i) {
-                if(lastExpandedPos!=-1 && i!=lastExpandedPos){
-                    expandableListView.collapseGroup(lastExpandedPos);
-                }
-                lastExpandedPos=i;
-            }
-        });
-
     }
 
     private List<String> getExpandableListTitles(){
@@ -183,10 +197,18 @@ public class Register extends AppCompatActivity {
 
         list.add(l3);
 
-return list;
+        return list;
     }
-
-
-
-
+    @Override
+    protected void onStop() {
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+        super.onStop();
+    }
+    @Override
+    public void onBackPressed() {
+        finish();
+        startActivity(new Intent(getBaseContext(),MainActivity.class));
+        overridePendingTransition(R.anim.left_to_right,R.anim.stay);
+        super.onBackPressed();
+    }
 }

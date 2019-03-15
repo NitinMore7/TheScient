@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -35,65 +36,99 @@ public class Gallery extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gallery);
-        final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.activity_gallery);
+        if(!NetworkAvailability.isNetworkAvailable(getBaseContext())){
+            setContentView(R.layout.nointernet);
+            FloatingActionButton refresh = findViewById(R.id.Refresh);
+            refresh.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                    startActivity(new Intent(getBaseContext(),Gallery.class));
+                }
+            });
+        }else {
+            setContentView(R.layout.activity_gallery);
+            String Url1 = "https://scient.nitt.edu/gallery-images";
+            recyclerView = findViewById(R.id.rv);
+            LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+            RecyclerView.LayoutManager rvLa = layoutManager;
+            recyclerView.setLayoutManager(rvLa);
+            mgaArrayList = new ArrayList<>();
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, Url1, null, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        JSONArray filename = response.getJSONArray("filenames");
+                        parseJsonData(filename);
+                    } catch (Exception e) {
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+            RequestQueue rQueue = Volley.newRequestQueue(Gallery.this);
+            rQueue.add(request);
+        }
         ImageView home = (ImageView) findViewById(R.id.Home);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),MainActivity.class));
-                overridePendingTransition(R.anim.left_to_right,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), MainActivity.class));
+                overridePendingTransition(R.anim.left_to_right, R.anim.stay);
             }
         });
         final LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);
         final ImageView arrow = (ImageView) bottom_sheet.findViewById(R.id.arrow);
-        Typeface karla_regular =  Typeface.createFromAsset(getAssets(),"fonts/Karla-Regular.ttf");
+        Typeface karla_regular = Typeface.createFromAsset(getAssets(), "fonts/Karla-Regular.ttf");
         LinearLayout bottom_sheet1 = (LinearLayout) findViewById(R.id.bottom_sheet);
         TextView Made_By = (TextView) findViewById(R.id.Made_by);
-        FrameLayout registration =  bottom_sheet1.findViewById(R.id.Regitration);
-        FrameLayout gallery =  bottom_sheet1.findViewById(R.id.gallery);
-        FrameLayout events =  bottom_sheet1.findViewById(R.id.events);
-        FrameLayout projects =  bottom_sheet1.findViewById(R.id.Project);
-        FrameLayout resources =  bottom_sheet1.findViewById(R.id.Resources);
+        FrameLayout registration = bottom_sheet1.findViewById(R.id.Regitration);
+        FrameLayout gallery = bottom_sheet1.findViewById(R.id.gallery);
+        FrameLayout events = bottom_sheet1.findViewById(R.id.events);
+        FrameLayout projects = bottom_sheet1.findViewById(R.id.Project);
+        FrameLayout resources = bottom_sheet1.findViewById(R.id.Resources);
         FrameLayout idea = bottom_sheet1.findViewById(R.id.Idea_sub);
         FrameLayout faq1 = bottom_sheet1.findViewById(R.id.faq);
-        final FrameLayout contact =  bottom_sheet1.findViewById(R.id.Contact);
+        final FrameLayout contact = bottom_sheet1.findViewById(R.id.Contact);
         FrameLayout announcements = bottom_sheet1.findViewById(R.id.Announcements);
         announcements.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Announcement.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), Announcement.class));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
             }
         });
         registration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Register.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), Register.class));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
             }
         });
         gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Gallery.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), Gallery.class));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
 
             }
         });
         events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Events.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), Events.class));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
 
             }
         });
         projects.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),project.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), project.class));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
 
             }
         });
@@ -106,23 +141,23 @@ public class Gallery extends AppCompatActivity {
         contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),contactus.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), contactus.class));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
 
             }
         });
         idea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),ideasub.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), ideasub.class));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
             }
         });
         faq1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),faq.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), faq.class));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
 
             }
         });
@@ -138,32 +173,13 @@ public class Gallery extends AppCompatActivity {
             @Override
             public void onSlide(@NonNull View view, float v) {
                 arrow.setRotation(v * 180);
-                linearLayout.setAlpha(1 - v);
+                if(NetworkAvailability.isNetworkAvailable(getBaseContext())){
+                    final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.activity_gallery);
+                    linearLayout.setAlpha(1 - v);
+                }
             }
         });
         Made_By.setTypeface(karla_regular);
-        String Url1="https://scient.nitt.edu/gallery-images";
-        recyclerView=findViewById(R.id.rv);
-        LinearLayoutManager layoutManager=new LinearLayoutManager(this);
-        RecyclerView.LayoutManager rvLa=layoutManager;
-        recyclerView.setLayoutManager(rvLa);
-        mgaArrayList=new ArrayList<>();
-        JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, Url1, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    JSONArray filename = response.getJSONArray("filenames");
-                    parseJsonData(filename);
-                } catch (Exception e) {
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        }); RequestQueue rQueue = Volley.newRequestQueue(Gallery.this);
-        rQueue.add(request);
     }
 
     @Override
@@ -191,8 +207,18 @@ public class Gallery extends AppCompatActivity {
 
             } catch (Exception e) {
             e.printStackTrace();
-                                 }
-
-
+        }
+    }
+    @Override
+    protected void onStop() {
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+        super.onStop();
+    }
+    @Override
+    public void onBackPressed() {
+        finish();
+        startActivity(new Intent(getBaseContext(),MainActivity.class));
+        overridePendingTransition(R.anim.left_to_right,R.anim.stay);
+        super.onBackPressed();
     }
 }
