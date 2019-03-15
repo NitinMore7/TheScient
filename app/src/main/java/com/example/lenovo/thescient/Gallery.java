@@ -161,6 +161,7 @@ public class Gallery extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+
             }
         }); RequestQueue rQueue = Volley.newRequestQueue(Gallery.this);
         rQueue.add(request);
