@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -31,17 +30,6 @@ public class contactus extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(!NetworkAvailability.isNetworkAvailable(getBaseContext())){
-            setContentView(R.layout.nointernet);
-            FloatingActionButton refresh = findViewById(R.id.Refresh);
-            refresh.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    finish();
-                    startActivity(new Intent(getBaseContext(),contactus.class));
-                }
-            });
-        }else{
             setContentView(R.layout.activity_contactus);
             ImageView map = (ImageView) findViewById(R.id.map);
             map.setOnClickListener(new View.OnClickListener() {
@@ -104,28 +92,7 @@ public class contactus extends AppCompatActivity {
                     }
                 }
             });
-        }
-
         final LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);
-        ImageView map = (ImageView) findViewById(R.id.map);
-        map.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Uri scientGMapUri = Uri.parse("geo:10.7575,78.8164?q=SCIEnT+Lab");
-                Intent scientGMapIntent = new Intent(Intent.ACTION_VIEW,scientGMapUri);
-                scientGMapIntent.setPackage("com.google.android.apps.maps");
-                startActivity(scientGMapIntent);
-            }
-        });
-        ImageView home = (ImageView) findViewById(R.id.Home);
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),MainActivity.class));
-                overridePendingTransition(R.anim.left_to_right,R.anim.stay);
-                finish();
-            }
-        });
         LinearLayout bottom_sheet1 = (LinearLayout) findViewById(R.id.bottom_sheet);
         final ImageView arrow = (ImageView) bottom_sheet1.findViewById(R.id.arrow);
         Typeface karla_regular = Typeface.createFromAsset(getAssets(), "fonts/Karla-Regular.ttf");
