@@ -12,7 +12,10 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".imageshow"></activity>
+        <activity android:name=".Announcement"></activity>
+
         <activity android:name=".confrence" />
         <activity android:name=".Resources" />
         <activity

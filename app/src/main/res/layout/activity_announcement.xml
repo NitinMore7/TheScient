@@ -1,28 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Announcement">
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@drawable/bg"/>
     <LinearLayout
-        android:id="@+id/acitivity_project"
+        android:id="@+id/acitivity_announcements"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:paddingBottom="125px"
         android:layout_height="match_parent">
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/proappbar"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:fitsSystemWindows="true"
-        android:background="@android:color/white"
-        >
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="56dp"
@@ -36,12 +30,10 @@
             app:contentInsetLeft="0dp"
             app:contentInsetRight="0dp"
             app:contentInsetStart="0dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
-
                 <ImageView
                     android:id="@+id/Home"
                     android:layout_width="56dp"
@@ -59,27 +51,15 @@
                     android:textColor="@android:color/black"
                     android:textSize="22dp"
                     android:fontFamily="@font/karlaregular"
-                    android:text="Projects"/>
+                    android:text="Announcements"/>
             </LinearLayout>
-
         </android.support.v7.widget.Toolbar>
         <View android:layout_width="match_parent"
             android:layout_height="5dp"
             android:background="@drawable/toolbar_dropshadow"/>
-    </android.support.design.widget.AppBarLayout>
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        >
-        <android.support.v7.widget.RecyclerView
+        <ListView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/prorv">
-
-        </android.support.v7.widget.RecyclerView>
-    </android.support.v4.widget.NestedScrollView>
+            android:layout_height="match_parent"></ListView>
     </LinearLayout>
     <include layout="@layout/bottom_sheet"/>
 </android.support.design.widget.CoordinatorLayout>
