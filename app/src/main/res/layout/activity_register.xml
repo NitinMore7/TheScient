@@ -6,74 +6,15 @@
     android:layout_height="match_parent"
 
     tools:context=".MainActivity"
-    android:background="@drawable/bg"
    >
-    <LinearLayout
-        android:id="@+id/activity_register"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <android.support.v7.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:background="@color/scient_color"
-            android:contentInsetStart="0dp"
-            android:contentInsetLeft="0dp"
-            android:contentInsetEnd="0dp"
-            android:contentInsetRight="0dp"
-            app:contentInsetEnd="0dp"
-            app:contentInsetLeft="0dp"
-            app:contentInsetRight="0dp"
-            app:contentInsetStart="0dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/Home"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
-                    android:layout_gravity="center"
-                    android:padding="5dp"
-                    android:src="@drawable/homeiconoutlinerecolour"
-                    android:background="@color/scient_color"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:padding="15dp"
-                    android:background="@color/scient_color"
-                    android:textSize="22dp"
-                    android:fontFamily="@font/karlaregular"
-                    android:text="REGISTER"/>
-            </LinearLayout>
-
-        </android.support.v7.widget.Toolbar>
-        <ExpandableListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:groupIndicator="@null"
-            android:divider="@android:color/darker_gray"
-            android:outlineSpotShadowColor="@color/active"
-
-            android:dividerHeight="2dp"
-            android:id="@+id/expandableListView"/>
-    </LinearLayout>
-    <include layout="@layout/bottom_sheet"/>
-
-
-    android:orientation="vertical"
-    tools:context=".MainActivity">
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@drawable/bg"/>
     <LinearLayout
-        android:id="@+id/acitivity_register"
+        android:id="@+id/activity_register"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:paddingBottom="125px"

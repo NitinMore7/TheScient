@@ -51,7 +51,7 @@ public class Register extends AppCompatActivity {
             }
         });
 
-        bulb_transition = (ImageView) findViewById(R.id.bulb_transition);
+
         bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet);
         bottomSheetBehavior.setHideable(false);
         bottomSheetBehavior.setPeekHeight(125);
@@ -193,10 +193,8 @@ public class Register extends AppCompatActivity {
                     bulb_transition.setImageResource(R.drawable.i58);
             }
         });
-        Typeface karla_regular =  Typeface.createFromAsset(getAssets(),"fonts/Karla-Regular.ttf");
+
         LinearLayout bottom_sheet1 = (LinearLayout) findViewById(R.id.bottom_sheet);
-        LinearLayout bottom_sheet1 = (LinearLayout) findViewById(R.id.bottom_sheet);
-        final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.acitivity_register);
 
         TextView Made_By = (TextView) findViewById(R.id.Made_by);
         FrameLayout registration =  bottom_sheet1.findViewById(R.id.Regitration);
@@ -223,16 +221,9 @@ public class Register extends AppCompatActivity {
                 overridePendingTransition(R.anim.right_to_left,R.anim.stay);
             }
         });
-        faq1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),faq.class));
 
-        FrameLayout resources =  bottom_sheet1.findViewById(R.id.Resources);
-        FrameLayout idea = bottom_sheet1.findViewById(R.id.Idea_sub);
-        FrameLayout faq1 = bottom_sheet1.findViewById(R.id.faq);
-        final FrameLayout contact =  bottom_sheet1.findViewById(R.id.Contact);
-        final ImageView arrow = (ImageView) bottom_sheet1.findViewById(R.id.arrow);
+
+
         FrameLayout announcements = bottom_sheet1.findViewById(R.id.Announcements);
         announcements.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -287,11 +278,7 @@ public class Register extends AppCompatActivity {
             }
         });
 
-                startActivity(new Intent(getBaseContext(),contactus.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
 
-            }
-        });
         idea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -307,7 +294,7 @@ public class Register extends AppCompatActivity {
 
             }
         });
-        final LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);
+
         bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet);
         bottomSheetBehavior.setHideable(false);
         bottomSheetBehavior.setPeekHeight(125);
