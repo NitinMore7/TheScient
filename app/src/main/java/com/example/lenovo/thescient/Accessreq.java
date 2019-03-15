@@ -47,103 +47,7 @@ public class Accessreq extends AppCompatActivity {
                 overridePendingTransition(R.anim.left_to_right,R.anim.stay);
             }
         });
-        LinearLayout bottom_sheet1 = (LinearLayout) findViewById(R.id.bottom_sheet);
-        TextView Made_By = (TextView) findViewById(R.id.Made_by);
-        FrameLayout registration =  bottom_sheet1.findViewById(R.id.Regitration);
-        FrameLayout gallery =  bottom_sheet1.findViewById(R.id.gallery);
-        FrameLayout events =  bottom_sheet1.findViewById(R.id.events);
-        FrameLayout projects =  bottom_sheet1.findViewById(R.id.Project);
-        FrameLayout resources =  bottom_sheet1.findViewById(R.id.Resources);
-        FrameLayout idea = bottom_sheet1.findViewById(R.id.Idea_sub);
-        FrameLayout faq1 = bottom_sheet1.findViewById(R.id.faq);
-        final FrameLayout contact =  bottom_sheet1.findViewById(R.id.Contact);
-        final ImageView arrow = (ImageView) bottom_sheet1.findViewById(R.id.arrow);
-        FrameLayout announcements = bottom_sheet1.findViewById(R.id.Announcements);
-        announcements.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Announcement.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
-            }
-        });
-        registration.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Register.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
-            }
-        });
-        gallery.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Gallery.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
 
-            }
-        });
-        events.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Events.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
-
-            }
-        });
-        projects.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),project.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
-
-            }
-        });
-        resources.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        contact.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),contactus.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
-
-            }
-        });
-        idea.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),ideasub.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
-            }
-        });
-        faq1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),faq.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
-
-            }
-        });
-        Made_By.setTypeface(karla_regular);
-        final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.accessreq);
-        final LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);
-        bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet);
-        bottomSheetBehavior.setHideable(false);
-        bottomSheetBehavior.setPeekHeight(125);
-        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-            @Override
-            public void onStateChanged(@NonNull View view, int i) {
-
-            }
-
-            @Override
-            public void onSlide(@NonNull View view, float v) {
-                arrow.setRotation(v * 180);
-                linearLayout.setAlpha(1 - v);
-            }
-        });
         submitt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,7 +57,10 @@ public class Accessreq extends AppCompatActivity {
                 String cnoa=cno.getText().toString();
                 String emaila=email.getText().toString();
                 String purposea= String.valueOf(purpose.getText());
-                Integer durationa=Integer.parseInt(duration.getText().toString());
+                Integer durationa=null;
+                try {
+                durationa=Integer.parseInt(duration.getText().toString());}catch (Exception e){}
+
                 String hmaca= String.valueOf(hmac.getText());
                 if(namea.isEmpty())
                 {
@@ -210,6 +117,9 @@ public class Accessreq extends AppCompatActivity {
                         @Override
                         public void onFailure(Call<ResponseBody> call, Throwable t) {
                             Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(getBaseContext(),content_error.class));
+                            overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                            finish();
                         }
                     });
                 }

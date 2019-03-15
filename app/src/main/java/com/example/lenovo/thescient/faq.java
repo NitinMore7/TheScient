@@ -25,7 +25,11 @@ public class faq extends ExpandableListActivity {
     private ExpandableListAdapter mAdapter;
     ExpandableListView expand;
     BottomSheetBehavior bottomSheetBehavior;
+
+    ImageView bulb_transition;
+
     int background=android.R.color.darker_gray;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

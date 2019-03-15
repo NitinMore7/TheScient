@@ -4,15 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+
+    tools:context=".MainActivity"
+   >
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@drawable/bg"/>
     <LinearLayout
-        android:id="@+id/acitivity_register"
+        android:id="@+id/activity_register"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:paddingBottom="125px"
@@ -73,5 +75,6 @@
         android:id="@+id/expandableListView"/>
     </LinearLayout>
     <include layout="@layout/bottom_sheet"/>
+
 
 </android.support.design.widget.CoordinatorLayout>

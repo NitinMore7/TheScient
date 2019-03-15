@@ -74,12 +74,26 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:collapsedTitleTextAppearance="@android:color/transparent"
             app:contentScrim="?attr/colorAccent">
-                <android.support.v7.widget.RecyclerView
+
+
+                <GridView
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/rv"
+                    android:numColumns="2"
+                    android:verticalSpacing="10dp"
+                    android:horizontalSpacing="10dp"
+                    android:stretchMode="columnWidth"
                     android:elevation="5dp">
-                </android.support.v7.widget.RecyclerView>
+
+
+                </GridView>
+
+
+
+
+
         </android.support.design.widget.CollapsingToolbarLayout>
     </LinearLayout>
     <include layout="@layout/bottom_sheet"/>

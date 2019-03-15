@@ -13,7 +13,9 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Announcement"></activity>
+        <activity android:name=".content_error"></activity>
+        <activity android:name=".imageshow" />
+        <activity android:name=".Announcement" />
         <activity android:name=".confrence" />
         <activity android:name=".Resources" />
         <activity
@@ -40,7 +42,9 @@
         <activity
             android:name=".Gallery"
             android:exported="true" />
-        <activity android:name=".faq" />
+        <activity
+            android:name=".faq"
+            android:exported="true" />
         <activity android:name=".WelcomeActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

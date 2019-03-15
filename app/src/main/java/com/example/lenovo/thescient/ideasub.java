@@ -102,6 +102,7 @@ public class ideasub extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(getBaseContext(),MainActivity.class));
                 overridePendingTransition(R.anim.left_to_right,R.anim.stay);
+                finish();
             }
         });
         final LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);

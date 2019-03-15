@@ -40,6 +40,7 @@
                 <ImageView
                     android:layout_height="40dp"
                     android:layout_width="40dp"
+                    android:padding="5dp"
                     android:src="@drawable/registericon"
                     android:layout_gravity="center"
                     android:fontFamily="@font/karlabold"/>
@@ -67,6 +68,7 @@
                 <ImageView
                     android:layout_height="40dp"
                     android:layout_width="40dp"
+                    android:padding="5dp"
                     android:src="@drawable/galleryicon"
                     android:layout_gravity="center"
                     android:fontFamily="@font/karlabold"/>
@@ -96,6 +98,7 @@
                     android:layout_height="40dp"
                     android:layout_width="40dp"
                     android:src="@drawable/eventicon"
+                    android:padding="5dp"
                     android:layout_gravity="center"
                     android:fontFamily="@font/karlabold"/>
                 <TextView
@@ -129,6 +132,7 @@
                     android:layout_height="40dp"
                     android:layout_width="40dp"
                     android:src="@drawable/projecticon"
+                    android:padding="5dp"
                     android:layout_gravity="center"
                     android:fontFamily="@font/karlabold"/>
                 <TextView
@@ -157,6 +161,7 @@
                     android:layout_height="40dp"
                     android:layout_width="40dp"
                     android:src="@drawable/resourceicon"
+                    android:padding="5dp"
                     android:layout_gravity="center"
                     android:fontFamily="@font/karlabold"/>
                 <TextView
@@ -185,6 +190,7 @@
                     android:layout_height="40dp"
                     android:layout_width="40dp"
                     android:src="@drawable/contactusicon"
+                    android:padding="5dp"
                     android:layout_gravity="center"
                     android:fontFamily="@font/karlabold"/>
                 <TextView
@@ -203,7 +209,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp">
+        android:layout_marginBottom="12dp">
         <FrameLayout
             android:background="@drawable/ripple_effect"
             android:layout_width="0dp"
@@ -218,6 +224,7 @@
                     android:layout_height="40dp"
                     android:layout_width="40dp"
                     android:src="@drawable/ideasubmiticon"
+                    android:padding="5dp"
                     android:layout_gravity="center"
                     android:fontFamily="@font/karlabold"/>
                 <TextView
@@ -246,6 +253,7 @@
                     android:layout_height="40dp"
                     android:layout_width="40dp"
                     android:src="@drawable/faq"
+                    android:padding="5dp"
                     android:layout_gravity="center"
                     android:fontFamily="@font/karlabold"/>
                 <TextView
@@ -274,6 +282,7 @@
                     android:layout_height="40dp"
                     android:layout_width="40dp"
                     android:src="@drawable/announcementsicon"
+                    android:padding="5dp"
                     android:layout_gravity="center"
                     android:fontFamily="@font/karlabold"/>
                 <TextView

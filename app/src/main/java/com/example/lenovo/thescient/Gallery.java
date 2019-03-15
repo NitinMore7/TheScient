@@ -1,5 +1,6 @@
 package com.example.lenovo.thescient;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -10,7 +11,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -29,9 +32,12 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class Gallery extends AppCompatActivity {
-    RecyclerView recyclerView;
+    GridView gridView;
     ArrayList<mga> mgaArrayList;
     BottomSheetBehavior bottomSheetBehavior;
+    ProgressDialog progressDialog;
+    String[] a=new String[10];
+    String[] b =new String[10];
     String tag=" ";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,18 +54,20 @@ public class Gallery extends AppCompatActivity {
             });
         }else {
             setContentView(R.layout.activity_gallery);
-            String Url1 = "https://scient.nitt.edu/gallery-images";
-            recyclerView = findViewById(R.id.rv);
-            LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-            RecyclerView.LayoutManager rvLa = layoutManager;
-            recyclerView.setLayoutManager(rvLa);
-            mgaArrayList = new ArrayList<>();
-            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, Url1, null, new Response.Listener<JSONObject>() {
+            progressDialog=new ProgressDialog(this);
+            progressDialog.setCanceledOnTouchOutside(false);
+            progressDialog.setMessage("Fetching Images...");
+            progressDialog.show();
+            String Url1="https://scient.nitt.edu/gallery-images";
+            gridView=findViewById(R.id.rv);
+            mgaArrayList=new ArrayList<>();
+            JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, Url1, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
                     try {
                         JSONArray filename = response.getJSONArray("filenames");
                         parseJsonData(filename);
+                        progressDialog.dismiss();
                     } catch (Exception e) {
                     }
                 }
@@ -67,10 +75,26 @@ public class Gallery extends AppCompatActivity {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getBaseContext(),content_error.class));
+                    overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                    finish();
+                    progressDialog.cancel();
+                }
+            }); RequestQueue rQueue = Volley.newRequestQueue(Gallery.this);
+            rQueue.add(request);
+
+
+            gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = new Intent(getBaseContext(),imageshow.class);
+                    intent.putExtra("imagelink",a[position]);
+                    intent.putExtra("imagename",b[position]);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.right_to_left,R.anim.stay);
                 }
             });
-            RequestQueue rQueue = Volley.newRequestQueue(Gallery.this);
-            rQueue.add(request);
+
         }
         ImageView home = (ImageView) findViewById(R.id.Home);
         home.setOnClickListener(new View.OnClickListener() {
@@ -186,10 +210,8 @@ public class Gallery extends AppCompatActivity {
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
-
     void parseJsonData(JSONArray jsonarray) {
-        try {String[] a=new String[10];
-            String[]b =new String[10];
+        try {
             for (int i = 0; i < jsonarray.length(); i++) {
                 {  String a1=(String)jsonarray.get(i);
                     if(a1.lastIndexOf(".")>0)
@@ -202,7 +224,7 @@ public class Gallery extends AppCompatActivity {
                    // Toast.makeText(getApplicationContext(),""+a[i],Toast.LENGTH_SHORT).show();
                 }
                 Galleryadapter galleryadapter=new Galleryadapter(this,mgaArrayList);
-                recyclerView.setAdapter(galleryadapter);
+                gridView.setAdapter(galleryadapter);
             }
 
             } catch (Exception e) {

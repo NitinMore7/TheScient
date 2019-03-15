@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
@@ -27,6 +28,8 @@ public class Register extends AppCompatActivity {
     private List<String> it;
     private int lastExpandedPos=-1;
     BottomSheetBehavior bottomSheetBehavior;
+
+    ImageView bulb_transition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,9 +132,10 @@ public class Register extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(getBaseContext(), contactus.class));
                 overridePendingTransition(R.anim.right_to_left, R.anim.stay);
-
             }
         });
+
+
         idea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -147,26 +151,24 @@ public class Register extends AppCompatActivity {
 
             }
         });
-        final LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);
+        LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);
         bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet);
         bottomSheetBehavior.setHideable(false);
         bottomSheetBehavior.setPeekHeight(125);
         bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View view, int i) {
-
             }
 
             @Override
             public void onSlide(@NonNull View view, float v) {
                 arrow.setRotation(v * 180);
-                if(NetworkAvailability.isNetworkAvailable(getBaseContext())){
-                    final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.acitivity_register);
+                if (NetworkAvailability.isNetworkAvailable(getBaseContext())) {
+                    final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.activity_register);
                     linearLayout.setAlpha(1 - v);
                 }
             }
         });
-        Made_By.setTypeface(karla_regular);
     }
 
     private List<String> getExpandableListTitles(){
@@ -200,12 +202,12 @@ public class Register extends AppCompatActivity {
         return list;
     }
     @Override
-    protected void onStop() {
+    protected void onStop(){
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
         super.onStop();
     }
     @Override
-    public void onBackPressed() {
+    public void onBackPressed(){
         finish();
         startActivity(new Intent(getBaseContext(),MainActivity.class));
         overridePendingTransition(R.anim.left_to_right,R.anim.stay);
