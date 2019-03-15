@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v4.view.ViewPager;
@@ -52,10 +53,18 @@ public class MainActivity extends AppCompatActivity {
         FrameLayout events =  bottom_sheet1.findViewById(R.id.events);
         FrameLayout projects =  bottom_sheet1.findViewById(R.id.Project);
         FrameLayout resources =  bottom_sheet1.findViewById(R.id.Resources);
-        FrameLayout idea=bottom_sheet1.findViewById(R.id.Idea_sub);
-        FrameLayout faq1=bottom_sheet1.findViewById(R.id.faq);
+        FrameLayout idea = bottom_sheet1.findViewById(R.id.Idea_sub);
+        FrameLayout faq1 = bottom_sheet1.findViewById(R.id.faq);
         final FrameLayout contact =  bottom_sheet1.findViewById(R.id.Contact);
         final ImageView arrow = (ImageView) bottom_sheet1.findViewById(R.id.arrow);
+        FrameLayout announcements = bottom_sheet1.findViewById(R.id.Announcements);
+        announcements.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),Announcement.class));
+                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+            }
+        });
         registration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         Made_By.setTypeface(karla_regular);
         about_us_title.setTypeface(karla_bold);
         about_us_title.setText("About Us");
@@ -135,6 +145,18 @@ public class MainActivity extends AppCompatActivity {
         bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet);
         bottomSheetBehavior.setHideable(false);
         bottomSheetBehavior.setPeekHeight(125);
+        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View view, int i) {
+
+            }
+
+            @Override
+            public void onSlide(@NonNull View view, float v) {
+                arrow.setRotation(v * 180);
+                linearLayout.setAlpha(1 - v);
+            }
+        });
         final ArrayList<Slide_Objects> arrayList = new ArrayList<>();
         arrayList.add(new Slide_Objects(R.drawable.carousel1compressed,"IDEA","GET STARTED ON YOUR NEXT PROJECT"));
         arrayList.add(new Slide_Objects(R.drawable.carousel2compressed,"INNOVATE","GET STARTED ON YOUR NEXT PROJECT"));

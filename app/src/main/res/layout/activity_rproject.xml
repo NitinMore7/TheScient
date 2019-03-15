@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".Rproject"
     android:orientation="vertical">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg"/>
     <LinearLayout
         android:id="@+id/activity_rproject"
         android:orientation="vertical"
@@ -24,7 +29,6 @@
         app:contentInsetLeft="0dp"
         app:contentInsetRight="0dp"
         app:contentInsetStart="0dp">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -36,9 +40,8 @@
                 android:layout_height="56dp"
                 android:layout_gravity="center"
                 android:padding="5dp"
-                android:src="@drawable/homeiconoutlinerecolour"
+                android:src="@drawable/backicon"
                 android:background="@color/scient_color"/>
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -50,7 +53,6 @@
                 android:fontFamily="@font/karlaregular"
                 android:text="Project Registration"/>
         </LinearLayout>
-
     </android.support.v7.widget.Toolbar>
         <View android:layout_width="match_parent"
             android:layout_height="5dp"
@@ -246,7 +248,6 @@
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 android:textSize="12dp" />
-
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
     </LinearLayout>

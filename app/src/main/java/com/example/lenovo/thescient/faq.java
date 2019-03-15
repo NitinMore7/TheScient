@@ -4,6 +4,7 @@ import android.app.ExpandableListActivity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.view.View;
 import android.widget.ExpandableListAdapter;
@@ -39,9 +40,6 @@ public class faq extends ExpandableListActivity {
                 overridePendingTransition(R.anim.left_to_right,R.anim.stay);
             }
         });
-        bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet);
-        bottomSheetBehavior.setHideable(false);
-        bottomSheetBehavior.setPeekHeight(125);
         Typeface karla_regular =  Typeface.createFromAsset(getAssets(),"fonts/Karla-Regular.ttf");
         LinearLayout bottom_sheet1 = (LinearLayout) findViewById(R.id.bottom_sheet);
         TextView Made_By = (TextView) findViewById(R.id.Made_by);
@@ -49,29 +47,29 @@ public class faq extends ExpandableListActivity {
         FrameLayout gallery =  bottom_sheet1.findViewById(R.id.gallery);
         FrameLayout events =  bottom_sheet1.findViewById(R.id.events);
         FrameLayout projects =  bottom_sheet1.findViewById(R.id.Project);
-        FrameLayout idea=bottom_sheet1.findViewById(R.id.Idea_sub);
-        FrameLayout faq1=bottom_sheet1.findViewById(R.id.faq);
         FrameLayout resources =  bottom_sheet1.findViewById(R.id.Resources);
+        FrameLayout idea = bottom_sheet1.findViewById(R.id.Idea_sub);
+        FrameLayout faq1 = bottom_sheet1.findViewById(R.id.faq);
         final FrameLayout contact =  bottom_sheet1.findViewById(R.id.Contact);
+        FrameLayout announcements = bottom_sheet1.findViewById(R.id.Announcements);
+        announcements.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),Announcement.class));
+                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+            }
+        });
+        registration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),Register.class));
+                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+            }
+        });
         gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getBaseContext(),Gallery.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
-
-            }
-        });
-        idea.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),ideasub.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
-            }
-        });
-        faq1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),faq.class));
                 overridePendingTransition(R.anim.right_to_left,R.anim.stay);
 
             }
@@ -101,7 +99,39 @@ public class faq extends ExpandableListActivity {
         contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),contactus.class));
+                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
 
+            }
+        });
+        idea.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),ideasub.class));
+                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+            }
+        });
+        faq1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),faq.class));
+                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+
+            }
+        });
+        bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet);
+        bottomSheetBehavior.setHideable(false);
+        bottomSheetBehavior.setPeekHeight(125);
+        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View view, int i) {
+
+            }
+
+            @Override
+            public void onSlide(@NonNull View view, float v) {
+                arrow.setRotation(v * 180);
+                linearLayout.setAlpha(1 - v);
             }
         });
         Made_By.setTypeface(karla_regular);

@@ -6,6 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Events">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg"/>
     <LinearLayout
         android:id="@+id/activity_events"
         android:orientation="vertical"
@@ -50,7 +55,6 @@
                 android:fontFamily="@font/karlaregular"
                 android:text="Events"/>
         </LinearLayout>
-
     </android.support.v7.widget.Toolbar>
         <View android:layout_width="match_parent"
             android:layout_height="5dp"

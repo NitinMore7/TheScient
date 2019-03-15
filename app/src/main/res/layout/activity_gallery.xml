@@ -67,38 +67,20 @@
         <View android:layout_width="match_parent"
             android:layout_height="5dp"
             android:background="@drawable/toolbar_dropshadow"/>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textStyle="bold"
-    android:textSize="40dp"
-    android:textColor="@color/colorAccent"
-    android:textAllCaps="true"
-    android:text="             GALLERY"
-    android:layout_centerHorizontal="true"
-    /></RelativeLayout>
+    </android.support.design.widget.AppBarLayout>
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:collapsedTitleTextAppearance="@android:color/transparent"
             app:contentScrim="?attr/colorAccent">
-
                 <android.support.v7.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/rv"
                     android:elevation="5dp">
-
                 </android.support.v7.widget.RecyclerView>
-
-
         </android.support.design.widget.CollapsingToolbarLayout>
-    </android.support.design.widget.AppBarLayout>
-
     </LinearLayout>
     <include layout="@layout/bottom_sheet"/>
 </android.support.design.widget.CoordinatorLayout>

@@ -3,6 +3,7 @@ package com.example.lenovo.thescient;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -42,7 +43,7 @@ public class Accessreq extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),MainActivity.class));
+                startActivity(new Intent(getBaseContext(),Register.class));
                 overridePendingTransition(R.anim.left_to_right,R.anim.stay);
             }
         });
@@ -53,10 +54,25 @@ public class Accessreq extends AppCompatActivity {
         FrameLayout events =  bottom_sheet1.findViewById(R.id.events);
         FrameLayout projects =  bottom_sheet1.findViewById(R.id.Project);
         FrameLayout resources =  bottom_sheet1.findViewById(R.id.Resources);
-        FrameLayout idea=bottom_sheet1.findViewById(R.id.Idea_sub);
-        FrameLayout faq1=bottom_sheet1.findViewById(R.id.faq);
+        FrameLayout idea = bottom_sheet1.findViewById(R.id.Idea_sub);
+        FrameLayout faq1 = bottom_sheet1.findViewById(R.id.faq);
         final FrameLayout contact =  bottom_sheet1.findViewById(R.id.Contact);
         final ImageView arrow = (ImageView) bottom_sheet1.findViewById(R.id.arrow);
+        FrameLayout announcements = bottom_sheet1.findViewById(R.id.Announcements);
+        announcements.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),Announcement.class));
+                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+            }
+        });
+        registration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),Register.class));
+                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+            }
+        });
         gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +97,20 @@ public class Accessreq extends AppCompatActivity {
 
             }
         });
+        resources.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),contactus.class));
+                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+
+            }
+        });
         idea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,24 +126,24 @@ public class Accessreq extends AppCompatActivity {
 
             }
         });
-        resources.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        contact.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
         Made_By.setTypeface(karla_regular);
         final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.accessreq);
         final LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);
         bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet);
         bottomSheetBehavior.setHideable(false);
         bottomSheetBehavior.setPeekHeight(125);
+        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View view, int i) {
+
+            }
+
+            @Override
+            public void onSlide(@NonNull View view, float v) {
+                arrow.setRotation(v * 180);
+                linearLayout.setAlpha(1 - v);
+            }
+        });
         submitt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

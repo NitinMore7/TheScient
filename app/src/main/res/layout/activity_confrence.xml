@@ -6,6 +6,57 @@
     android:layout_height="match_parent"
     tools:context=".confrence"
     android:background="@drawable/bg">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg"/>
+    <LinearLayout
+        android:id="@+id/acitivity_confrence"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:paddingBottom="125px"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/scient_color"
+            android:contentInsetStart="0dp"
+            android:contentInsetLeft="0dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            android:contentInsetEnd="0dp"
+            android:contentInsetRight="0dp"
+            app:contentInsetEnd="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetStart="0dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/Home"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    android:src="@drawable/backicon"
+                    android:background="@color/scient_color"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:padding="15dp"
+                    android:background="@color/scient_color"
+                    android:textColor="@android:color/black"
+                    android:textSize="22dp"
+                    android:fontFamily="@font/karlaregular"
+                    android:text="Announcements"/>
+            </LinearLayout>
+        </android.support.v7.widget.Toolbar>
+        <View android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/toolbar_dropshadow"/>
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -13,17 +64,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:paddingTop="10dp"
-                android:textColor="@android:color/black"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:gravity="center_horizontal"
-                android:text="CONFERENCE HALL"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -223,7 +263,7 @@
                 android:textSize="20dp"
                 android:text="Register"/>
         </LinearLayout>
-
     </android.support.v4.widget.NestedScrollView>
-
+    </LinearLayout>
+    <include layout="@layout/bottom_sheet"/>
 </android.support.design.widget.CoordinatorLayout>
