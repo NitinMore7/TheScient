@@ -78,13 +78,7 @@
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 android:textSize="12dp" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_prosub"
-                android:textSize="20dp"
-                android:text="Register"
-                />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -222,9 +216,15 @@
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 android:textSize="12dp" />
-
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_prosub"
+                android:textSize="20dp"
+                android:text="Register"
+                />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
     </LinearLayout>
-    <include layout="@layout/bottom_sheet"/>
+
 </android.support.design.widget.CoordinatorLayout>

@@ -10,7 +10,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,7 +32,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class Gallery extends AppCompatActivity {
-    RecyclerView recyclerView;
+    GridView gridView;
     ArrayList<mga> mgaArrayList;
     BottomSheetBehavior bottomSheetBehavior;
     ImageView bulb_transition;
@@ -256,10 +258,7 @@ public class Gallery extends AppCompatActivity {
         });
         Made_By.setTypeface(karla_regular);
         String Url1="https://scient.nitt.edu/gallery-images";
-        recyclerView=findViewById(R.id.rv);
-        LinearLayoutManager layoutManager=new LinearLayoutManager(this);
-        RecyclerView.LayoutManager rvLa=layoutManager;
-        recyclerView.setLayoutManager(rvLa);
+        gridView=findViewById(R.id.rv);
         mgaArrayList=new ArrayList<>();
         JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, Url1, null, new Response.Listener<JSONObject>() {
             @Override
@@ -277,6 +276,15 @@ public class Gallery extends AppCompatActivity {
             }
         }); RequestQueue rQueue = Volley.newRequestQueue(Gallery.this);
         rQueue.add(request);
+
+
+gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        startActivity(new Intent(getBaseContext(),imageshow.class));
+        overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+    }
+});
     }
 
     @Override
@@ -299,7 +307,7 @@ public class Gallery extends AppCompatActivity {
                    // Toast.makeText(getApplicationContext(),""+a[i],Toast.LENGTH_SHORT).show();
                 }
                 Galleryadapter galleryadapter=new Galleryadapter(this,mgaArrayList);
-                recyclerView.setAdapter(galleryadapter);
+                gridView.setAdapter(galleryadapter);
             }
 
             } catch (Exception e) {
