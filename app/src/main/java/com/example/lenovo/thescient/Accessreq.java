@@ -117,8 +117,7 @@ public class Accessreq extends AppCompatActivity {
                         @Override
                         public void onFailure(Call<ResponseBody> call, Throwable t) {
                             Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(getBaseContext(),content_error.class));
-                            overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+
                             finish();
                         }
                     });

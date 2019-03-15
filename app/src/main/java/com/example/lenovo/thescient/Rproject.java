@@ -53,10 +53,25 @@ Button submitt;public enum visi{open,closed}
                 String depta=dept.getText().toString();
                 String cnoa=cno.getText().toString();
                 String emaila=email.getText().toString();
-                visi visibilitya=visi.valueOf(visibility.getText().toString());
+                visibility.setHint("Open/Closed");
+                String visibi=visibility.getText().toString();
+                visi visibilitya = visi.open;
+
+
+                if(visibi.compareToIgnoreCase("open")==1||visibi.compareToIgnoreCase("closed")==1) {
+                    if (visibi == "open")
+                        visibilitya = visi.open;
+                    else
+                        visibilitya = visi.closed;
+                }
+                else {
+                    visibility.setError("Please Enter a valid Text");
+                }
 
                 Editable abstraca=abstrac.getText();
-                Integer budgetr=Integer.parseInt(budget.getText().toString());
+                Integer budgetr=null;
+                try{
+                budgetr=Integer.parseInt(budget.getText().toString());}catch (Exception e){}
                 Editable timeliner= timeline.getText();
                 if(namea.isEmpty())
                 {

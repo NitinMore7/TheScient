@@ -181,8 +181,7 @@ final TimePickerDialog.OnTimeSetListener timeSetListener=new TimePickerDialog.On
     }
     private void updateLabel() {
         String myFormat = "dd-MM-yy"; //In which you need put here
-        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yy");
         date.setText(sdf.format(calendar.getTime()));
     }
     private void timer(){

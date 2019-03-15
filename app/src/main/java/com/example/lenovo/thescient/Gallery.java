@@ -170,8 +170,6 @@ public class Gallery extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getBaseContext(),content_error.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
                 finish();
                 progressDialog.cancel();
             }
