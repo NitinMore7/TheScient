@@ -8,8 +8,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
@@ -238,9 +236,8 @@ public class Gallery extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-        finish();
+        finishAndRemoveTask();
         startActivity(new Intent(getBaseContext(),MainActivity.class));
         overridePendingTransition(R.anim.left_to_right,R.anim.stay);
-        super.onBackPressed();
     }
 }

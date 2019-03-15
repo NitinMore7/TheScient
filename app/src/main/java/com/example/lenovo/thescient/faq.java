@@ -304,9 +304,8 @@ public class faq extends ExpandableListActivity {
     }
     @Override
     public void onBackPressed() {
-        finish();
+        finishAndRemoveTask();
         startActivity(new Intent(getBaseContext(),MainActivity.class));
         overridePendingTransition(R.anim.left_to_right,R.anim.stay);
-        super.onBackPressed();
     }
 }

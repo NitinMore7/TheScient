@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
@@ -207,10 +206,9 @@ public class Register extends AppCompatActivity {
         super.onStop();
     }
     @Override
-    public void onBackPressed(){
-        finish();
+    public void onBackPressed() {
+        finishAndRemoveTask();
         startActivity(new Intent(getBaseContext(),MainActivity.class));
         overridePendingTransition(R.anim.left_to_right,R.anim.stay);
-        super.onBackPressed();
     }
 }

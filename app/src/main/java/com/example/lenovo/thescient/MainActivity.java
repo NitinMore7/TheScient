@@ -229,5 +229,10 @@ public class MainActivity extends AppCompatActivity {
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
         super.onStop();
     }
+
+    @Override
+    public void onBackPressed() {
+        this.finishAffinity();
+    }
 }
 

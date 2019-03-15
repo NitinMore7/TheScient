@@ -1,20 +1,15 @@
 package com.example.lenovo.thescient;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import okhttp3.ResponseBody;
@@ -32,8 +27,14 @@ Button submitt;public enum visi{open,closed}
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rproject);
         final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.activity_rproject);
-
-
+        ImageView back = findViewById(R.id.Home);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(new Intent(getBaseContext(),Register.class));
+            }
+        });
         submitt=(Button)findViewById(R.id.btn_prosub);
         name=(EditText)findViewById(R.id.edt_namer);
         roll=(EditText)findViewById(R.id.edt_rollnor);
