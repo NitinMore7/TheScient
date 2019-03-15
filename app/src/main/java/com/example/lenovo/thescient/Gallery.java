@@ -80,7 +80,6 @@ public class Gallery extends AppCompatActivity {
             }); RequestQueue rQueue = Volley.newRequestQueue(Gallery.this);
             rQueue.add(request);
 
-
             gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -202,40 +201,9 @@ public class Gallery extends AppCompatActivity {
         });
         Made_By.setTypeface(karla_regular);
 
-        String Url1="https://scient.nitt.edu/gallery-images";
-        gridView=findViewById(R.id.rv);
-        mgaArrayList=new ArrayList<>();
-        JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, Url1, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    JSONArray filename = response.getJSONArray("filenames");
-                    parseJsonData(filename);
-                    progressDialog.dismiss();
-                } catch (Exception e) {
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-                finish();
-                progressDialog.cancel();
-            }
-        }); RequestQueue rQueue = Volley.newRequestQueue(Gallery.this);
-        rQueue.add(request);
 
 
-gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(getBaseContext(),imageshow.class);
-        intent.putExtra("imagelink",a[position]);
-        intent.putExtra("imagename",b[position]);
-        startActivity(intent);
-        overridePendingTransition(R.anim.right_to_left,R.anim.stay);
-    }
-});
+
     }
 
     @Override
