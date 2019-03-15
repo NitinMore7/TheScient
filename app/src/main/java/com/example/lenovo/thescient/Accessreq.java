@@ -57,7 +57,10 @@ public class Accessreq extends AppCompatActivity {
                 String cnoa=cno.getText().toString();
                 String emaila=email.getText().toString();
                 String purposea= String.valueOf(purpose.getText());
-                Integer durationa=Integer.parseInt(duration.getText().toString());
+                Integer durationa=null;
+                try {
+                durationa=Integer.parseInt(duration.getText().toString());}catch (Exception e){}
+
                 String hmaca= String.valueOf(hmac.getText());
                 if(namea.isEmpty())
                 {
@@ -114,6 +117,9 @@ public class Accessreq extends AppCompatActivity {
                         @Override
                         public void onFailure(Call<ResponseBody> call, Throwable t) {
                             Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(getBaseContext(),content_error.class));
+                            overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                            finish();
                         }
                     });
                 }
