@@ -1,5 +1,6 @@
 package com.example.lenovo.thescient;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -33,6 +34,9 @@ public class Gallery extends AppCompatActivity {
     GridView gridView;
     ArrayList<mga> mgaArrayList;
     BottomSheetBehavior bottomSheetBehavior;
+    ProgressDialog progressDialog;
+    String[] a=new String[10];
+    String[] b =new String[10];
     String tag=" ";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,10 @@ public class Gallery extends AppCompatActivity {
         setContentView(R.layout.activity_gallery);
         final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.activity_gallery);
         ImageView home = (ImageView) findViewById(R.id.Home);
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.setMessage("Fetching Images...");
+        progressDialog.show();
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -154,6 +162,7 @@ public class Gallery extends AppCompatActivity {
                 try {
                     JSONArray filename = response.getJSONArray("filenames");
                     parseJsonData(filename);
+                    progressDialog.dismiss();
                 } catch (Exception e) {
                 }
             }
@@ -161,7 +170,7 @@ public class Gallery extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-
+                progressDialog.cancel();
             }
         }); RequestQueue rQueue = Volley.newRequestQueue(Gallery.this);
         rQueue.add(request);
@@ -170,7 +179,10 @@ public class Gallery extends AppCompatActivity {
 gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        startActivity(new Intent(getBaseContext(),imageshow.class));
+        Intent intent = new Intent(getBaseContext(),imageshow.class);
+        intent.putExtra("imagelink",a[position]);
+        intent.putExtra("imagename",b[position]);
+        startActivity(intent);
         overridePendingTransition(R.anim.right_to_left,R.anim.stay);
     }
 });
@@ -182,8 +194,7 @@ gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
     }
 
     void parseJsonData(JSONArray jsonarray) {
-        try {String[] a=new String[10];
-            String[]b =new String[10];
+        try {
             for (int i = 0; i < jsonarray.length(); i++) {
                 {  String a1=(String)jsonarray.get(i);
                     if(a1.lastIndexOf(".")>0)

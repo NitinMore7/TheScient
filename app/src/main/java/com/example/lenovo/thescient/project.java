@@ -174,6 +174,7 @@ public class project extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                progressDialog.cancel();
             }
         });
         RequestQueue requestQueue= Volley.newRequestQueue(project.this);
