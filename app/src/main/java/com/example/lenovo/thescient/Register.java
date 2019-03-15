@@ -48,6 +48,7 @@ public class Register extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(getBaseContext(),MainActivity.class));
                 overridePendingTransition(R.anim.left_to_right,R.anim.stay);
+                finish();
             }
         });
 
