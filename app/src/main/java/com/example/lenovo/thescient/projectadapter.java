@@ -8,9 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.github.aakira.expandablelayout.ExpandableWeightLayout;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -39,7 +41,20 @@ public class projectadapter extends RecyclerView.Adapter<projectadapter.ViewHold
         ImageView imageView=viewHolder.imageView;
         final ExpandableWeightLayout expandableWeightLayout=viewHolder.expandableWeightLayout;
         CardView cardView=viewHolder.cardView;
-        Picasso.get().load(item.getProjectImage()).resize(250,250).into(imageView);
+        final ProgressBar pb=viewHolder.progressBar;
+        Picasso.get().load(item.getProjectImage()).resize(250,250).into(imageView, new Callback() {
+            @Override
+            public void onSuccess() {
+                if(pb!=null){
+                    pb.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onError(Exception e) {
+
+            }
+        });
         TextView txt1=viewHolder.txt1;
         final TextView txt2=viewHolder.txt2;
         txt1.setText(item.getProjectTitle());
@@ -63,6 +78,7 @@ public class projectadapter extends RecyclerView.Adapter<projectadapter.ViewHold
         ImageView imageView;TextView txt1,txt2;
         ExpandableWeightLayout expandableWeightLayout;
         CardView cardView;
+        ProgressBar progressBar;
         public ViewHolder(View itemview){
             super(itemview);
             imageView=(ImageView)itemview.findViewById(R.id.proimg);
@@ -70,6 +86,7 @@ public class projectadapter extends RecyclerView.Adapter<projectadapter.ViewHold
             txt2=(TextView)itemview.findViewById(R.id.prodes);
             expandableWeightLayout=itemview.findViewById(R.id.expandableLayout);
             cardView=itemview.findViewById(R.id.project_cardview);
+            progressBar=itemview.findViewById(R.id.project_progress);
         }
     }
 }

@@ -9,8 +9,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -55,14 +57,28 @@ public class Galleryadapter extends BaseAdapter {
 
             holder.textView=(TextView)view.findViewById(R.id.txt_gtxt);
 
+            holder.progressBar=view.findViewById(R.id.gallery_progress);
+
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
         }
+        final ProgressBar pb=holder.progressBar;
         mga item = mgaArrayList.get(i);
         ImageView imageView = holder.imageView;
         TextView textView = holder.textView;
-        Picasso.get().load(item.getImg()).resize(450,300).into(imageView);
+        Picasso.get().load(item.getImg()).resize(450,300).into(imageView, new Callback() {
+            @Override
+            public void onSuccess() {
+                if(pb!=null){
+                    pb.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onError(Exception e) {
+            }
+        });
         textView.setText(item.getString());
         return view;
     }
@@ -70,6 +86,7 @@ public class Galleryadapter extends BaseAdapter {
     public class ViewHolder {
         ImageView imageView;
         TextView textView;
+        ProgressBar progressBar;
 
     }
 }
