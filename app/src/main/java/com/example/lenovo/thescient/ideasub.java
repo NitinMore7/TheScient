@@ -70,7 +70,7 @@ public class ideasub extends AppCompatActivity {
                     {
                         project.setError("Project name required");
                     }
-
+                else{
                     Call<ResponseBody> call=Rettrofitclient
                             .getInstance()
                             .getApi()
@@ -91,7 +91,7 @@ public class ideasub extends AppCompatActivity {
                         public void onFailure(Call<ResponseBody> call, Throwable t) {
                             Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
                         }
-                    });
+                    });}
 
                 }
             });

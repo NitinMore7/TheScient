@@ -67,7 +67,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginBottom="40dp">
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="125px"
+            >
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -77,7 +80,8 @@
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 android:id="@+id/txt_namer"
-                android:textSize="15dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold"/>
             <EditText
                 android:layout_width="match_parent"
                 android:textColor="@android:color/black"
@@ -86,7 +90,7 @@
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:textSize="12dp" />
+                android:textSize="15dp" />
 
 
 
@@ -99,7 +103,8 @@
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 android:id="@+id/txt_rollnor"
-                android:textSize="15dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -108,7 +113,7 @@
                 android:textColor="@android:color/black"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
-                android:textSize="12dp" />
+                android:textSize="15dp" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -118,7 +123,8 @@
                 android:paddingBottom="10dp"
                 android:textColor="@android:color/black"
                 android:paddingTop="10dp"
-                android:textSize="15dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -127,7 +133,7 @@
                 android:textColor="@android:color/black"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:textSize="12dp" />
+                android:textSize="15dp" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -137,7 +143,8 @@
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:textSize="15dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -146,7 +153,7 @@
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:textSize="12dp" />
+                android:textSize="15dp" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -156,7 +163,8 @@
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:textSize="15dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -165,7 +173,7 @@
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:textSize="12dp" />
+                android:textSize="15dp" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -175,7 +183,8 @@
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 android:id="@+id/txt_visibility"
-                android:textSize="15dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -185,7 +194,7 @@
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:textSize="12dp" />
+                android:textSize="15dp" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -195,7 +204,8 @@
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 android:id="@+id/txt_abstract"
-                android:textSize="15dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -204,7 +214,7 @@
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:textSize="12dp" />
+                android:textSize="15dp" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -214,7 +224,8 @@
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:textSize="15dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -223,7 +234,7 @@
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:textSize="12dp" />
+                android:textSize="15dp" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -233,7 +244,8 @@
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:textSize="15dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -242,7 +254,7 @@
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:textSize="12dp" />
+                android:textSize="15dp" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -250,7 +262,7 @@
                 android:id="@+id/btn_prosub"
                 android:textSize="20dp"
                 android:text="Register"
-                />
+                android:textStyle="bold"/>
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>

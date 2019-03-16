@@ -66,6 +66,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="125px"
             android:orientation="vertical">
         <TextView
             android:layout_width="match_parent"
@@ -76,7 +79,8 @@
             android:paddingTop="10dp"
             android:textColor="@android:color/black"
             android:id="@+id/txt_name"
-            android:textSize="15dp"/>
+            android:textSize="20dp"
+            android:textStyle="bold"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -85,7 +89,7 @@
             android:paddingRight="5dp"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:textSize="12dp" />
+            android:textSize="15dp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,7 +99,8 @@
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
             android:id="@+id/txt_rollno"
-            android:textSize="15dp"/>
+            android:textSize="20dp"
+            android:textStyle="bold"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -104,7 +109,7 @@
             android:paddingTop="10dp"
             android:paddingRight="5dp"
             android:paddingBottom="10dp"
-            android:textSize="12dp" />
+            android:textSize="15dp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -114,7 +119,8 @@
             android:paddingRight="5dp"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:textSize="15dp"/>
+            android:textSize="20dp"
+            android:textStyle="bold"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -123,7 +129,7 @@
             android:paddingRight="5dp"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:textSize="12dp" />
+            android:textSize="15dp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -133,7 +139,8 @@
             android:paddingRight="5dp"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:textSize="15dp"/>
+            android:textSize="20dp"
+            android:textStyle="bold"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -142,7 +149,7 @@
             android:textColor="@android:color/black"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:textSize="12dp" />
+            android:textSize="15dp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -152,7 +159,8 @@
             android:paddingRight="5dp"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:textSize="15dp"/>
+            android:textSize="20dp"
+            android:textStyle="bold"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -161,7 +169,7 @@
             android:paddingRight="5dp"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:textSize="12dp" />
+            android:textSize="15dp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -171,7 +179,8 @@
             android:textColor="@android:color/black"
             android:paddingTop="10dp"
             android:id="@+id/txt_purpose"
-            android:textSize="15dp"/>
+            android:textSize="20dp"
+            android:textStyle="bold"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -181,7 +190,7 @@
             android:textColor="@android:color/black"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:textSize="12dp" />
+            android:textSize="15dp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -191,7 +200,8 @@
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
             android:id="@+id/txt_duration"
-            android:textSize="15dp"/>
+            android:textSize="20dp"
+            android:textStyle="bold"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -200,7 +210,7 @@
             android:paddingRight="5dp"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:textSize="12dp" />
+            android:textSize="15dp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -210,7 +220,8 @@
             android:paddingRight="5dp"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:textSize="15dp"/>
+            android:textSize="20dp"
+            android:textStyle="bold"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -219,7 +230,7 @@
             android:paddingRight="5dp"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:textSize="12dp" />
+            android:textSize="15dp" />
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
