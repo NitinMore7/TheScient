@@ -104,8 +104,7 @@ public class Events extends AppCompatActivity {
         events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Events.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
 
             }
         });
@@ -200,11 +199,5 @@ public class Events extends AppCompatActivity {
     protected void onStop() {
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
         super.onStop();
-    }
-    @Override
-    public void onBackPressed() {
-        finishAndRemoveTask();
-        startActivity(new Intent(getBaseContext(),MainActivity.class));
-        overridePendingTransition(R.anim.left_to_right,R.anim.stay);
     }
 }
