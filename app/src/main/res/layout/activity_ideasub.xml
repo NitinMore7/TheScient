@@ -16,6 +16,7 @@
         android:id="@+id/activity_ideasub"
         android:orientation="vertical"
         android:layout_width="match_parent"
+        android:paddingBottom="125px"
         android:layout_height="match_parent">
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
@@ -41,7 +42,7 @@
                     android:layout_width="56dp"
                     android:layout_height="56dp"
                     android:layout_gravity="center"
-                    android:padding="5dp"
+                    android:padding="8dp"
                     android:src="@drawable/homeiconoutlinerecolour"
                     android:background="@color/scient_color"/>
 

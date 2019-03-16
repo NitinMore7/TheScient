@@ -10,6 +10,7 @@
         android:id="@+id/activity_resources"
         android:orientation="vertical"
         android:layout_width="match_parent"
+        android:paddingBottom="125px"
         android:layout_height="match_parent">
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -41,7 +42,7 @@
                     android:layout_width="56dp"
                     android:layout_height="56dp"
                     android:layout_gravity="center"
-                    android:padding="5dp"
+                    android:padding="8dp"
                     android:background="@color/scient_color"
                     android:src="@drawable/homeiconoutlinerecolour"/>
 
@@ -69,7 +70,11 @@
             app:tabGravity="fill"
             app:tabMode="fixed" />
 
+
     </android.support.design.widget.AppBarLayout>
+        <View android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/toolbar_dropshadow"/>
 
 
     <android.support.v4.view.ViewPager
