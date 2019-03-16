@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -38,13 +39,24 @@ public class Events extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_events);
-        arrayList = new ArrayList<>();
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_event);
-        requestQueue = Volley.newRequestQueue(this);
-        jsonParse();
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.activity_events);
+        if(!NetworkAvailability.isNetworkAvailable(getBaseContext())){
+            setContentView(R.layout.nointernet);
+            FloatingActionButton refresh = findViewById(R.id.Refresh);
+            refresh.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                    startActivity(new Intent(getBaseContext(),Events.class));
+                }
+            });
+        }else{
+            setContentView(R.layout.activity_events);
+            arrayList = new ArrayList<>();
+            recyclerView = (RecyclerView) findViewById(R.id.recycler_event);
+            requestQueue = Volley.newRequestQueue(this);
+            jsonParse();
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        }
         final LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);
         final ImageView arrow = (ImageView) bottom_sheet.findViewById(R.id.arrow);
         Typeface karla_regular =  Typeface.createFromAsset(getAssets(),"fonts/Karla-Regular.ttf");
@@ -108,7 +120,8 @@ public class Events extends AppCompatActivity {
         resources.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(getBaseContext(),Resources.class));
+                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
             }
         });
         contact.setOnClickListener(new View.OnClickListener() {
@@ -147,7 +160,10 @@ public class Events extends AppCompatActivity {
             @Override
             public void onSlide(@NonNull View view, float v) {
                 arrow.setRotation(v * 180);
-                linearLayout.setAlpha(1 - v);
+                if(NetworkAvailability.isNetworkAvailable(getBaseContext())){
+                    final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.activity_events);
+                    linearLayout.setAlpha(1 - v);
+                }
             }
         });
     }
@@ -179,5 +195,16 @@ public class Events extends AppCompatActivity {
             }
         });
         requestQueue.add(jsonObjectRequest);
+    }
+    @Override
+    protected void onStop() {
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+        super.onStop();
+    }
+    @Override
+    public void onBackPressed() {
+        finishAndRemoveTask();
+        startActivity(new Intent(getBaseContext(),MainActivity.class));
+        overridePendingTransition(R.anim.left_to_right,R.anim.stay);
     }
 }

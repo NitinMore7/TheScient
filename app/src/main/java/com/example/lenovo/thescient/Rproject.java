@@ -1,20 +1,15 @@
 package com.example.lenovo.thescient;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import okhttp3.ResponseBody;
@@ -32,8 +27,14 @@ Button submitt;public enum visi{open,closed}
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rproject);
         final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.activity_rproject);
-
-
+        ImageView back = findViewById(R.id.Home);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(new Intent(getBaseContext(),Register.class));
+            }
+        });
         submitt=(Button)findViewById(R.id.btn_prosub);
         name=(EditText)findViewById(R.id.edt_namer);
         roll=(EditText)findViewById(R.id.edt_rollnor);
@@ -53,10 +54,25 @@ Button submitt;public enum visi{open,closed}
                 String depta=dept.getText().toString();
                 String cnoa=cno.getText().toString();
                 String emaila=email.getText().toString();
-                visi visibilitya=visi.valueOf(visibility.getText().toString());
+                visibility.setHint("Open/Closed");
+                String visibi=visibility.getText().toString();
+                visi visibilitya = visi.open;
+
+
+                if(visibi.compareToIgnoreCase("open")==1||visibi.compareToIgnoreCase("closed")==1) {
+                    if (visibi == "open")
+                        visibilitya = visi.open;
+                    else
+                        visibilitya = visi.closed;
+                }
+                else {
+                    visibility.setError("Please Enter a valid Text");
+                }
 
                 Editable abstraca=abstrac.getText();
-                Integer budgetr=Integer.parseInt(budget.getText().toString());
+                Integer budgetr=null;
+                try{
+                budgetr=Integer.parseInt(budget.getText().toString());}catch (Exception e){}
                 Editable timeliner= timeline.getText();
                 if(namea.isEmpty())
                 {
