@@ -309,22 +309,31 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="50dp">
-            <TextView
-                android:textSize="18sp"
-                android:id="@+id/Made_by"
-                android:textColor="@android:color/white"
-                android:fontFamily="@font/karlabold"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:text="Made By"
-                android:gravity="center"/>
-            <ImageView
-                android:layout_gravity="center"
-                android:layout_marginLeft="5dp"
-                android:layout_toEndOf="@+id/Made_by"
-                android:src="@drawable/spiderlogo"
-                android:layout_width="50dp"
-                android:layout_height="50dp"/>
+                <TextView
+                    android:textSize="18sp"
+                    android:id="@+id/Made_by"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="@font/karlabold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:text="Made By"
+                    android:gravity="center"/>
+                <ImageView
+                    android:id="@+id/spiderlogo"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toEndOf="@+id/Made_by"
+                    android:src="@drawable/spiderlogo"
+                    android:padding="6dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"/>
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toEndOf="@id/spiderlogo"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/spiderlogofull"/>
             </RelativeLayout>
         </FrameLayout>
     </RelativeLayout>
