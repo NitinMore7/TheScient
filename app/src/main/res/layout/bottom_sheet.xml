@@ -1,115 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/scient_color"
-    app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="125px">
+
             <ImageView
-                android:layout_gravity="center_vertical"
                 android:id="@+id/arrow"
                 android:layout_width="match_parent"
                 android:layout_height="16dp"
-                android:src="@drawable/arrow"/>
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/arrow" />
         </FrameLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
         <FrameLayout
-            android:background="@drawable/ripple_effect"
+            android:id="@+id/Regitration"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="60dp"
-            android:id="@+id/Regitration">
+            android:layout_weight="1"
+            android:background="@drawable/ripple_effect">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
                 <ImageView
-                    android:layout_height="40dp"
                     android:layout_width="40dp"
-                    android:padding="5dp"
-                    android:src="@drawable/registericon"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/karlabold"/>
+                    android:fontFamily="@font/karlabold"
+                    android:padding="5dp"
+                    android:src="@drawable/registericon" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/karlabold"
-                    android:textColor="@android:color/black"
                     android:layout_gravity="bottom"
-                    android:textSize="16dp"
-                    android:gravity="center"
-                    android:text="Registration"/>
-            </LinearLayout>
-        </FrameLayout>
-        <FrameLayout
-            android:background="@drawable/ripple_effect"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="60dp"
-            android:id="@+id/gallery">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="match_parent">
-                <ImageView
-                    android:layout_height="40dp"
-                    android:layout_width="40dp"
-                    android:padding="5dp"
-                    android:src="@drawable/galleryicon"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/karlabold"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:fontFamily="@font/karlabold"
-                    android:textColor="@android:color/black"
-                    android:layout_gravity="bottom"
-                    android:textSize="16dp"
                     android:gravity="center"
-                    android:text="Gallery"/>
+                    android:text="Registration"
+                    android:textColor="@android:color/black"
+                    android:textSize="16dp" />
             </LinearLayout>
         </FrameLayout>
 
         <FrameLayout
-            android:background="@drawable/ripple_effect"
+            android:id="@+id/gallery"
             android:layout_width="0dp"
+            android:layout_height="60dp"
             android:layout_weight="1"
-            android:id="@+id/events"
-            android:layout_height="60dp">
+            android:background="@drawable/ripple_effect">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
                 <ImageView
-                    android:layout_height="40dp"
                     android:layout_width="40dp"
-                    android:src="@drawable/eventicon"
-                    android:padding="5dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/karlabold"/>
+                    android:fontFamily="@font/karlabold"
+                    android:padding="5dp"
+                    android:src="@drawable/galleryicon" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/karlabold"
-                    android:textColor="@android:color/black"
                     android:layout_gravity="bottom"
-                    android:textSize="16dp"
+                    android:fontFamily="@font/karlabold"
                     android:gravity="center"
-                    android:text="Events"/>
+                    android:text="Gallery"
+                    android:textColor="@android:color/black"
+                    android:textSize="16dp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/events"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_effect">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/karlabold"
+                    android:padding="5dp"
+                    android:src="@drawable/eventicon" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:fontFamily="@font/karlabold"
+                    android:gravity="center"
+                    android:text="Events"
+                    android:textColor="@android:color/black"
+                    android:textSize="16dp" />
             </LinearLayout>
         </FrameLayout>
     </LinearLayout>
@@ -118,90 +132,100 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp">
+
         <FrameLayout
-            android:background="@drawable/ripple_effect"
-            android:layout_width="0dp"
-            android:layout_weight="1"
             android:id="@+id/Project"
-            android:layout_height="60dp">
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_effect">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
                 <ImageView
-                    android:layout_height="40dp"
                     android:layout_width="40dp"
-                    android:src="@drawable/projecticon"
-                    android:padding="5dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/karlabold"/>
+                    android:fontFamily="@font/karlabold"
+                    android:padding="5dp"
+                    android:src="@drawable/projecticon" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/karlabold"
                     android:layout_gravity="bottom"
-                    android:textColor="@android:color/black"
-                    android:textSize="16dp"
+                    android:fontFamily="@font/karlabold"
                     android:gravity="center"
-                    android:text="Projects"/>
+                    android:text="Projects"
+                    android:textColor="@android:color/black"
+                    android:textSize="16dp" />
             </LinearLayout>
         </FrameLayout>
 
         <FrameLayout
-            android:background="@drawable/ripple_effect"
-            android:layout_width="0dp"
             android:id="@+id/Resources"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
             android:layout_weight="1"
-            android:layout_height="60dp">
+            android:background="@drawable/ripple_effect">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
                 <ImageView
-                    android:layout_height="40dp"
                     android:layout_width="40dp"
-                    android:src="@drawable/resourceicon"
-                    android:padding="5dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/karlabold"/>
+                    android:fontFamily="@font/karlabold"
+                    android:padding="5dp"
+                    android:src="@drawable/resourceicon" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/karlabold"
                     android:layout_gravity="bottom"
-                    android:textColor="@android:color/black"
-                    android:textSize="16dp"
+                    android:fontFamily="@font/karlabold"
                     android:gravity="center"
-                    android:text="Resources"/>
+                    android:text="Resources"
+                    android:textColor="@android:color/black"
+                    android:textSize="16dp" />
             </LinearLayout>
         </FrameLayout>
 
         <FrameLayout
-            android:background="@drawable/ripple_effect"
-            android:layout_width="0dp"
-            android:layout_weight="1"
             android:id="@+id/Contact"
-            android:layout_height="60dp">
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_effect">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
                 <ImageView
-                    android:layout_height="40dp"
                     android:layout_width="40dp"
-                    android:src="@drawable/contactusicon"
-                    android:padding="5dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/karlabold"/>
+                    android:fontFamily="@font/karlabold"
+                    android:padding="5dp"
+                    android:src="@drawable/contactusicon" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/karlabold"
                     android:layout_gravity="bottom"
-                    android:textSize="16dp"
-                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/karlabold"
                     android:gravity="center"
-                    android:text="Contact Us"/>
+                    android:text="Contact Us"
+                    android:textColor="@android:color/black"
+                    android:textSize="16dp" />
             </LinearLayout>
         </FrameLayout>
     </LinearLayout>
@@ -210,130 +234,145 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp">
+
         <FrameLayout
-            android:background="@drawable/ripple_effect"
-            android:layout_width="0dp"
             android:id="@+id/Idea_sub"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
             android:layout_weight="1"
-            android:layout_height="60dp">
+            android:background="@drawable/ripple_effect">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
                 <ImageView
-                    android:layout_height="40dp"
                     android:layout_width="40dp"
-                    android:src="@drawable/ideasubmiticon"
-                    android:padding="5dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/karlabold"/>
+                    android:fontFamily="@font/karlabold"
+                    android:padding="5dp"
+                    android:src="@drawable/ideasubmiticon" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/karlabold"
-                    android:textColor="@android:color/black"
                     android:layout_gravity="bottom"
-                    android:textSize="16dp"
+                    android:fontFamily="@font/karlabold"
                     android:gravity="center"
-                    android:text="Idea Submission"/>
+                    android:text="Idea Submission"
+                    android:textColor="@android:color/black"
+                    android:textSize="16dp" />
             </LinearLayout>
         </FrameLayout>
 
         <FrameLayout
-            android:background="@drawable/ripple_effect"
-            android:layout_width="0dp"
-            android:layout_weight="1"
             android:id="@+id/faq"
-            android:layout_height="60dp">
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_effect">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
                 <ImageView
-                    android:layout_height="40dp"
                     android:layout_width="40dp"
-                    android:src="@drawable/faq"
-                    android:padding="5dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/karlabold"/>
+                    android:fontFamily="@font/karlabold"
+                    android:padding="5dp"
+                    android:src="@drawable/faq" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/karlabold"
-                    android:textColor="@android:color/black"
                     android:layout_gravity="bottom"
-                    android:textSize="16dp"
+                    android:fontFamily="@font/karlabold"
                     android:gravity="center"
-                    android:text="FAQ"/>
+                    android:text="FAQ"
+                    android:textColor="@android:color/black"
+                    android:textSize="16dp" />
             </LinearLayout>
         </FrameLayout>
 
         <FrameLayout
-            android:background="@drawable/ripple_effect"
-            android:layout_width="0dp"
-            android:layout_weight="1"
             android:id="@+id/Announcements"
-            android:layout_height="60dp">
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_effect">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
                 <ImageView
-                    android:layout_height="40dp"
                     android:layout_width="40dp"
-                    android:src="@drawable/announcementsicon"
-                    android:padding="5dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/karlabold"/>
+                    android:fontFamily="@font/karlabold"
+                    android:padding="5dp"
+                    android:src="@drawable/announcementsicon" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/karlabold"
-                    android:textColor="@android:color/black"
                     android:layout_gravity="bottom"
-                    android:textSize="16dp"
+                    android:fontFamily="@font/karlabold"
                     android:gravity="center"
-                    android:text="Announcements"/>
+                    android:text="Announcements"
+                    android:textColor="@android:color/black"
+                    android:textSize="16dp" />
             </LinearLayout>
         </FrameLayout>
     </LinearLayout>
 
     <RelativeLayout
-        android:background="#175283"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#175283">
+
         <FrameLayout
-            android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
-            android:layout_height="50dp">
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true">
+
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="50dp">
+
                 <TextView
-                    android:textSize="18sp"
                     android:id="@+id/Made_by"
-                    android:textColor="@android:color/white"
-                    android:fontFamily="@font/karlabold"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
+                    android:fontFamily="@font/karlabold"
+                    android:gravity="center"
                     android:text="Made By"
-                    android:gravity="center"/>
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+
                 <ImageView
                     android:id="@+id/spiderlogo"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="8dp"
                     android:layout_toEndOf="@+id/Made_by"
-                    android:src="@drawable/spiderlogo"
                     android:padding="6dp"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"/>
+                    android:src="@drawable/spiderlogo" />
+
                 <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="8dp"
                     android:layout_toEndOf="@id/spiderlogo"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/spiderlogofull"/>
+                    android:src="@drawable/spiderlogofull" />
             </RelativeLayout>
         </FrameLayout>
     </RelativeLayout>

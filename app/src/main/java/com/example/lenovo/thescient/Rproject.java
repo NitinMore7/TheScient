@@ -1,11 +1,16 @@
 package com.example.lenovo.thescient;
 
+import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -20,7 +25,10 @@ import retrofit2.Response;
 public class Rproject extends AppCompatActivity {
 EditText name,roll,dept,cno,email,visibility,abstrac,budget,timeline;
     BottomSheetBehavior bottomSheetBehavior;
+    Button addmemberbutton;
 Button submitt;public enum visi{open,closed}
+LinearLayout.LayoutParams layoutParams;
+LinearLayout addmemberlayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -45,6 +53,29 @@ Button submitt;public enum visi{open,closed}
         abstrac=(EditText)findViewById(R.id.edt_abstractr);
         budget=(EditText)findViewById(R.id.edt_budgetr);
         timeline=(EditText)findViewById(R.id.edt_timeliner);
+        addmemberbutton=findViewById(R.id.add_member_button);
+        addmemberlayout=findViewById(R.id.add_edit_text_layout);
+        final int id=0;
+        addmemberbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //addview
+                LayoutInflater vi = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View v=vi.inflate(R.layout.team_members_view,null);
+                final ViewGroup insertPoint = (ViewGroup) findViewById(R.id.add_edit_text_layout);
+                insertPoint.addView(v, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+                v.setId(id);
+                Button button=v.findViewById(R.id.close);
+                EditText name=v.findViewById(R.id.member_name);
+                EditText rollno=v.findViewById(R.id.member_rollno);
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        insertPoint.removeView(view);
+                    }
+                });
+            }
+        });
 
         submitt.setOnClickListener(new View.OnClickListener() {
             @Override
