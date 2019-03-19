@@ -1,10 +1,16 @@
 package com.example.lenovo.thescient;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -23,12 +29,17 @@ import retrofit2.Response;
 
 public class Accessreq extends AppCompatActivity {
     EditText name,roll,dept,cno,email,purpose,duration,hmac;
-    Button submitt;
+    Button submitt;TextView rulebook,terms;
     BottomSheetBehavior bottomSheetBehavior;
+        Integer REQUEST_WRITE_EXTERNAL_STORAGE=45;
+    Integer REQUEST_WRITE_EXTERNAL_STORAGE1=95;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accessreq);
+        rulebook=(TextView)findViewById(R.id.txt_rule);
+        terms=(TextView)findViewById(R.id.txt_tc);
         name=(EditText)findViewById(R.id.edt_name);
         roll=(EditText)findViewById(R.id.edt_rollno);
         dept=(EditText)findViewById(R.id.edt_dept);
@@ -48,6 +59,21 @@ public class Accessreq extends AppCompatActivity {
             }
         });
 
+        rulebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                askForPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,REQUEST_WRITE_EXTERNAL_STORAGE);
+
+            }
+        });
+        terms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                askForPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,REQUEST_WRITE_EXTERNAL_STORAGE1);
+
+
+            }
+        });
         submitt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,5 +150,68 @@ public class Accessreq extends AppCompatActivity {
                 }
             }
         });
+    }
+    private void askForPermission(String permission, Integer requestCode) {
+        if (ContextCompat.checkSelfPermission(Accessreq.this, permission) != PackageManager.PERMISSION_GRANTED) {
+
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(Accessreq.this, permission)) {
+
+                //This is called if user has denied the permission before
+                //In this case I am just asking the permission again
+                ActivityCompat.requestPermissions(Accessreq.this, new String[]{permission}, requestCode);
+
+            } else {
+
+                ActivityCompat.requestPermissions(Accessreq.this, new String[]{permission}, requestCode);
+
+            }
+        }
+
+        else {
+            if(requestCode==REQUEST_WRITE_EXTERNAL_STORAGE )
+            {
+                new Handler(getApplicationContext().getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        new download(Accessreq.this,"https://scient.nitt.edu/terms/Rulebook.pdf");
+                    }
+                });
+            }
+            if(requestCode==REQUEST_WRITE_EXTERNAL_STORAGE1 )
+            {
+                new Handler(getApplicationContext().getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        new download(Accessreq.this,"https://scient.nitt.edu/terms/T&C.pdf");
+                    }
+                });
+            }
+        }
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode==REQUEST_WRITE_EXTERNAL_STORAGE && grantResults[0]==PackageManager.PERMISSION_GRANTED)
+        {
+            new Handler(getApplicationContext().getMainLooper()).post(new Runnable() {
+                @Override
+                public void run() {
+                    new download(Accessreq.this,"https://scient.nitt.edu/terms/Rulebook.pdf");
+                }
+            });
+        }
+        if(requestCode==REQUEST_WRITE_EXTERNAL_STORAGE1 && grantResults[0]==PackageManager.PERMISSION_GRANTED)
+        {
+            new Handler(getApplicationContext().getMainLooper()).post(new Runnable() {
+                @Override
+                public void run() {
+                    new download(Accessreq.this,"https://scient.nitt.edu/terms/T&C.pdf");
+                }
+            });
+        }
+
     }
 }
