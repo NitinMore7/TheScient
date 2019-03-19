@@ -46,6 +46,14 @@ public class Resources extends AppCompatActivity {
             tabLayout = (TabLayout) findViewById(R.id.tabs);
             tabLayout.setupWithViewPager(viewPager);
         }
+        ImageView home = (ImageView) findViewById(R.id.Home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), MainActivity.class));
+                overridePendingTransition(R.anim.left_to_right, R.anim.stay);
+            }
+        });
         Typeface karla_regular =  Typeface.createFromAsset(getAssets(),"fonts/Karla-Regular.ttf");
         LinearLayout bottom_sheet1 = (LinearLayout) findViewById(R.id.bottom_sheet);
         TextView Made_By = (TextView) findViewById(R.id.Made_by);
@@ -100,8 +108,7 @@ public class Resources extends AppCompatActivity {
         resources.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Resources.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
             }
         });
         contact.setOnClickListener(new View.OnClickListener() {
@@ -156,11 +163,5 @@ public class Resources extends AppCompatActivity {
     protected void onStop() {
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
         super.onStop();
-    }
-    @Override
-    public void onBackPressed() {
-        finishAndRemoveTask();
-        startActivity(new Intent(getBaseContext(),MainActivity.class));
-        overridePendingTransition(R.anim.left_to_right,R.anim.stay);
     }
 }

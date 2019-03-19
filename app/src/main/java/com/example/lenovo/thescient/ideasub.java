@@ -175,8 +175,7 @@ public class ideasub extends AppCompatActivity {
         idea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),ideasub.class));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
             }
         });
         faq1.setOnClickListener(new View.OnClickListener() {
@@ -213,11 +212,4 @@ public class ideasub extends AppCompatActivity {
         super.onStop();
     }
 
-
-    @Override
-    public void onBackPressed() {
-        finishAndRemoveTask();
-        startActivity(new Intent(getBaseContext(),MainActivity.class));
-        overridePendingTransition(R.anim.left_to_right,R.anim.stay);
-    }
 }
