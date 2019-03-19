@@ -17,6 +17,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,6 +31,7 @@ EditText name,roll,dept,cno,email,visibility,abstrac,budget,timeline;
     Button addmemberbutton;
 Button submitt;public enum visi{open,closed}
 LinearLayout.LayoutParams layoutParams;
+ArrayList<View> viewlist=new ArrayList<>();
 LinearLayout addmemberlayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,23 +59,21 @@ LinearLayout addmemberlayout;
         timeline=(EditText)findViewById(R.id.edt_timeliner);
         addmemberbutton=findViewById(R.id.add_member_button);
         addmemberlayout=findViewById(R.id.add_edit_text_layout);
-        final int id=0;
         addmemberbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //addview
                 LayoutInflater vi = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                View v=vi.inflate(R.layout.team_members_view,null);
+                final View v= Objects.requireNonNull(vi).inflate(R.layout.team_members_view,null);
                 final ViewGroup insertPoint = (ViewGroup) findViewById(R.id.add_edit_text_layout);
                 insertPoint.addView(v, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-                v.setId(id);
+                viewlist.add(v);
                 Button button=v.findViewById(R.id.close);
-                EditText name=v.findViewById(R.id.member_name);
-                EditText rollno=v.findViewById(R.id.member_rollno);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        insertPoint.removeView(view);
+                        insertPoint.removeView(v);
+                        viewlist.remove(v);
                     }
                 });
             }
