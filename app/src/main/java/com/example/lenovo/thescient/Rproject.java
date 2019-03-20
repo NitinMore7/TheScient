@@ -1,10 +1,16 @@
 package com.example.lenovo.thescient;
 
+import android.Manifest;
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -12,11 +18,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -30,7 +38,9 @@ import retrofit2.Response;
 public class Rproject extends AppCompatActivity {
 EditText name,roll,dept,cno,email,abstrac,budget,timeline;
     BottomSheetBehavior bottomSheetBehavior;
-    Button addmemberbutton,addmaterialsbutton,addservicebutton;
+    Button addmemberbutton,addmaterialsbutton,addservicebutton;Integer REQUEST_WRITE_EXTERNAL_STORAGE=45;
+    Integer REQUEST_WRITE_EXTERNAL_STORAGE1=95;
+    CheckBox chk;TextView rulebook,terms;
 Button submitt;public enum visi{open,closed}
 ArrayList<View> addmemberviewlist=new ArrayList<>(),addmaterialviewlist=new ArrayList<>(),addserviceviewlist=new ArrayList<>();
 LinearLayout addmemberlayout;
@@ -62,6 +72,8 @@ String radioText;
             }
         });
         submitt=(Button)findViewById(R.id.btn_prosub);
+        rulebook=(TextView)findViewById(R.id.txt_rule2);
+        terms=(TextView)findViewById(R.id.txt_tc2);
         name=(EditText)findViewById(R.id.edt_namer);
         roll=(EditText)findViewById(R.id.edt_rollnor);
         dept=(EditText)findViewById(R.id.edt_deptr);
@@ -74,7 +86,21 @@ String radioText;
         addmemberbutton=findViewById(R.id.add_member_button);
         addmemberlayout=findViewById(R.id.add_edit_text_layout);
         addservicebutton=findViewById(R.id.add_service_button);
+        rulebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                askForPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,REQUEST_WRITE_EXTERNAL_STORAGE);
 
+            }
+        });
+        terms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                askForPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,REQUEST_WRITE_EXTERNAL_STORAGE1);
+
+
+            }
+        });
 
 
         addmemberbutton.setOnClickListener(new View.OnClickListener() {
@@ -273,4 +299,68 @@ String radioText;
     }
 
 
+    private void askForPermission(String permission, Integer requestCode) {
+        if (ContextCompat.checkSelfPermission(Rproject.this, permission) != PackageManager.PERMISSION_GRANTED) {
+
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(Rproject.this, permission)) {
+
+                //This is called if user has denied the permission before
+                //In this case I am just asking the permission again
+                ActivityCompat.requestPermissions(Rproject.this, new String[]{permission}, requestCode);
+
+            } else {
+
+                ActivityCompat.requestPermissions(Rproject.this, new String[]{permission}, requestCode);
+
+            }
+        }
+
+        else {
+            if(requestCode==REQUEST_WRITE_EXTERNAL_STORAGE )
+            {
+                new Handler(getApplicationContext().getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        new download(Rproject.this,"https://scient.nitt.edu/terms/Rulebook.pdf");
+                    }
+                });
+            }
+            if(requestCode==REQUEST_WRITE_EXTERNAL_STORAGE1 )
+            {
+                new Handler(getApplicationContext().getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        new download(Rproject.this,"https://scient.nitt.edu/terms/T&C.pdf");
+                    }
+                });
+            }
+        }
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode==REQUEST_WRITE_EXTERNAL_STORAGE && grantResults[0]==PackageManager.PERMISSION_GRANTED)
+        {
+            new Handler(getApplicationContext().getMainLooper()).post(new Runnable() {
+                @Override
+                public void run() {
+                    new download(Rproject.this,"https://scient.nitt.edu/terms/Rulebook.pdf");
+                }
+            });
+        }
+        if(requestCode==REQUEST_WRITE_EXTERNAL_STORAGE1 && grantResults[0]==PackageManager.PERMISSION_GRANTED)
+        {
+            new Handler(getApplicationContext().getMainLooper()).post(new Runnable() {
+                @Override
+                public void run() {
+                    new download(Rproject.this,"https://scient.nitt.edu/terms/T&C.pdf");
+                }
+            });
+        }
+
+    }
 }
+
