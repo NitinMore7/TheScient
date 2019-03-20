@@ -15,7 +15,6 @@
         android:id="@+id/acitivity_confrence"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:paddingBottom="125px"
 
         android:layout_height="match_parent">
         <android.support.v7.widget.Toolbar
@@ -66,8 +65,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:paddingEnd="20dp"
-            android:paddingStart="20dp"
-            android:paddingBottom="125px">
+            android:paddingStart="20dp">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -259,6 +257,7 @@
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
+                android:textColor="@android:color/black"
                 android:textSize="20dp"
                 android:textStyle="bold"/>
             <EditText

@@ -205,4 +205,9 @@ public class Register extends AppCompatActivity {
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
         super.onStop();
     }
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(Register.this,MainActivity.class));
+        super.onBackPressed();
+    }
 }

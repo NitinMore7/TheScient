@@ -3,6 +3,7 @@ package com.example.lenovo.thescient;
 import android.text.Editable;
 import android.text.format.Time;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import okhttp3.ResponseBody;
@@ -62,10 +63,21 @@ public interface Api {
             @Field("contactNumber") String contactNumber,
             @Field("emailID") String emailID,
             @Field("visibility") Enum visibility,
-            @Field("abstract") Editable abstrac,
+            @Field("abstract") String abstrac,
             @Field("budget") Integer budget,
-            @Field("timeline") Editable timeline
-    );
+            @Field("timeline") String timeline,
+            @Field("teamMembersNames") ArrayList<String> teamMembersNames,
+            @Field("teamMembersRoll")ArrayList<String> teamMembersRoll,
+            @Field("materialNames")ArrayList<String> materialNames,
+            @Field("materialSpecs")ArrayList<String> materialSpecs,
+            @Field("materialQuantity")ArrayList<String> materialQuantity,
+            @Field("materialPrice")ArrayList<String> materialPrice,
+            @Field("purpose")ArrayList<String> purpose,
+            @Field("vendors")ArrayList<String> vendors,
+            @Field("serviceNames")ArrayList<String> serviceNames,
+            @Field("serviceSpecs")ArrayList<String> serviceSpecs,
+            @Field("servicePrice")ArrayList<String> servicePrice
+            );
     @FormUrlEncoded
     @POST("/sendMessage")
     Call<ResponseBody> mesa(
