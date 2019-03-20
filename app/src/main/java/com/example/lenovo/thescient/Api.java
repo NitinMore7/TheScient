@@ -31,10 +31,14 @@ public interface Api {
             @Field("contactNumber") String contactNumber,
             @Field("emailID") String emailID,
             @Field("attendeesNumber") Integer attendeesNumber,
-            @Field("purpose") String purpose,
+            @Field("purposeOfBooking") String purpose,
             @Field("date")Date date,
-            @Field("startTime")Time startTime,
-            @Field("endTime")Time endTime
+            @Field("startTime")String startTime,
+            @Field("endTime")String endTime,
+            @Field("approvedStartTime")String approvedStartTime,
+            @Field("approvedEndTime")String approvedEndTime,
+            @Field("approved")String approved,
+            @Field("mailSent")String mailSent
             );
 
     @FormUrlEncoded

@@ -8,6 +8,7 @@ public class Rettrofitclient {
     private static Rettrofitclient mInstance;
     private Retrofit retrofit;
     private Rettrofitclient(){
+        
         retrofit=new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())

@@ -113,6 +113,7 @@ final TimePickerDialog.OnTimeSetListener timeSetListener=new TimePickerDialog.On
             public void onClick(View v) {
 
                 Date d = null,starta=null,enda = null;
+                String Starttime=null,endtime=null;
                 String namea=name.getText().toString();
                 String rolla=roll.getText().toString();
                 String depta=dept.getText().toString();
@@ -124,7 +125,7 @@ final TimePickerDialog.OnTimeSetListener timeSetListener=new TimePickerDialog.On
                 else
                     attenda= Integer.valueOf(atten.getText().toString());
                 String pur=purpose.getText().toString();
-                SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+                SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
                 try {
                      d=sdf.parse( date.getText().toString());
                 } catch (ParseException e) {
@@ -135,7 +136,7 @@ final TimePickerDialog.OnTimeSetListener timeSetListener=new TimePickerDialog.On
                      starta=sdf1.parse(start.getText().toString());
                      time=new Time();
                      time.set(starta.getTime());
-
+                     Starttime=time.hour+":"+time.minute;
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
@@ -143,6 +144,7 @@ final TimePickerDialog.OnTimeSetListener timeSetListener=new TimePickerDialog.On
                     enda=sdf1.parse(end.getText().toString());
                     t=new Time();
                     t.set(enda.getTime());
+                    endtime=t.hour+":"+t.minute;
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
@@ -151,10 +153,11 @@ final TimePickerDialog.OnTimeSetListener timeSetListener=new TimePickerDialog.On
                     Toast.makeText(getApplicationContext(),"All fields must be filled",Toast.LENGTH_SHORT).show();
                 else
                 {
+                    Log.e("tag",t.hour+"");
                     Call<ResponseBody> call=Rettrofitclient
                             .getInstance()
                             .getApi()
-                            .hall(namea,rolla,depta,cnoa,emaila,attenda,pur,d,time,t);
+                            .hall(namea,rolla,depta,cnoa,emaila,attenda,pur,d,Starttime,endtime,"","","No","No");
 
                     call.enqueue(new Callback<ResponseBody>() {
                         @Override
@@ -180,18 +183,18 @@ final TimePickerDialog.OnTimeSetListener timeSetListener=new TimePickerDialog.On
         });
     }
     private void updateLabel() {
-        String myFormat = "dd-MM-yy"; //In which you need put here
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yy");
+        String myFormat = "yyyy-MM-dd"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         date.setText(sdf.format(calendar.getTime()));
     }
     private void timer(){
         String format="HH:mm";
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat(format,Locale.US);
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("HH:mm");
         start.setText(simpleDateFormat.format(calendar.getTime()));
     }
     private void timer1(){
         String format="HH:mm";
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat(format,Locale.US);
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("HH:mm");
         end.setText(simpleDateFormat.format(calendar.getTime()));
     }
 }
