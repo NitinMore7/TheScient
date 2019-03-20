@@ -89,6 +89,7 @@
                 android:id="@+id/edt_namer"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
+                android:hint="Name"
                 android:paddingTop="10dp"
                 android:textSize="15sp" />
 
@@ -112,6 +113,8 @@
                 android:paddingTop="10dp"
                 android:textColor="@android:color/black"
                 android:paddingRight="5dp"
+                android:hint="Roll Number"
+                android:inputType="number"
                 android:paddingBottom="10dp"
                 android:textSize="15dp" />
             <TextView
@@ -131,9 +134,32 @@
                 android:id="@+id/edt_deptr"
                 android:paddingRight="5dp"
                 android:textColor="@android:color/black"
+                android:hint="Department"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 android:textSize="15dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_projecttitle"
+                android:paddingRight="5dp"
+                android:paddingBottom="10dp"
+                android:textColor="@android:color/black"
+                android:paddingTop="10dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Project Title"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_projecttitle"
+                android:paddingRight="5dp"
+                android:textColor="@android:color/black"
+                android:hint="Project Title"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textSize="15sp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -171,14 +197,16 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/edt_Cnor"
                 android:textColor="@android:color/black"
+                android:hint="Contact"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
+                android:inputType="number"
                 android:paddingTop="10dp"
                 android:textSize="15dp" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Email Id"
+                android:text="Email Address"
                 android:id="@+id/txt_emailr"
                 android:textColor="@android:color/black"
                 android:paddingRight="5dp"
@@ -191,31 +219,59 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/edt_emailr"
                 android:textColor="@android:color/black"
+                android:hint="Email Id"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 android:textSize="15dp" />
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:text="Visibility"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:id="@+id/txt_visibility"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/edt_visibilityr"
-                android:textColor="@android:color/black"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="15dp" />
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Is your Project Open or closed ?"
+                    android:textColor="@android:color/black"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="10dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="In an open project, other students can register to work on the project."
+                    android:textColor="@android:color/black"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:id="@+id/radioGroup"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radioOpen"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="Open"
+                        android:textSize="18sp"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radioClosed"
+                        android:layout_weight="1"
+                        android:text="Closed"
+                        android:textSize="18sp"/>
+                </RadioGroup>
+            </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -231,6 +287,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/black"
+                android:hint="Write Abstract here"
                 android:id="@+id/edt_abstractr"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
@@ -253,9 +310,55 @@
                 android:textColor="@android:color/black"
                 android:id="@+id/edt_budgetr"
                 android:paddingRight="5dp"
+                android:inputType="number"
+                android:hint="Enter Required Budget"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 android:textSize="15dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:id="@+id/add_material_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/add_material_child"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/scient_color"
+                    android:textColor="@android:color/black"
+                    android:id="@+id/add_material_button"
+                    android:layout_marginTop="20dp"
+                    android:text="Add Material"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:id="@+id/add_service_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/add_service_child"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/scient_color"
+                    android:textColor="@android:color/black"
+                    android:id="@+id/add_service_button"
+                    android:layout_marginTop="20dp"
+                    android:text="Add Service"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"/>
+            </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -272,6 +375,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/edt_timeliner"
                 android:textColor="@android:color/black"
+                android:hint="Timeline Of Project"
                 android:paddingRight="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
