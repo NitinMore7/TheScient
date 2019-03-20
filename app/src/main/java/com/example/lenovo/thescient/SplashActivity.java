@@ -13,12 +13,14 @@ import android.widget.ImageView;
 public class SplashActivity extends AppCompatActivity {
     ImageView scientLogo;
     ImageView spiderLogo;
+    ImageView spiderText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         scientLogo = (ImageView) findViewById(R.id.scientLogo);
         spiderLogo = (ImageView) findViewById(R.id.spiderLogo);
+        spiderText = (ImageView) findViewById(R.id.spiderText);
         final Animation upToDown = AnimationUtils.loadAnimation(this,R.anim.up_to_down);
         final Animation downToUp = AnimationUtils.loadAnimation(this, R.anim.down_to_up);
         downToUp.setInterpolator(new DecelerateInterpolator(5));
@@ -36,7 +38,9 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 spiderLogo.setVisibility(View.VISIBLE);
+                spiderText.setVisibility(View.VISIBLE);
                 spiderLogo.startAnimation(downToUp);
+                spiderText.startAnimation(downToUp);
             }
         },1000);
     }
