@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -33,6 +34,7 @@ public class Accessreq extends AppCompatActivity {
     BottomSheetBehavior bottomSheetBehavior;
         Integer REQUEST_WRITE_EXTERNAL_STORAGE=45;
     Integer REQUEST_WRITE_EXTERNAL_STORAGE1=95;
+    CheckBox chk;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -49,6 +51,7 @@ public class Accessreq extends AppCompatActivity {
         duration=(EditText)findViewById(R.id.edt_duration);
         hmac=(EditText)findViewById(R.id.edt_Hmac);
         submitt=(Button)findViewById(R.id.btn_areq);
+        chk=(CheckBox)findViewById(R.id.chkac);
         Typeface karla_regular =  Typeface.createFromAsset(getAssets(),"fonts/Karla-Regular.ttf");
         ImageView home = (ImageView) findViewById(R.id.Home);
         home.setOnClickListener(new View.OnClickListener() {
@@ -120,6 +123,10 @@ public class Accessreq extends AppCompatActivity {
                 else if(hmaca.toString().isEmpty())
                 {
                     hmac.setError("Can't be empty");
+                }
+                else if (!chk.isChecked())
+                {
+                    chk.setError("Please check the rulebook");
                 }
                 else {
                     Call<ResponseBody> call=Rettrofitclient
