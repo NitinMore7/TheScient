@@ -72,8 +72,8 @@ LinearLayout addmemberlayout;
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        insertPoint.removeView(v);
                         viewlist.remove(v);
+                        insertPoint.removeView(v);
                     }
                 });
             }
