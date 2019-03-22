@@ -68,8 +68,7 @@ public class confrence extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Register.class));
-                overridePendingTransition(R.anim.left_to_right,R.anim.stay);
+                onBackPressed();
             }
         });
         rulebook.setOnClickListener(new View.OnClickListener() {
@@ -291,6 +290,11 @@ final TimePickerDialog.OnTimeSetListener timeSetListener=new TimePickerDialog.On
             });
         }
 
+    }
+    @Override
+    public void onBackPressed() {
+        finish();
+        super.onBackPressed();
     }
 }
 

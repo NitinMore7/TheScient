@@ -33,6 +33,7 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".confrence"
             android:configChanges="orientation"
+            android:windowSoftInputMode="adjustResize"
             android:screenOrientation="portrait"/>
         <activity android:name=".Resources"
             android:configChanges="orientation"
@@ -45,6 +46,7 @@
         <activity
             android:name=".Accessreq"
             android:exported="true"
+            android:windowSoftInputMode="adjustResize"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
         <activity
@@ -55,6 +57,7 @@
         <activity
             android:name=".Rproject"
             android:exported="true"
+            android:windowSoftInputMode="adjustResize"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
         <activity
@@ -80,9 +83,6 @@
         <activity
             android:name=".faq"
             android:exported="true" />
-        <activity android:name=".WelcomeActivity"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
         <activity android:name=".MainActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">

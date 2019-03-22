@@ -67,8 +67,7 @@ String radioText;
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
-                startActivity(new Intent(getBaseContext(),Register.class));
+                onBackPressed();
             }
         });
         submitt=(Button)findViewById(R.id.btn_prosub);
@@ -361,6 +360,12 @@ String radioText;
             });
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        super.onBackPressed();
     }
 }
 

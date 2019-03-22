@@ -96,7 +96,7 @@ public class Gallery extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), MainActivity.class));
+                startActivity(new Intent(getBaseContext(), MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
                 overridePendingTransition(R.anim.left_to_right, R.anim.stay);
             }
         });
@@ -117,14 +117,14 @@ public class Gallery extends AppCompatActivity {
         announcements.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), Announcement.class));
+                startActivity(new Intent(getBaseContext(), Announcement.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
                 overridePendingTransition(R.anim.right_to_left, R.anim.stay);
             }
         });
         registration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), Register.class));
+                startActivity(new Intent(getBaseContext(), Register.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
                 overridePendingTransition(R.anim.right_to_left, R.anim.stay);
             }
         });
@@ -137,7 +137,7 @@ public class Gallery extends AppCompatActivity {
         events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), Events.class));
+                startActivity(new Intent(getBaseContext(), Events.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
                 overridePendingTransition(R.anim.right_to_left, R.anim.stay);
 
             }
@@ -145,7 +145,7 @@ public class Gallery extends AppCompatActivity {
         projects.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), project.class));
+                startActivity(new Intent(getBaseContext(), project.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
                 overridePendingTransition(R.anim.right_to_left, R.anim.stay);
 
             }
@@ -153,14 +153,14 @@ public class Gallery extends AppCompatActivity {
         resources.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Resources.class));
+                startActivity(new Intent(getBaseContext(),Resources.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
                 overridePendingTransition(R.anim.right_to_left,R.anim.stay);
             }
         });
         contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), contactus.class));
+                startActivity(new Intent(getBaseContext(), contactus.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
                 overridePendingTransition(R.anim.right_to_left, R.anim.stay);
 
             }
@@ -168,14 +168,14 @@ public class Gallery extends AppCompatActivity {
         idea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), ideasub.class));
+                startActivity(new Intent(getBaseContext(), ideasub.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
                 overridePendingTransition(R.anim.right_to_left, R.anim.stay);
             }
         });
         faq1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), faq.class));
+                startActivity(new Intent(getBaseContext(), faq.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
                 overridePendingTransition(R.anim.right_to_left, R.anim.stay);
 
             }

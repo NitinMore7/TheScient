@@ -45,7 +45,7 @@ public class contactus extends AppCompatActivity {
             home.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(getBaseContext(),MainActivity.class));
+                    startActivity(new Intent(getBaseContext(),MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
                     overridePendingTransition(R.anim.left_to_right,R.anim.stay);
                 }
             });
