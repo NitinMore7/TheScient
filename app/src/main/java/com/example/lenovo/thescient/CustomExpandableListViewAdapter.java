@@ -17,10 +17,10 @@ public class CustomExpandableListViewAdapter extends BaseExpandableListAdapter {
     private List<String> listtitles;
     private List<List<String>> listChildIntents;
 
-    public CustomExpandableListViewAdapter(Context context, List<String> listtitles,List<List<String>> listChildIntents) {
+    public CustomExpandableListViewAdapter(Context context, List<String> listtitles, List<List<String>> listChildIntents) {
         this.context = context;
         this.listtitles = listtitles;
-        this.listChildIntents=listChildIntents;
+        this.listChildIntents = listChildIntents;
 
 
     }
@@ -28,31 +28,34 @@ public class CustomExpandableListViewAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getChildView(final int i, final int i1, boolean b, View view, ViewGroup viewGroup) {
-        final List<String> intentstring = (List<String>) getChild(i,i1);
-        if (view == null){
+        final List<String> intentstring = (List<String>) getChild(i, i1);
+        if (view == null) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.list_item_contents,null);
+            view = inflater.inflate(R.layout.list_item_contents, null);
 
         }
 
-        TextView intentText=view.findViewById(R.id.intent_list_text);
-        TextView intmid=view.findViewById(R.id.txtmid);
-        Button button=view.findViewById(R.id.button);
+        TextView intentText = view.findViewById(R.id.intent_list_text);
+        TextView intmid = view.findViewById(R.id.txtmid);
+        Button button = view.findViewById(R.id.button);
         intmid.setText(intentstring.get(1));
         intentText.setText(intentstring.get(0));
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(i==0)
-                { Intent j=new Intent(context,Rproject.class);
-                context.startActivity(j);}
-                if(i==1)
-                { Intent j=new Intent(context,Accessreq.class);
-                    context.startActivity(j);}
-                if(i==2)
-                { Intent j=new Intent(context,confrence.class);
-                    context.startActivity(j);}
+                if (i == 0) {
+                    Intent j = new Intent(context, Rproject.class);
+                    context.startActivity(j);
+                }
+                if (i == 1) {
+                    Intent j = new Intent(context, Accessreq.class);
+                    context.startActivity(j);
+                }
+                if (i == 2) {
+                    Intent j = new Intent(context, confrence.class);
+                    context.startActivity(j);
+                }
 
             }
         });
@@ -62,12 +65,12 @@ public class CustomExpandableListViewAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int i, boolean b, View view, ViewGroup viewGroup) {
-        String title=(String)getGroup(i);
-        if (view == null){
+        String title = (String) getGroup(i);
+        if (view == null) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.expandable_list_item,null);
+            view = inflater.inflate(R.layout.expandable_list_item, null);
         }
-        TextView listTitleView=view.findViewById(R.id.list_text);
+        TextView listTitleView = view.findViewById(R.id.list_text);
         listTitleView.setText(title);
         return view;
     }

@@ -34,32 +34,33 @@ public class Gallery extends AppCompatActivity {
     ArrayList<mga> mgaArrayList;
     BottomSheetBehavior bottomSheetBehavior;
     ProgressDialog progressDialog;
-    String[] a=new String[10];
-    String[] b =new String[10];
-    String tag=" ";
+    String[] a = new String[10];
+    String[] b = new String[10];
+    String tag = " ";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(!NetworkAvailability.isNetworkAvailable(getBaseContext())){
+        if (!NetworkAvailability.isNetworkAvailable(getBaseContext())) {
             setContentView(R.layout.nointernet);
             FloatingActionButton refresh = findViewById(R.id.Refresh);
             refresh.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     finish();
-                    startActivity(new Intent(getBaseContext(),Gallery.class));
+                    startActivity(new Intent(getBaseContext(), Gallery.class));
                 }
             });
-        }else {
+        } else {
             setContentView(R.layout.activity_gallery);
-            progressDialog=new ProgressDialog(this);
+            progressDialog = new ProgressDialog(this);
             progressDialog.setCanceledOnTouchOutside(false);
             progressDialog.setMessage("Fetching Images...");
             progressDialog.show();
-            String Url1="https://scient.nitt.edu/gallery-images";
-            gridView=findViewById(R.id.rv);
-            mgaArrayList=new ArrayList<>();
-            JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, Url1, null, new Response.Listener<JSONObject>() {
+            String Url1 = "https://scient.nitt.edu/gallery-images";
+            gridView = findViewById(R.id.rv);
+            mgaArrayList = new ArrayList<>();
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, Url1, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
                     try {
@@ -77,17 +78,18 @@ public class Gallery extends AppCompatActivity {
                     finish();
                     progressDialog.cancel();
                 }
-            }); RequestQueue rQueue = Volley.newRequestQueue(Gallery.this);
+            });
+            RequestQueue rQueue = Volley.newRequestQueue(Gallery.this);
             rQueue.add(request);
 
             gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Intent intent = new Intent(getBaseContext(),imageshow.class);
-                    intent.putExtra("imagelink",a[position]);
-                    intent.putExtra("imagename",b[position]);
+                    Intent intent = new Intent(getBaseContext(), imageshow.class);
+                    intent.putExtra("imagelink", a[position]);
+                    intent.putExtra("imagename", b[position]);
                     startActivity(intent);
-                    overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                    overridePendingTransition(R.anim.right_to_left, R.anim.stay);
                 }
             });
 
@@ -153,8 +155,8 @@ public class Gallery extends AppCompatActivity {
         resources.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Resources.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), Resources.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
             }
         });
         contact.setOnClickListener(new View.OnClickListener() {
@@ -192,7 +194,7 @@ public class Gallery extends AppCompatActivity {
             @Override
             public void onSlide(@NonNull View view, float v) {
                 arrow.setRotation(v * 180);
-                if(NetworkAvailability.isNetworkAvailable(getBaseContext())){
+                if (NetworkAvailability.isNetworkAvailable(getBaseContext())) {
                     final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.activity_gallery);
                     linearLayout.setAlpha(1 - v);
                 }
@@ -201,35 +203,36 @@ public class Gallery extends AppCompatActivity {
         Made_By.setTypeface(karla_regular);
 
 
-
-
     }
 
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
+
     void parseJsonData(JSONArray jsonarray) {
         try {
             for (int i = 0; i < jsonarray.length(); i++) {
-                {  String a1=(String)jsonarray.get(i);
-                    if(a1.lastIndexOf(".")>0)
-                    b[i]=a1.substring(0,a1.lastIndexOf("."));
+                {
+                    String a1 = (String) jsonarray.get(i);
+                    if (a1.lastIndexOf(".") > 0)
+                        b[i] = a1.substring(0, a1.lastIndexOf("."));
 
 
-                    a[i]= "https://scient.nitt.edu/images/gallery/"+(String) jsonarray.get(i);
+                    a[i] = "https://scient.nitt.edu/images/gallery/" + (String) jsonarray.get(i);
 
-                    mgaArrayList.add(new mga(a[i],b[i]));
-                   // Toast.makeText(getApplicationContext(),""+a[i],Toast.LENGTH_SHORT).show();
+                    mgaArrayList.add(new mga(a[i], b[i]));
+                    // Toast.makeText(getApplicationContext(),""+a[i],Toast.LENGTH_SHORT).show();
                 }
-                Galleryadapter galleryadapter=new Galleryadapter(this,mgaArrayList);
+                Galleryadapter galleryadapter = new Galleryadapter(this, mgaArrayList);
                 gridView.setAdapter(galleryadapter);
             }
 
-            } catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @Override
     protected void onStop() {
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);

@@ -6,36 +6,40 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_splash"
     tools:context=".SplashActivity">
+
     <ImageView
         android:id="@+id/scientLogo"
-        android:src="@drawable/scientfull"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="200dp"
-        android:layout_width="250dp"
-        android:layout_height="250dp"/>
+        android:src="@drawable/scientfull" />
+
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_below="@+id/scientLogo">
+        android:layout_below="@+id/scientLogo"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
         <ImageView
-            android:visibility="invisible"
             android:id="@+id/spiderLogo"
-            android:layout_gravity="start"
-            android:src="@drawable/spiderfull"
             android:layout_width="95dp"
             android:layout_height="match_parent"
-            android:layout_below="@+id/scientLogo"/>
-        <ImageView
-            android:visibility="invisible"
-            android:id="@+id/spiderText"
+            android:layout_below="@+id/scientLogo"
             android:layout_gravity="start"
-            android:src="@drawable/textfullspider"
+            android:src="@drawable/spiderfull"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/spiderText"
             android:layout_width="75dp"
             android:layout_height="match_parent"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/scientLogo"
-            android:layout_toRightOf="@+id/spiderLogo"/>
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="start"
+            android:layout_toRightOf="@+id/spiderLogo"
+            android:src="@drawable/textfullspider"
+            android:visibility="invisible" />
     </LinearLayout>
 </RelativeLayout>

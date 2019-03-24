@@ -3,32 +3,35 @@
     android:id="@+id/pager"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <ImageView
         android:id="@+id/image_pager"
-        android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        android:scaleType="centerCrop" />
+
     <RelativeLayout
         android:id="@+id/relative_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/text_pager"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="@android:color/white"/>
-    <TextView
-        android:id="@+id/text_pager_caption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/text_pager"
-        android:textColor="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/text_pager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_pager_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_pager"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
     </RelativeLayout>
 </RelativeLayout>

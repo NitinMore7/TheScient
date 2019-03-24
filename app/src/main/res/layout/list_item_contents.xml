@@ -1,50 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_height="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:orientation="vertical"
-    android:background="#696969">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/intent_list_text"
-        android:layout_width="wrap_content"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#ffffff"
-        android:layout_gravity="center_vertical"
-        android:textSize="25dp"
-        android:paddingTop="5dp"
-        android:paddingLeft="8dp"
-        />
+        android:layout_margin="8dp"
+        android:background="#696969"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtmid"
-        android:textColor="#ffffff"
-        android:layout_gravity="center_vertical"
-        android:textSize="20dp"
-        android:paddingTop="5dp"
-        android:paddingLeft="15dp"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Click here on the link to register"
-        android:textColor="#ffffff"
-        android:layout_gravity="center_vertical"
-        android:textSize="18dp"
-        android:paddingLeft="8dp"
-  />
+        <TextView
+            android:id="@+id/intent_list_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="8dp"
+            android:paddingTop="5dp"
+            android:textColor="#ffffff"
+            android:textSize="25dp" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Register" />
-</LinearLayout>
+        <TextView
+            android:id="@+id/txtmid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingTop="5dp"
+            android:textColor="#ffffff"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="8dp"
+            android:text="Click here on the link to register"
+            android:textColor="#ffffff"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Register" />
+    </LinearLayout>
 </LinearLayout>

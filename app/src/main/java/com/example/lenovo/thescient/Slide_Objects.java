@@ -5,7 +5,7 @@ public class Slide_Objects {
     String mTitle;
     String mCaption;
 
-    public Slide_Objects(int ImageId, String Title, String Caption){
+    public Slide_Objects(int ImageId, String Title, String Caption) {
         mImageId = ImageId;
         mCaption = Caption;
         mTitle = Title;

@@ -36,20 +36,21 @@ public class Events extends AppCompatActivity {
     BottomSheetBehavior bottomSheetBehavior;
     ArrayList<Event_objects> arrayList;
     String url = "https://scient.nitt.edu/events";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(!NetworkAvailability.isNetworkAvailable(getBaseContext())){
+        if (!NetworkAvailability.isNetworkAvailable(getBaseContext())) {
             setContentView(R.layout.nointernet);
             FloatingActionButton refresh = findViewById(R.id.Refresh);
             refresh.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     finish();
-                    startActivity(new Intent(getBaseContext(),Events.class));
+                    startActivity(new Intent(getBaseContext(), Events.class));
                 }
             });
-        }else{
+        } else {
             setContentView(R.layout.activity_events);
             arrayList = new ArrayList<>();
             recyclerView = (RecyclerView) findViewById(R.id.recycler_event);
@@ -59,45 +60,45 @@ public class Events extends AppCompatActivity {
         }
         final LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);
         final ImageView arrow = (ImageView) bottom_sheet.findViewById(R.id.arrow);
-        Typeface karla_regular =  Typeface.createFromAsset(getAssets(),"fonts/Karla-Regular.ttf");
+        Typeface karla_regular = Typeface.createFromAsset(getAssets(), "fonts/Karla-Regular.ttf");
         ImageView home = (ImageView) findViewById(R.id.Home);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-                overridePendingTransition(R.anim.left_to_right,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+                overridePendingTransition(R.anim.left_to_right, R.anim.stay);
             }
         });
         LinearLayout bottom_sheet1 = (LinearLayout) findViewById(R.id.bottom_sheet);
         TextView Made_By = (TextView) findViewById(R.id.Made_by);
-        FrameLayout registration =  bottom_sheet1.findViewById(R.id.Regitration);
-        FrameLayout gallery =  bottom_sheet1.findViewById(R.id.gallery);
-        FrameLayout events =  bottom_sheet1.findViewById(R.id.events);
-        FrameLayout projects =  bottom_sheet1.findViewById(R.id.Project);
-        FrameLayout resources =  bottom_sheet1.findViewById(R.id.Resources);
+        FrameLayout registration = bottom_sheet1.findViewById(R.id.Regitration);
+        FrameLayout gallery = bottom_sheet1.findViewById(R.id.gallery);
+        FrameLayout events = bottom_sheet1.findViewById(R.id.events);
+        FrameLayout projects = bottom_sheet1.findViewById(R.id.Project);
+        FrameLayout resources = bottom_sheet1.findViewById(R.id.Resources);
         FrameLayout idea = bottom_sheet1.findViewById(R.id.Idea_sub);
         FrameLayout faq1 = bottom_sheet1.findViewById(R.id.faq);
-        final FrameLayout contact =  bottom_sheet1.findViewById(R.id.Contact);
+        final FrameLayout contact = bottom_sheet1.findViewById(R.id.Contact);
         FrameLayout announcements = bottom_sheet1.findViewById(R.id.Announcements);
         announcements.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Announcement.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), Announcement.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
             }
         });
         registration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Register.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), Register.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
             }
         });
         gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Gallery.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), Gallery.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
 
             }
         });
@@ -111,38 +112,38 @@ public class Events extends AppCompatActivity {
         projects.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),project.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), project.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
 
             }
         });
         resources.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Resources.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), Resources.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
             }
         });
         contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),contactus.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), contactus.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
 
             }
         });
         idea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),ideasub.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), ideasub.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
             }
         });
         faq1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),faq.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), faq.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
 
             }
         });
@@ -159,35 +160,36 @@ public class Events extends AppCompatActivity {
             @Override
             public void onSlide(@NonNull View view, float v) {
                 arrow.setRotation(v * 180);
-                if(NetworkAvailability.isNetworkAvailable(getBaseContext())){
+                if (NetworkAvailability.isNetworkAvailable(getBaseContext())) {
                     final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.activity_events);
                     linearLayout.setAlpha(1 - v);
                 }
             }
         });
     }
-    public void jsonParse(){
+
+    public void jsonParse() {
         final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                            try {
-                                JSONArray jsonArray = response.getJSONArray("events");
-                                for(int i = 0; i < jsonArray.length(); i++){
-                                    JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                    String details = jsonObject.getString("EventsDetails");
-                                    Log.d("lENGTH",details+"");
-                                    String date = jsonObject.getString("startDate") + " - " + jsonObject.getString("endDate");
-                                    String time = jsonObject.getString("startTime") + " - " + jsonObject.getString("endTime");
-                                    eventAdapter = new EventAdapter(getBaseContext(),arrayList);
-                                    recyclerView.setAdapter(eventAdapter);
-                                    arrayList.add(new Event_objects(details,date,time));
-                                }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
+                        try {
+                            JSONArray jsonArray = response.getJSONArray("events");
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                String details = jsonObject.getString("EventsDetails");
+                                Log.d("lENGTH", details + "");
+                                String date = jsonObject.getString("startDate") + " - " + jsonObject.getString("endDate");
+                                String time = jsonObject.getString("startTime") + " - " + jsonObject.getString("endTime");
+                                eventAdapter = new EventAdapter(getBaseContext(), arrayList);
+                                recyclerView.setAdapter(eventAdapter);
+                                arrayList.add(new Event_objects(details, date, time));
                             }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
-                    }, new Response.ErrorListener() {
+                }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
 
@@ -195,6 +197,7 @@ public class Events extends AppCompatActivity {
         });
         requestQueue.add(jsonObjectRequest);
     }
+
     @Override
     protected void onStop() {
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);

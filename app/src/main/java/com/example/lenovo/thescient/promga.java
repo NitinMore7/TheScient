@@ -8,7 +8,7 @@ public class promga {
     private String createdAt;
     private String updatedAt;
 
-    public promga( String projectImage, String projectTitle, String projectDesc) {
+    public promga(String projectImage, String projectTitle, String projectDesc) {
 
         this.projectDesc = projectDesc;
         this.projectImage = projectImage;

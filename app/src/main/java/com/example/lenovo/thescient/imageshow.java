@@ -13,12 +13,12 @@ public class imageshow extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_imageshow);
-        ImageView galleryImage=findViewById(R.id.gallery_image);
-        TextView imageText=findViewById(R.id.image_name);
-        Bundle bundle=getIntent().getExtras();
-        String imglink=bundle.getString("imagelink");
-        String imgname=bundle.getString("imagename");
-        Picasso.get().load(imglink).resize(450,300).into(galleryImage);
+        ImageView galleryImage = findViewById(R.id.gallery_image);
+        TextView imageText = findViewById(R.id.image_name);
+        Bundle bundle = getIntent().getExtras();
+        String imglink = bundle.getString("imagelink");
+        String imgname = bundle.getString("imagename");
+        Picasso.get().load(imglink).resize(450, 300).into(galleryImage);
         imageText.setText(imgname);
 
     }

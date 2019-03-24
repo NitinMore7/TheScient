@@ -14,6 +14,7 @@ public class SplashActivity extends AppCompatActivity {
     ImageView scientLogo;
     ImageView spiderLogo;
     ImageView spiderText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +22,7 @@ public class SplashActivity extends AppCompatActivity {
         scientLogo = (ImageView) findViewById(R.id.scientLogo);
         spiderLogo = (ImageView) findViewById(R.id.spiderLogo);
         spiderText = (ImageView) findViewById(R.id.spiderText);
-        final Animation upToDown = AnimationUtils.loadAnimation(this,R.anim.up_to_down);
+        final Animation upToDown = AnimationUtils.loadAnimation(this, R.anim.up_to_down);
         final Animation downToUp = AnimationUtils.loadAnimation(this, R.anim.down_to_up);
         downToUp.setInterpolator(new DecelerateInterpolator(5));
         downToUp.setDuration(2000);
@@ -31,9 +32,9 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(getBaseContext(),MainActivity.class));
+                startActivity(new Intent(getBaseContext(), MainActivity.class));
             }
-        },3000);
+        }, 3000);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -42,6 +43,6 @@ public class SplashActivity extends AppCompatActivity {
                 spiderLogo.startAnimation(downToUp);
                 spiderText.startAnimation(downToUp);
             }
-        },1000);
+        }, 1000);
     }
 }

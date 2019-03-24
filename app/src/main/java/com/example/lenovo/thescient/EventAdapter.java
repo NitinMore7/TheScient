@@ -13,15 +13,17 @@ import java.util.ArrayList;
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder> {
     Context mcontext;
     ArrayList<Event_objects> marrayList;
-    public EventAdapter(Context context, ArrayList<Event_objects> arrayList){
+
+    public EventAdapter(Context context, ArrayList<Event_objects> arrayList) {
         mcontext = context;
         marrayList = arrayList;
     }
+
     @NonNull
     @Override
     public EventViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater layoutInflater = LayoutInflater.from(mcontext);
-        View view = layoutInflater.inflate(R.layout.event_card,viewGroup,false);
+        View view = layoutInflater.inflate(R.layout.event_card, viewGroup, false);
         return new EventViewHolder(view);
     }
 
@@ -40,6 +42,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
 
     public class EventViewHolder extends RecyclerView.ViewHolder {
         TextView details, date, time;
+
         public EventViewHolder(@NonNull View itemView) {
             super(itemView);
             details = (TextView) itemView.findViewById(R.id.details);

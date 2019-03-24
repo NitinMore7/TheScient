@@ -38,32 +38,33 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class confrence extends AppCompatActivity {
-    EditText name,roll,dept,cno,email,atten,purpose,date,start,end;
+    EditText name, roll, dept, cno, email, atten, purpose, date, start, end;
     Button submit;
-    Integer REQUEST_WRITE_EXTERNAL_STORAGE=45;
-    Integer REQUEST_WRITE_EXTERNAL_STORAGE1=95;
+    Integer REQUEST_WRITE_EXTERNAL_STORAGE = 45;
+    Integer REQUEST_WRITE_EXTERNAL_STORAGE1 = 95;
     CheckBox chk;
-    TextView rulebook,terms;
-    final Calendar calendar=Calendar.getInstance();
-    Time time,t;
+    TextView rulebook, terms;
+    final Calendar calendar = Calendar.getInstance();
+    Time time, t;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confrence);
-        name=(EditText)findViewById(R.id.edt_hbname);
-        chk=(CheckBox)findViewById(R.id.chkac1);
-        rulebook=(TextView)findViewById(R.id.txt_rule1);
-        terms=(TextView)findViewById(R.id.txt_tc1);
-        roll=(EditText)findViewById(R.id.edt_hbrollno);
-        dept=(EditText)findViewById(R.id.edt_hbdept);
-        cno=(EditText)findViewById(R.id.edt_hbCno);
-        email=(EditText)findViewById(R.id.edt_hbemail);
-        atten=(EditText)findViewById(R.id.edt_hbnatte);
-        purpose=(EditText)findViewById(R.id.edt_hbpurpose);
-        date=(EditText)findViewById(R.id.edt_hbdate);
-        start=(EditText)findViewById(R.id.edt_hbstart);
-        end=(EditText)findViewById(R.id.edt_hbend);
-        submit=(Button)findViewById(R.id.btn_hbsubmit);
+        name = (EditText) findViewById(R.id.edt_hbname);
+        chk = (CheckBox) findViewById(R.id.chkac1);
+        rulebook = (TextView) findViewById(R.id.txt_rule1);
+        terms = (TextView) findViewById(R.id.txt_tc1);
+        roll = (EditText) findViewById(R.id.edt_hbrollno);
+        dept = (EditText) findViewById(R.id.edt_hbdept);
+        cno = (EditText) findViewById(R.id.edt_hbCno);
+        email = (EditText) findViewById(R.id.edt_hbemail);
+        atten = (EditText) findViewById(R.id.edt_hbnatte);
+        purpose = (EditText) findViewById(R.id.edt_hbpurpose);
+        date = (EditText) findViewById(R.id.edt_hbdate);
+        start = (EditText) findViewById(R.id.edt_hbstart);
+        end = (EditText) findViewById(R.id.edt_hbend);
+        submit = (Button) findViewById(R.id.btn_hbsubmit);
         ImageView home = (ImageView) findViewById(R.id.Home);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,19 +75,19 @@ public class confrence extends AppCompatActivity {
         rulebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                askForPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,REQUEST_WRITE_EXTERNAL_STORAGE);
+                askForPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, REQUEST_WRITE_EXTERNAL_STORAGE);
 
             }
         });
         terms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                askForPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,REQUEST_WRITE_EXTERNAL_STORAGE1);
+                askForPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, REQUEST_WRITE_EXTERNAL_STORAGE1);
 
 
             }
         });
-        final DatePickerDialog.OnDateSetListener datea=new DatePickerDialog.OnDateSetListener() {
+        final DatePickerDialog.OnDateSetListener datea = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 calendar.set(Calendar.YEAR, year);
@@ -105,32 +106,32 @@ public class confrence extends AppCompatActivity {
             }
         });
 
-final TimePickerDialog.OnTimeSetListener timeSetListener=new TimePickerDialog.OnTimeSetListener() {
-    @Override
-    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-        calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
-        calendar.set(Calendar.MINUTE,minute);
-        timer();
-    }
-};
-        final TimePickerDialog.OnTimeSetListener timeSetListener1=new TimePickerDialog.OnTimeSetListener() {
+        final TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
-                calendar.set(Calendar.MINUTE,minute);
+                calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                calendar.set(Calendar.MINUTE, minute);
+                timer();
+            }
+        };
+        final TimePickerDialog.OnTimeSetListener timeSetListener1 = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                calendar.set(Calendar.MINUTE, minute);
                 timer1();
             }
         };
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-         new TimePickerDialog(confrence.this,timeSetListener,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),true).show();
+                new TimePickerDialog(confrence.this, timeSetListener, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true).show();
             }
         });
         end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-   new TimePickerDialog(confrence.this,timeSetListener1,calendar.get(Calendar.HOUR_OF_DAY),calendar.get(Calendar.MINUTE),true).show();
+                new TimePickerDialog(confrence.this, timeSetListener1, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true).show();
             }
         });
 
@@ -138,93 +139,94 @@ final TimePickerDialog.OnTimeSetListener timeSetListener=new TimePickerDialog.On
             @Override
             public void onClick(View v) {
 
-                Date d = null,starta=null,enda = null;
-                String Starttime=null,endtime=null;
-                String namea=name.getText().toString();
-                String rolla=roll.getText().toString();
-                String depta=dept.getText().toString();
-                String cnoa=cno.getText().toString();
-                String emaila=email.getText().toString();
-                Integer attenda=null;
-                if(atten.getText().toString().isEmpty())
+                Date d = null, starta = null, enda = null;
+                String Starttime = null, endtime = null;
+                String namea = name.getText().toString();
+                String rolla = roll.getText().toString();
+                String depta = dept.getText().toString();
+                String cnoa = cno.getText().toString();
+                String emaila = email.getText().toString();
+                Integer attenda = null;
+                if (atten.getText().toString().isEmpty())
                     atten.setError("Can't be empty");
                 else
-                    attenda= Integer.valueOf(atten.getText().toString());
-                String pur=purpose.getText().toString();
-                SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+                    attenda = Integer.valueOf(atten.getText().toString());
+                String pur = purpose.getText().toString();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 try {
-                     d=sdf.parse( date.getText().toString());
+                    d = sdf.parse(date.getText().toString());
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                SimpleDateFormat sdf1=new SimpleDateFormat("HH:mm");
+                SimpleDateFormat sdf1 = new SimpleDateFormat("HH:mm");
                 try {
-                     starta=sdf1.parse(start.getText().toString());
-                     time=new Time();
-                     time.set(starta.getTime());
-                     Starttime=time.hour+":"+time.minute;
+                    starta = sdf1.parse(start.getText().toString());
+                    time = new Time();
+                    time.set(starta.getTime());
+                    Starttime = time.hour + ":" + time.minute;
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
                 try {
-                    enda=sdf1.parse(end.getText().toString());
-                    t=new Time();
+                    enda = sdf1.parse(end.getText().toString());
+                    t = new Time();
                     t.set(enda.getTime());
-                    endtime=t.hour+":"+t.minute;
+                    endtime = t.hour + ":" + t.minute;
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
 
-                if(namea.isEmpty()||rolla.isEmpty()||depta.isEmpty()||cnoa.isEmpty()||emaila.isEmpty()|| attenda.toString().isEmpty()||pur.isEmpty()||date.getText().toString().isEmpty()||start.getText().toString().isEmpty()||end.getText().toString().isEmpty())
-                    Toast.makeText(getApplicationContext(),"All fields must be filled",Toast.LENGTH_SHORT).show();
-                else if (!chk.isChecked())
-                {
+                if (namea.isEmpty() || rolla.isEmpty() || depta.isEmpty() || cnoa.isEmpty() || emaila.isEmpty() || attenda.toString().isEmpty() || pur.isEmpty() || date.getText().toString().isEmpty() || start.getText().toString().isEmpty() || end.getText().toString().isEmpty())
+                    Toast.makeText(getApplicationContext(), "All fields must be filled", Toast.LENGTH_SHORT).show();
+                else if (!chk.isChecked()) {
                     chk.setError("Please check the rulebook");
-                }
-                else
-                {
-                    Log.e("tag",t.hour+"");
-                    Call<ResponseBody> call=Rettrofitclient
+                } else {
+                    Log.e("tag", t.hour + "");
+                    Call<ResponseBody> call = Rettrofitclient
                             .getInstance()
                             .getApi()
-                            .hall(namea,rolla,depta,cnoa,emaila,attenda,pur,d,Starttime,endtime,"","","No","No");
+                            .hall(namea, rolla, depta, cnoa, emaila, attenda, pur, d, Starttime, endtime, "", "", "No", "No");
 
                     call.enqueue(new Callback<ResponseBody>() {
                         @Override
                         public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                             try {
-                                if(response.code()==200)
-                                {
-                                    Toast.makeText(getApplicationContext()," Request Successful ",Toast.LENGTH_LONG).show();}
-                                else
-                                {Toast.makeText(getApplicationContext()," Request Failed ",Toast.LENGTH_LONG).show();
-                                    Log.e("TAG",""+response);}
-                            }catch (Exception e){}
+                                if (response.code() == 200) {
+                                    Toast.makeText(getApplicationContext(), " Request Successful ", Toast.LENGTH_LONG).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), " Request Failed ", Toast.LENGTH_LONG).show();
+                                    Log.e("TAG", "" + response);
+                                }
+                            } catch (Exception e) {
+                            }
                         }
 
                         @Override
                         public void onFailure(Call<ResponseBody> call, Throwable t) {
-                            Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
-                            Log.e("TAG",t.toString() );
+                            Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+                            Log.e("TAG", t.toString());
                         }
                     });
                 }
             }
         });
     }
+
     private void updateLabel() {
         String myFormat = "yyyy-MM-dd"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         date.setText(sdf.format(calendar.getTime()));
     }
-    private void timer(){
-        String format="HH:mm";
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("HH:mm");
+
+    private void timer() {
+        String format = "HH:mm";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
         start.setText(simpleDateFormat.format(calendar.getTime()));
     }
-    private void timer1(){
-        String format="HH:mm";
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("HH:mm");
+
+    private void timer1() {
+        String format = "HH:mm";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
         end.setText(simpleDateFormat.format(calendar.getTime()));
     }
 
@@ -243,24 +245,20 @@ final TimePickerDialog.OnTimeSetListener timeSetListener=new TimePickerDialog.On
                 ActivityCompat.requestPermissions(confrence.this, new String[]{permission}, requestCode);
 
             }
-        }
-
-        else {
-            if(requestCode==REQUEST_WRITE_EXTERNAL_STORAGE )
-            {
+        } else {
+            if (requestCode == REQUEST_WRITE_EXTERNAL_STORAGE) {
                 new Handler(getApplicationContext().getMainLooper()).post(new Runnable() {
                     @Override
                     public void run() {
-                        new download(confrence.this,"https://scient.nitt.edu/terms/Rulebook.pdf");
+                        new download(confrence.this, "https://scient.nitt.edu/terms/Rulebook.pdf");
                     }
                 });
             }
-            if(requestCode==REQUEST_WRITE_EXTERNAL_STORAGE1 )
-            {
+            if (requestCode == REQUEST_WRITE_EXTERNAL_STORAGE1) {
                 new Handler(getApplicationContext().getMainLooper()).post(new Runnable() {
                     @Override
                     public void run() {
-                        new download(confrence.this,"https://scient.nitt.edu/terms/T&C.pdf");
+                        new download(confrence.this, "https://scient.nitt.edu/terms/T&C.pdf");
                     }
                 });
             }
@@ -271,26 +269,25 @@ final TimePickerDialog.OnTimeSetListener timeSetListener=new TimePickerDialog.On
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(requestCode==REQUEST_WRITE_EXTERNAL_STORAGE && grantResults[0]==PackageManager.PERMISSION_GRANTED)
-        {
+        if (requestCode == REQUEST_WRITE_EXTERNAL_STORAGE && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             new Handler(getApplicationContext().getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
-                    new download(confrence.this,"https://scient.nitt.edu/terms/Rulebook.pdf");
+                    new download(confrence.this, "https://scient.nitt.edu/terms/Rulebook.pdf");
                 }
             });
         }
-        if(requestCode==REQUEST_WRITE_EXTERNAL_STORAGE1 && grantResults[0]==PackageManager.PERMISSION_GRANTED)
-        {
+        if (requestCode == REQUEST_WRITE_EXTERNAL_STORAGE1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             new Handler(getApplicationContext().getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
-                    new download(confrence.this,"https://scient.nitt.edu/terms/T&C.pdf");
+                    new download(confrence.this, "https://scient.nitt.edu/terms/T&C.pdf");
                 }
             });
         }
 
     }
+
     @Override
     public void onBackPressed() {
         finish();

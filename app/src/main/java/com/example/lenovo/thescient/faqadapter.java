@@ -16,13 +16,14 @@ public class faqadapter extends BaseExpandableListAdapter {
     private List<String> listtitles;
     private List<String> listChildIntents;
 
-    public faqadapter(Context context, List<String> listtitles,List<String> listChildIntents) {
+    public faqadapter(Context context, List<String> listtitles, List<String> listChildIntents) {
         this.context = context;
         this.listtitles = listtitles;
-        this.listChildIntents=listChildIntents;
+        this.listChildIntents = listChildIntents;
 
 
     }
+
     @Override
     public int getGroupCount() {
         return this.listtitles.size();
@@ -66,12 +67,12 @@ public class faqadapter extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View view, ViewGroup parent) {
-        String title=(String)getGroup(groupPosition);
-        if (view == null){
+        String title = (String) getGroup(groupPosition);
+        if (view == null) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.expandablefaq,null);
+            view = inflater.inflate(R.layout.expandablefaq, null);
         }
-        TextView listTitleView=view.findViewById(R.id.list_ftext);
+        TextView listTitleView = view.findViewById(R.id.list_ftext);
 
         listTitleView.setText(title);
 
@@ -80,14 +81,14 @@ public class faqadapter extends BaseExpandableListAdapter {
 
     @Override
     public View getChildView(int i, int i1, boolean isLastChild, View view, ViewGroup parent) {
-         String intentstring = (String) getChild(i,i1);
-        if (view == null){
+        String intentstring = (String) getChild(i, i1);
+        if (view == null) {
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.faq_ac,null);
+            view = inflater.inflate(R.layout.faq_ac, null);
 
         }
 
-        TextView intentText=view.findViewById(R.id.intent_faq_text);
+        TextView intentText = view.findViewById(R.id.intent_faq_text);
         intentText.setTextSize(18);
         intentText.setText(intentstring);
 

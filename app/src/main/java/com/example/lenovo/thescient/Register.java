@@ -25,7 +25,7 @@ public class Register extends AppCompatActivity {
     private List<List<String>> intenttexts;
     private List<String> listtitles;
     private List<String> it;
-    private int lastExpandedPos=-1;
+    private int lastExpandedPos = -1;
     BottomSheetBehavior bottomSheetBehavior;
 
     ImageView bulb_transition;
@@ -33,17 +33,17 @@ public class Register extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(!NetworkAvailability.isNetworkAvailable(getBaseContext())){
+        if (!NetworkAvailability.isNetworkAvailable(getBaseContext())) {
             setContentView(R.layout.nointernet);
             FloatingActionButton refresh = findViewById(R.id.Refresh);
             refresh.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     finish();
-                    startActivity(new Intent(getBaseContext(),Register.class));
+                    startActivity(new Intent(getBaseContext(), Register.class));
                 }
             });
-        }else {
+        } else {
             setContentView(R.layout.activity_register);
             expandableListView = findViewById(R.id.expandableListView);
             listtitles = getExpandableListTitles();
@@ -122,8 +122,8 @@ public class Register extends AppCompatActivity {
         resources.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Resources.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), Resources.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
             }
         });
         contact.setOnClickListener(new View.OnClickListener() {
@@ -170,29 +170,30 @@ public class Register extends AppCompatActivity {
         });
     }
 
-    private List<String> getExpandableListTitles(){
-        List<String> list=new ArrayList<>();
+    private List<String> getExpandableListTitles() {
+        List<String> list = new ArrayList<>();
         list.add("Project Registration");
         list.add("Access Requisition");
         list.add("Conference Hall");
         return list;
     }
-    private List<List<String>> getExpandableListitemIntentTexts(){
-        List<List<String>> list=new ArrayList<>();
 
-        List <String> l1=new ArrayList<>();
+    private List<List<String>> getExpandableListitemIntentTexts() {
+        List<List<String>> list = new ArrayList<>();
+
+        List<String> l1 = new ArrayList<>();
         l1.add("Register your project under SCIEnT to be eligible for the following provisions:");
         l1.add("o Funding for all parts, components and services associated with your project.\n" +
                 "o 24/7 access to all tools and resources available in SCIEnT\n" +
                 "o Reviews and guidance on progress\n");
         list.add(l1);
 
-        List <String> l2=new ArrayList<>();
+        List<String> l2 = new ArrayList<>();
         l2.add("Register for access to SCIEnT with the following provisions:");
         l2.add("o 24/7 access to all tools and resources available in SCIEnT");
         list.add(l2);
 
-        List<String> l3=new ArrayList<>();
+        List<String> l3 = new ArrayList<>();
         l3.add("Book conference hall");
         l3.add("");
 
@@ -200,11 +201,13 @@ public class Register extends AppCompatActivity {
 
         return list;
     }
+
     @Override
-    protected void onStop(){
+    protected void onStop() {
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
         super.onStop();
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();

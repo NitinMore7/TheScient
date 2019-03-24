@@ -4,434 +4,480 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Rproject"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".Rproject">
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/bg"/>
+        android:src="@drawable/bg" />
+
     <LinearLayout
         android:id="@+id/activity_rproject"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/scient_color"
-        android:contentInsetStart="0dp"
-        android:contentInsetLeft="0dp"
-        android:contentInsetEnd="0dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        android:contentInsetRight="0dp"
-        app:contentInsetEnd="0dp"
-        app:contentInsetLeft="0dp"
-        app:contentInsetRight="0dp"
-        app:contentInsetStart="0dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/Home"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:layout_gravity="center"
-                android:padding="8dp"
-                android:src="@drawable/backicon"
-                android:background="@color/scient_color"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@android:color/black"
-                android:gravity="center_vertical"
-                android:padding="15dp"
-                android:background="@color/scient_color"
-                android:textSize="22dp"
-                android:fontFamily="@font/karlaregular"
-                android:text="Project Registration"/>
-        </LinearLayout>
-    </android.support.v7.widget.Toolbar>
-        <View android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:background="@drawable/toolbar_dropshadow"/>
-    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipToPadding="false"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        >
-        <LinearLayout
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/scient_color"
+            android:contentInsetStart="0dp"
+            android:contentInsetLeft="0dp"
+            android:contentInsetEnd="0dp"
+            android:contentInsetRight="0dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:contentInsetEnd="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetStart="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/Home"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    android:background="@color/scient_color"
+                    android:padding="8dp"
+                    android:src="@drawable/backicon" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/scient_color"
+                    android:fontFamily="@font/karlaregular"
+                    android:gravity="center_vertical"
+                    android:padding="15dp"
+                    android:text="Project Registration"
+                    android:textColor="@android:color/black"
+                    android:textSize="22dp" />
+            </LinearLayout>
+        </android.support.v7.widget.Toolbar>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/toolbar_dropshadow" />
+
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:paddingBottom="125px"
-            >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:text="Name"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:id="@+id/txt_namer"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:textColor="@android:color/black"
-                android:layout_height="wrap_content"
-                android:id="@+id/edt_namer"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:hint="Name"
-                android:paddingTop="10dp"
-                android:textSize="15sp" />
-
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Roll No"
-                android:paddingRight="5dp"
-                android:textColor="@android:color/black"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:id="@+id/txt_rollnor"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/edt_rollnor"
-                android:paddingTop="10dp"
-                android:textColor="@android:color/black"
-                android:paddingRight="5dp"
-                android:hint="Roll Number"
-                android:inputType="number"
-                android:paddingBottom="10dp"
-                android:textSize="15dp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Department"
-                android:id="@+id/txt_depr"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:textColor="@android:color/black"
-                android:paddingTop="10dp"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/edt_deptr"
-                android:paddingRight="5dp"
-                android:textColor="@android:color/black"
-                android:hint="Department"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="15dp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/txt_projecttitle"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:textColor="@android:color/black"
-                android:paddingTop="10dp"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="Project Title"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/edt_projecttitle"
-                android:paddingRight="5dp"
-                android:textColor="@android:color/black"
-                android:hint="Project Title"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="15sp" />
+            android:clipToPadding="false"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:id="@+id/add_member_layout">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:id="@+id/add_edit_text_layout"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/scient_color"
-                android:textColor="@android:color/black"
-                android:id="@+id/add_member_button"
-                android:layout_marginTop="20dp"
-                android:text="Add Member"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"/>
-            </LinearLayout>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Contact Number"
-                android:textColor="@android:color/black"
-                android:id="@+id/txt_Cnor"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/edt_Cnor"
-                android:textColor="@android:color/black"
-                android:hint="Contact"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:inputType="number"
-                android:paddingTop="10dp"
-                android:textSize="15dp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Email Address"
-                android:id="@+id/txt_emailr"
-                android:textColor="@android:color/black"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/edt_emailr"
-                android:textColor="@android:color/black"
-                android:hint="Email Id"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="15dp" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="125px">
+
                 <TextView
+                    android:id="@+id/txt_namer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Is your Project Open or closed ?"
-                    android:textColor="@android:color/black"
-                    android:paddingRight="5dp"
-                    android:paddingBottom="5dp"
                     android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Name"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edt_namer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Name"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+
+
+                <TextView
+                    android:id="@+id/txt_rollnor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Roll No"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edt_rollnor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Roll Number"
+                    android:inputType="number"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/txt_depr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Department"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edt_deptr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Department"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/txt_projecttitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Project Title"
+                    android:textColor="@android:color/black"
                     android:textSize="20sp"
-                    android:textStyle="bold"/>
-                <TextView
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edt_projecttitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="In an open project, other students can register to work on the project."
-                    android:textColor="@android:color/black"
-                    android:paddingRight="5dp"
-                    android:paddingBottom="10dp"
-                    android:textSize="15sp"
-                    android:textStyle="bold"/>
-                <RadioGroup
-                    android:layout_width="match_parent"
-                    android:id="@+id/radioGroup"
-                    android:layout_height="wrap_content"
-                    android:paddingRight="5dp"
-                    android:paddingBottom="10dp"
+                    android:hint="Project Title"
                     android:paddingTop="10dp"
-                    android:orientation="horizontal">
-                    <RadioButton
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+
+                <LinearLayout
+                    android:id="@+id/add_member_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/add_edit_text_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+
+                    <Button
+                        android:id="@+id/add_member_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/radioOpen"
-                        android:layout_weight="1"
-                        android:checked="true"
-                        android:text="Open"
-                        android:textSize="18sp"/>
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/radioClosed"
-                        android:layout_weight="1"
-                        android:text="Closed"
-                        android:textSize="18sp"/>
-                </RadioGroup>
-            </LinearLayout>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:text="Abstract"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:id="@+id/txt_abstract"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:hint="Write Abstract here"
-                android:id="@+id/edt_abstractr"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="15dp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:text="Budget"
-                android:id="@+id/txt_budget"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:id="@+id/edt_budgetr"
-                android:paddingRight="5dp"
-                android:inputType="number"
-                android:hint="Enter Required Budget"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="15dp" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="10dp"
-                android:id="@+id/add_material_parent">
+                        android:layout_marginTop="20dp"
+                        android:background="@color/scient_color"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:text="Add Member"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txt_Cnor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Contact Number"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edt_Cnor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Contact"
+                    android:inputType="number"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/txt_emailr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Email Address"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edt_emailr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email Id"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:id="@+id/add_material_child"/>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/scient_color"
-                    android:textColor="@android:color/black"
-                    android:id="@+id/add_material_button"
-                    android:layout_marginTop="20dp"
-                    android:text="Add Material"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical"
-                android:id="@+id/add_service_parent">
-                <LinearLayout
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:paddingRight="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="Is your Project Open or closed ?"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="5dp"
+                        android:paddingBottom="10dp"
+                        android:text="In an open project, other students can register to work on the project."
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/radioGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="10dp"
+                        android:paddingRight="5dp"
+                        android:paddingBottom="10dp">
+
+                        <RadioButton
+                            android:id="@+id/radioOpen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:checked="true"
+                            android:text="Open"
+                            android:textSize="18sp" />
+
+                        <RadioButton
+                            android:id="@+id/radioClosed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Closed"
+                            android:textSize="18sp" />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txt_abstract"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:id="@+id/add_service_child"/>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/scient_color"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Abstract"
                     android:textColor="@android:color/black"
-                    android:id="@+id/add_service_button"
-                    android:layout_marginTop="20dp"
-                    android:text="Add Service"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edt_abstractr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Write Abstract here"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/txt_budget"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Budget"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edt_budgetr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Required Budget"
+                    android:inputType="number"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <LinearLayout
+                    android:id="@+id/add_material_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/add_material_child"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+
+                    <Button
+                        android:id="@+id/add_material_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/scient_color"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:text="Add Material"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/add_service_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/add_service_child"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+
+                    <Button
+                        android:id="@+id/add_service_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/scient_color"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:text="Add Service"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txt_timeline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Timeline"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edt_timeliner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Timeline Of Project"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/chkac2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" I have accepted the" />
+
+                        <TextView
+                            android:id="@+id/txt_tc2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Terms and Conditions"
+                            android:textColor="#00FFFF" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" and I have read the" />
+
+                        <TextView
+                            android:id="@+id/txt_rule2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" Rulebook"
+                            android:textColor="#00FFFF" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_prosub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Register"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
             </LinearLayout>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:text="Timeline"
-                android:id="@+id/txt_timeline"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/edt_timeliner"
-                android:textColor="@android:color/black"
-                android:hint="Timeline Of Project"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="15dp" />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/chkac2"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" I have accepted the"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#00FFFF"
-                    android:text="Terms and Conditions"
-                    android:id="@+id/txt_tc2"/></LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="30dp"
-                android:layout_marginBottom="20dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" and I have read the"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" Rulebook"
-                    android:textColor="#00FFFF"
-                    android:id="@+id/txt_rule2"/></LinearLayout>
-
-        </LinearLayout>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_prosub"
-                android:textSize="20dp"
-                android:text="Register"
-                android:textStyle="bold"/>
-
-        </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+        </android.support.v4.widget.NestedScrollView>
     </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

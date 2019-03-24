@@ -4,19 +4,22 @@ public class Event_objects {
     String mdetails;
     String mdate;
     String mtime;
-    public Event_objects(String details, String date, String time){
+
+    public Event_objects(String details, String date, String time) {
         mdetails = details;
         mdate = date;
         mtime = time;
     }
 
-    public String getMdetails(){
+    public String getMdetails() {
         return mdetails;
     }
-    public String getMdate(){
+
+    public String getMdate() {
         return mdate;
     }
-    public String getMtime(){
+
+    public String getMtime() {
         return mtime;
     }
 }

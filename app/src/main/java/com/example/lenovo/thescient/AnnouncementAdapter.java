@@ -13,15 +13,17 @@ import java.util.ArrayList;
 public class AnnouncementAdapter extends RecyclerView.Adapter<AnnouncementAdapter.AnnouncementViewHolder> {
     Context mcontext;
     ArrayList<Announcement_objects> marrayList;
-    public AnnouncementAdapter(Context context, ArrayList<Announcement_objects> arrayList){
+
+    public AnnouncementAdapter(Context context, ArrayList<Announcement_objects> arrayList) {
         mcontext = context;
         marrayList = arrayList;
     }
+
     @NonNull
     @Override
     public AnnouncementViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater layoutInflater = LayoutInflater.from(mcontext);
-        View view = layoutInflater.inflate(R.layout.announcement_card,viewGroup,false);
+        View view = layoutInflater.inflate(R.layout.announcement_card, viewGroup, false);
         return new AnnouncementViewHolder(view);
     }
 
@@ -38,6 +40,7 @@ public class AnnouncementAdapter extends RecyclerView.Adapter<AnnouncementAdapte
 
     public class AnnouncementViewHolder extends RecyclerView.ViewHolder {
         TextView details;
+
         public AnnouncementViewHolder(@NonNull View itemView) {
             super(itemView);
             details = (TextView) itemView.findViewById(R.id.details);

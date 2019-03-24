@@ -3,261 +3,288 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".contactus">
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/bg"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg" />
+
     <LinearLayout
         android:id="@+id/activity_contactus"
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:paddingBottom="125px">
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/scient_color"
-        android:contentInsetStart="0dp"
-        android:contentInsetLeft="0dp"
-        android:contentInsetEnd="0dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        android:contentInsetRight="0dp"
-        app:contentInsetEnd="0dp"
-        app:contentInsetLeft="0dp"
-        app:contentInsetRight="0dp"
-        app:contentInsetStart="0dp">
 
-        <LinearLayout
+        <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="56dp"
+            android:background="@color/scient_color"
+            android:contentInsetStart="0dp"
+            android:contentInsetLeft="0dp"
+            android:contentInsetEnd="0dp"
+            android:contentInsetRight="0dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:contentInsetEnd="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetStart="0dp">
 
-            <ImageView
-                android:id="@+id/Home"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:layout_gravity="center"
-                android:padding="8dp"
-                android:background="@color/scient_color"
-                android:src="@drawable/homeiconoutlinerecolour"/>
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:padding="15dp"
-                android:background="@color/scient_color"
-                android:textSize="22dp"
-                android:textColor="@android:color/black"
-                android:fontFamily="@font/karlaregular"
-                android:text="Contact Us"/>
-        </LinearLayout>
+                android:orientation="horizontal">
 
-    </android.support.v7.widget.Toolbar>
-        <View android:layout_width="match_parent"
+                <ImageView
+                    android:id="@+id/Home"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    android:background="@color/scient_color"
+                    android:padding="8dp"
+                    android:src="@drawable/homeiconoutlinerecolour" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/scient_color"
+                    android:fontFamily="@font/karlaregular"
+                    android:gravity="center_vertical"
+                    android:padding="15dp"
+                    android:text="Contact Us"
+                    android:textColor="@android:color/black"
+                    android:textSize="22dp" />
+            </LinearLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+        <View
+            android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="@drawable/toolbar_dropshadow"/>
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Contact Details"
-            android:paddingRight="5dp"
-            android:textColor="@android:color/black"
-            android:paddingBottom="10dp"
-            android:paddingTop="30dp"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:gravity="center_horizontal"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Student Team Head(Suhel Ahamad) :"
-            android:textColor="@android:color/black"
-            android:paddingRight="5dp"
-            android:paddingBottom="1dp"
-            android:paddingTop="30dp"
-            android:paddingLeft="10dp"
-            android:textStyle="bold"
-            android:textSize="15dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txt_suhelno"
-            android:text=" +91-9944641883/9894127474"
-            android:textColor="@android:color/black"
-            android:paddingRight="5dp"
-            android:paddingLeft="10dp"
-            android:paddingBottom="10dp"
-            android:paddingTop="3dp"
-            android:textSize="15dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Admin Incharge(Mr. Ganesh):"
-            android:textColor="@android:color/black"
-            android:paddingRight="5dp"
-            android:paddingLeft="10dp"
-            android:paddingBottom="1dp"
-            android:paddingTop="30dp"
-            android:textStyle="bold"
-            android:textSize="15dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="+91-9944641883/9894127474"
-            android:paddingRight="5dp"
-            android:textColor="@android:color/black"
-            android:paddingBottom="30dp"
-            android:paddingLeft="10dp"
+            android:background="@drawable/toolbar_dropshadow" />
 
-            android:paddingTop="3dp"
-            android:textSize="15dp"/>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/email"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:textColor="@android:color/black"
-                android:layout_height="wrap_content"
-                android:text="scient.nitt@gmail.com /  scient@nitt.edu"/>
-        </LinearLayout>
-        <FrameLayout
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/map"
-                android:layout_width="wrap_content"
-                android:layout_gravity="center"
-                android:padding="3dp"
-                android:scaleType="fitXY"
-                android:background="@drawable/border_shape"
-                android:src="@drawable/scient"
-                android:layout_height="wrap_content" />
-        </FrameLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SEND US A MESSAGE"
-            android:paddingRight="5dp"
-            android:paddingBottom="10dp"
-            android:paddingLeft="5dp"
-            android:textStyle="bold"
-            android:textColor="@android:color/black"
-            android:paddingTop="30dp"
-            android:gravity="center"
-            android:textSize="20dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Full  Name"
-            android:paddingRight="5dp"
-            android:paddingLeft="5dp"
-            android:textColor="@android:color/black"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:id="@+id/txt_fname"
-            android:textSize="15dp"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/edt_fname"
-            android:paddingRight="5dp"
-            android:textColor="@android:color/black"
-            android:paddingLeft="5dp"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:textSize="12dp" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Email Id"
-            android:paddingRight="5dp"
-            android:paddingBottom="10dp"
-            android:textColor="@android:color/black"
-            android:paddingLeft="5dp"
-            android:paddingTop="10dp"
-            android:id="@+id/txt_femail"
-            android:textSize="15dp"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/edt_femail"
-            android:paddingTop="10dp"
-            android:paddingRight="5dp"
-            android:textColor="@android:color/black"
-            android:paddingLeft="5dp"
-            android:paddingBottom="10dp"
-            android:textSize="12dp" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Contact Number"
-            android:id="@+id/txt_fCno"
-            android:paddingRight="5dp"
-            android:paddingLeft="5dp"
-            android:paddingBottom="10dp"
-            android:textColor="@android:color/black"
-            android:paddingTop="10dp"
-            android:textSize="15dp"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/edt_fCno"
-            android:textColor="@android:color/black"
-            android:paddingRight="5dp"
-            android:paddingLeft="5dp"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:textSize="12dp" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Message"
-            android:id="@+id/txt_msg"
-            android:paddingRight="5dp"
-            android:paddingBottom="10dp"
-            android:textColor="@android:color/black"
-            android:paddingLeft="5dp"
-            android:paddingTop="10dp"
-            android:textSize="15dp"/>
-        <EditText
-            android:id="@+id/edt_msg"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:paddingTop="10dp"
-            android:textColor="@android:color/black"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:paddingBottom="10dp"
-            android:textSize="12dp" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/active"
-            android:textColor="@android:color/black"
-            android:text="Send Message"
-            android:paddingLeft="5dp"
-            android:id="@+id/btn_sndmsg"/>
-        </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="30dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Contact Details"
+                    android:textColor="@android:color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="30dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="1dp"
+                    android:text="Student Team Head(Suhel Ahamad) :"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_suhelno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="3dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text=" +91-9944641883/9894127474"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="30dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="1dp"
+                    android:text="Admin Incharge(Mr. Ganesh):"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="3dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="30dp"
+                    android:text="+91-9944641883/9894127474"
+
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/email" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="scient.nitt@gmail.com /  scient@nitt.edu"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/map"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/border_shape"
+                        android:padding="3dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/scient" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="30dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="SEND US A MESSAGE"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_fname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Full  Name"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/edt_fname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/txt_femail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Email Id"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/edt_femail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/txt_fCno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Contact Number"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/edt_fCno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/txt_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Message"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/edt_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="12dp" />
+
+                <Button
+                    android:id="@+id/btn_sndmsg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/active"
+                    android:paddingLeft="5dp"
+                    android:text="Send Message"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
     </LinearLayout>
-    <include layout="@layout/bottom_sheet"/>
+
+    <include layout="@layout/bottom_sheet" />
 </android.support.design.widget.CoordinatorLayout>

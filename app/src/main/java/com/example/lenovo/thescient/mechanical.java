@@ -30,23 +30,24 @@ public class mechanical extends Fragment {
     GridView gridView;
     ArrayList<mga> mgaArrayList;
     ProgressDialog progressDialog;
-    String[] a=new String[20];
-    String[] b =new String[20];
-    String tag=" ";
+    String[] a = new String[20];
+    String[] b = new String[20];
+    String tag = " ";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view= inflater.inflate(R.layout.fragment_mechanical, container, false);
-        gridView=(GridView)view.findViewById(R.id.gv_mech);
-        progressDialog=new ProgressDialog(getContext());
+        View view = inflater.inflate(R.layout.fragment_mechanical, container, false);
+        gridView = (GridView) view.findViewById(R.id.gv_mech);
+        progressDialog = new ProgressDialog(getContext());
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.setMessage("Fetching Images...");
         progressDialog.show();
-        String Url1="https://scient.nitt.edu/mechanical/images";
+        String Url1 = "https://scient.nitt.edu/mechanical/images";
 
-        mgaArrayList=new ArrayList<>();
-        JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, Url1, null, new Response.Listener<JSONObject>() {
+        mgaArrayList = new ArrayList<>();
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, Url1, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
@@ -63,15 +64,16 @@ public class mechanical extends Fragment {
 
                 progressDialog.cancel();
             }
-        }); RequestQueue rQueue = Volley.newRequestQueue(getActivity());
+        });
+        RequestQueue rQueue = Volley.newRequestQueue(getActivity());
         rQueue.add(request);
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getContext(),imageshow.class);
-                intent.putExtra("imagelink",a[position]);
-                intent.putExtra("imagename",b[position]);
+                Intent intent = new Intent(getContext(), imageshow.class);
+                intent.putExtra("imagelink", a[position]);
+                intent.putExtra("imagename", b[position]);
                 startActivity(intent);
 
             }
@@ -79,20 +81,22 @@ public class mechanical extends Fragment {
         return view;
 
     }
+
     void parseJsonData(JSONArray jsonarray) {
         try {
             for (int i = 0; i < jsonarray.length(); i++) {
-                {  String a1=(String)jsonarray.get(i);
-                    if(a1.lastIndexOf(".")>0)
-                        b[i]=a1.substring(0,a1.lastIndexOf("."));
+                {
+                    String a1 = (String) jsonarray.get(i);
+                    if (a1.lastIndexOf(".") > 0)
+                        b[i] = a1.substring(0, a1.lastIndexOf("."));
 
 
-                    a[i]= "https://scient.nitt.edu/images/tools/mechanical/"+(String) jsonarray.get(i);
+                    a[i] = "https://scient.nitt.edu/images/tools/mechanical/" + (String) jsonarray.get(i);
 
-                    mgaArrayList.add(new mga(a[i],b[i]));
+                    mgaArrayList.add(new mga(a[i], b[i]));
                     // Toast.makeText(getApplicationContext(),""+a[i],Toast.LENGTH_SHORT).show();
                 }
-                Galleryadapter galleryadapter=new Galleryadapter(getActivity(),mgaArrayList);
+                Galleryadapter galleryadapter = new Galleryadapter(getActivity(), mgaArrayList);
                 gridView.setAdapter(galleryadapter);
             }
 

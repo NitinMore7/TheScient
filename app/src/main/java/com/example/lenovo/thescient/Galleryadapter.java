@@ -18,15 +18,15 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 public class Galleryadapter extends BaseAdapter {
-   private Context mcontext;
+    private Context mcontext;
     private LayoutInflater inflater;
     private ArrayList<mga> mgaArrayList;
-    Galleryadapter(Context context, ArrayList<mga> list){
-        mcontext=context;
-        inflater=LayoutInflater.from(mcontext);
-        mgaArrayList=list;
-    }
 
+    Galleryadapter(Context context, ArrayList<mga> list) {
+        mcontext = context;
+        inflater = LayoutInflater.from(mcontext);
+        mgaArrayList = list;
+    }
 
 
     @Override
@@ -55,22 +55,22 @@ public class Galleryadapter extends BaseAdapter {
 
             holder.imageView = (ImageView) view.findViewById(R.id.img);
 
-            holder.textView=(TextView)view.findViewById(R.id.txt_gtxt);
+            holder.textView = (TextView) view.findViewById(R.id.txt_gtxt);
 
-            holder.progressBar=view.findViewById(R.id.gallery_progress);
+            holder.progressBar = view.findViewById(R.id.gallery_progress);
 
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
         }
-        final ProgressBar pb=holder.progressBar;
+        final ProgressBar pb = holder.progressBar;
         mga item = mgaArrayList.get(i);
         ImageView imageView = holder.imageView;
         TextView textView = holder.textView;
-        Picasso.get().load(item.getImg()).resize(450,300).into(imageView, new Callback() {
+        Picasso.get().load(item.getImg()).resize(450, 300).into(imageView, new Callback() {
             @Override
             public void onSuccess() {
-                if(pb!=null){
+                if (pb != null) {
                     pb.setVisibility(View.GONE);
                 }
             }

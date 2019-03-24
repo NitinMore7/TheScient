@@ -34,42 +34,43 @@ public class project extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private projectadapter mAdapter;
-   ArrayList<promga> marray;
+    ArrayList<promga> marray;
     BottomSheetBehavior bottomSheetBehavior;
     ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(!NetworkAvailability.isNetworkAvailable(getBaseContext())){
+        if (!NetworkAvailability.isNetworkAvailable(getBaseContext())) {
             setContentView(R.layout.nointernet);
             FloatingActionButton refresh = findViewById(R.id.Refresh);
             refresh.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     finish();
-                    startActivity(new Intent(getBaseContext(),project.class));
+                    startActivity(new Intent(getBaseContext(), project.class));
                 }
             });
-        }else{
+        } else {
             setContentView(R.layout.activity_project);
-            progressDialog=new ProgressDialog(this);
+            progressDialog = new ProgressDialog(this);
             progressDialog.setCanceledOnTouchOutside(false);
             progressDialog.setMessage("Fetching Projects...");
             progressDialog.show();
-            String URL="https://scient.nitt.edu/projects-images";
-            recyclerView=(RecyclerView)findViewById(R.id.prorv);
-            LinearLayoutManager layoutManager=new LinearLayoutManager(this);
-            RecyclerView.LayoutManager rv=layoutManager;
+            String URL = "https://scient.nitt.edu/projects-images";
+            recyclerView = (RecyclerView) findViewById(R.id.prorv);
+            LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+            RecyclerView.LayoutManager rv = layoutManager;
             recyclerView.setLayoutManager(rv);
-            ViewCompat.setNestedScrollingEnabled(recyclerView,false);
-            marray=new ArrayList<>();
-            JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
+            ViewCompat.setNestedScrollingEnabled(recyclerView, false);
+            marray = new ArrayList<>();
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
                     try {
                         JSONArray responseJSONArray = response.getJSONArray("projects");
                         setUI(responseJSONArray);
-                        if(progressDialog.isShowing()){
+                        if (progressDialog.isShowing()) {
                             progressDialog.dismiss();
                         }
                     } catch (Exception e) {
@@ -82,58 +83,59 @@ public class project extends AppCompatActivity {
                     progressDialog.cancel();
                 }
             });
-            RequestQueue requestQueue= Volley.newRequestQueue(project.this);
+            RequestQueue requestQueue = Volley.newRequestQueue(project.this);
             requestQueue.add(request);
         }
         final LinearLayout bottom_sheet = (LinearLayout) findViewById(R.id.bottom_sheet);
-        final ImageView arrow = (ImageView) bottom_sheet.findViewById(R.id.arrow);;
+        final ImageView arrow = (ImageView) bottom_sheet.findViewById(R.id.arrow);
+        ;
         ImageView home = (ImageView) findViewById(R.id.Home);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-                overridePendingTransition(R.anim.left_to_right,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+                overridePendingTransition(R.anim.left_to_right, R.anim.stay);
             }
         });
-        Typeface karla_regular =  Typeface.createFromAsset(getAssets(),"fonts/Karla-Regular.ttf");
+        Typeface karla_regular = Typeface.createFromAsset(getAssets(), "fonts/Karla-Regular.ttf");
         LinearLayout bottom_sheet1 = (LinearLayout) findViewById(R.id.bottom_sheet);
         TextView Made_By = (TextView) findViewById(R.id.Made_by);
-        FrameLayout registration =  bottom_sheet1.findViewById(R.id.Regitration);
-        FrameLayout gallery =  bottom_sheet1.findViewById(R.id.gallery);
-        FrameLayout events =  bottom_sheet1.findViewById(R.id.events);
-        FrameLayout projects =  bottom_sheet1.findViewById(R.id.Project);
-        FrameLayout resources =  bottom_sheet1.findViewById(R.id.Resources);
+        FrameLayout registration = bottom_sheet1.findViewById(R.id.Regitration);
+        FrameLayout gallery = bottom_sheet1.findViewById(R.id.gallery);
+        FrameLayout events = bottom_sheet1.findViewById(R.id.events);
+        FrameLayout projects = bottom_sheet1.findViewById(R.id.Project);
+        FrameLayout resources = bottom_sheet1.findViewById(R.id.Resources);
         FrameLayout idea = bottom_sheet1.findViewById(R.id.Idea_sub);
         FrameLayout faq1 = bottom_sheet1.findViewById(R.id.faq);
-        final FrameLayout contact =  bottom_sheet1.findViewById(R.id.Contact);
+        final FrameLayout contact = bottom_sheet1.findViewById(R.id.Contact);
         FrameLayout announcements = bottom_sheet1.findViewById(R.id.Announcements);
         announcements.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Announcement.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), Announcement.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
             }
         });
         registration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Register.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), Register.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
             }
         });
         gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Gallery.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), Gallery.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
 
             }
         });
         events.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Events.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), Events.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
 
             }
         });
@@ -147,30 +149,30 @@ public class project extends AppCompatActivity {
         resources.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),Resources.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), Resources.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
             }
         });
         contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),contactus.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), contactus.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
 
             }
         });
         idea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),ideasub.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), ideasub.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
             }
         });
         faq1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),faq.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-                overridePendingTransition(R.anim.right_to_left,R.anim.stay);
+                startActivity(new Intent(getBaseContext(), faq.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+                overridePendingTransition(R.anim.right_to_left, R.anim.stay);
 
             }
         });
@@ -186,7 +188,7 @@ public class project extends AppCompatActivity {
             @Override
             public void onSlide(@NonNull View view, float v) {
                 arrow.setRotation(v * 180);
-                if(NetworkAvailability.isNetworkAvailable(getBaseContext())){
+                if (NetworkAvailability.isNetworkAvailable(getBaseContext())) {
                     final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.acitivity_project);
                     linearLayout.setAlpha(1 - v);
                 }
@@ -194,23 +196,25 @@ public class project extends AppCompatActivity {
         });
         Made_By.setTypeface(karla_regular);
     }
-    private void setUI(JSONArray jsonarray){
 
-            try{
-                for (int i = 0; i < jsonarray.length(); i++) {
-                    JSONObject h=jsonarray.getJSONObject(i);
-                   String img= h.getString("projectImage");
-                   String title=h.getString("projectTitle");
-                   String dec=h.getString("projectDesc");
-                    marray.add(new promga(img,title,dec));
-                }
-                projectadapter pro=new projectadapter(this,marray);
-                recyclerView.setAdapter(pro);
+    private void setUI(JSONArray jsonarray) {
 
-            }catch (Exception e){
-                e.printStackTrace();
+        try {
+            for (int i = 0; i < jsonarray.length(); i++) {
+                JSONObject h = jsonarray.getJSONObject(i);
+                String img = h.getString("projectImage");
+                String title = h.getString("projectTitle");
+                String dec = h.getString("projectDesc");
+                marray.add(new promga(img, title, dec));
             }
+            projectadapter pro = new projectadapter(this, marray);
+            recyclerView.setAdapter(pro);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
     @Override
     protected void onStop() {
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);

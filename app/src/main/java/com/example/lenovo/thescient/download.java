@@ -1,4 +1,5 @@
 package com.example.lenovo.thescient;
+
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -27,12 +28,13 @@ public class download {
         this.downloadUrl = downloadUrl;
 
 
-        downloadFileName = downloadUrl.substring(downloadUrl.lastIndexOf('/')+1, downloadUrl.length());//Create file name by picking download file name from URL
+        downloadFileName = downloadUrl.substring(downloadUrl.lastIndexOf('/') + 1, downloadUrl.length());//Create file name by picking download file name from URL
         Log.e(TAG, downloadFileName);
 
         //Start Downloading Task
         new DownloadingTask().execute();
     }
+
     private class DownloadingTask extends AsyncTask<Void, Void, Void> {
 
         File apkStorage = null;
@@ -82,6 +84,7 @@ public class download {
 
             super.onPostExecute(result);
         }
+
         @Override
         protected Void doInBackground(Void... arg0) {
             try {
@@ -92,7 +95,7 @@ public class download {
 
                 //If Connection response is not OK then show Logs
                 if (c.getResponseCode() != HttpURLConnection.HTTP_OK) {
-                    Log.e(TAG, "Server returned HTTP " + c.getResponseCode()+ " " + c.getResponseMessage());
+                    Log.e(TAG, "Server returned HTTP " + c.getResponseCode() + " " + c.getResponseMessage());
 
                 }
 
@@ -144,4 +147,4 @@ public class download {
             return null;
         }
     }
-    }
+}
