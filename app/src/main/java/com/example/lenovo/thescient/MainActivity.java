@@ -22,30 +22,20 @@ import com.viewpagerindicator.CirclePageIndicator;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
-    ViewFlipper vfMyViewFlipper;
-
-    TextView tt;int i=0;
-
-    String[] text={"IDEATE","INNOVATE","CREATE"};
-    private ViewFlipper mViewFlipper;
-    private Context mContext;
-    private LinearLayout dots;
-    private int custom_position=0;
-    private GestureDetectorCompat mDetector;
+public class MainActivity extends AppCompatActivity {int i=0;
     BottomSheetBehavior bottomSheetBehavior;
-    int count = 0;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //prepareDots(custom_position++);
         final LinearLayout linearLayout = (LinearLayout) findViewById(R.id.layout_main);
         Typeface karla_regular =  Typeface.createFromAsset(getAssets(),"fonts/Karla-Regular.ttf");
         Typeface karla_bold =  Typeface.createFromAsset(getAssets(),"fonts/Karla-Bold.ttf");
         Typeface high_tide = Typeface.createFromAsset(getAssets(),"fonts/HighTide-Demo.ttf");
         TextView title = (TextView) findViewById(R.id.title);
         TextView about_us_title = (TextView)findViewById(R.id.About_us_title);
+
         TextView Made_By = (TextView) findViewById(R.id.Made_by);
         LinearLayout bottom_sheet1 = (LinearLayout) findViewById(R.id.bottom_sheet);
         FrameLayout registration =  bottom_sheet1.findViewById(R.id.Regitration);
