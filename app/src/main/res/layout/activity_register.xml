@@ -61,6 +61,7 @@
                     android:fontFamily="@font/karlaregular"
                     android:text="Projects"/>
             </LinearLayout>
+
         </android.support.v7.widget.Toolbar>
         <View android:layout_width="match_parent"
             android:layout_height="5dp"
