@@ -1,88 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/team_members"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:id="@+id/team_members">
+    android:orientation="horizontal">
+
     <LinearLayout
+        android:id="@+id/edit_texts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:layout_weight="1"
-        android:id="@+id/edit_texts"
-        android:orientation="vertical"
-        android:layout_margin="5dp">
+        android:orientation="vertical">
+
         <EditText
-            android:layout_width="match_parent"
-            android:textColor="@android:color/black"
-            android:layout_height="wrap_content"
             android:id="@+id/material_name"
-            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="Name"
+            android:inputType="text"
+            android:paddingTop="10dp"
             android:paddingRight="5dp"
             android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:textSize="15sp" />
-        <EditText
-            android:layout_width="match_parent"
             android:textColor="@android:color/black"
-            android:layout_height="wrap_content"
+            android:textSize="15sp" />
+
+        <EditText
             android:id="@+id/material_specification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="Specification"
-            android:paddingRight="5dp"
             android:inputType="text"
-            android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:textSize="15sp" />
-        <EditText
-            android:layout_width="match_parent"
+            android:paddingRight="5dp"
+            android:paddingBottom="10dp"
             android:textColor="@android:color/black"
-            android:layout_height="wrap_content"
+            android:textSize="15sp" />
+
+        <EditText
             android:id="@+id/material_quantity"
-            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="Quantity"
+            android:inputType="text"
+            android:paddingTop="10dp"
             android:paddingRight="5dp"
             android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:textSize="15sp" />
-        <EditText
-            android:layout_width="match_parent"
             android:textColor="@android:color/black"
-            android:layout_height="wrap_content"
+            android:textSize="15sp" />
+
+        <EditText
             android:id="@+id/material_price"
-            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="Price"
+            android:inputType="text"
+            android:paddingTop="10dp"
             android:paddingRight="5dp"
             android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:textSize="15sp" />
-        <EditText
-            android:layout_width="match_parent"
             android:textColor="@android:color/black"
-            android:layout_height="wrap_content"
+            android:textSize="15sp" />
+
+        <EditText
             android:id="@+id/material_purpose"
-            android:inputType="text"
-            android:hint="Purpose"
-            android:paddingRight="5dp"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:textSize="15sp" />
-        <EditText
             android:layout_width="match_parent"
-            android:textColor="@android:color/black"
             android:layout_height="wrap_content"
-            android:id="@+id/material_link"
+            android:hint="Purpose"
             android:inputType="text"
-            android:hint="Link/Vendor"
+            android:paddingTop="10dp"
             android:paddingRight="5dp"
             android:paddingBottom="10dp"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/material_link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Link/Vendor"
+            android:inputType="text"
             android:paddingTop="10dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="10dp"
+            android:textColor="@android:color/black"
             android:textSize="15sp" />
     </LinearLayout>
+
     <Button
+        android:id="@+id/close"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:id="@+id/close"
-        android:background="@drawable/ic_clear_black_24dp"
-        android:layout_gravity="bottom"/>
+        android:layout_gravity="bottom"
+        android:background="@drawable/ic_clear_black_24dp" />
 
 </LinearLayout>

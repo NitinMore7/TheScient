@@ -4,322 +4,360 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".confrence"
-    android:background="@drawable/bg">
+    android:background="@drawable/bg"
+    tools:context=".confrence">
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/bg"/>
+        android:src="@drawable/bg" />
+
     <LinearLayout
         android:id="@+id/acitivity_confrence"
-        android:orientation="vertical"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
-        android:layout_height="match_parent">
+        android:orientation="vertical">
+
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:background="@color/scient_color"
             android:contentInsetStart="0dp"
             android:contentInsetLeft="0dp"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             android:contentInsetEnd="0dp"
             android:contentInsetRight="0dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             app:contentInsetEnd="0dp"
             app:contentInsetLeft="0dp"
             app:contentInsetRight="0dp"
             app:contentInsetStart="0dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:id="@+id/Home"
                     android:layout_width="56dp"
                     android:layout_height="56dp"
                     android:layout_gravity="center"
+                    android:background="@color/scient_color"
                     android:padding="8dp"
-                    android:src="@drawable/backicon"
-                    android:background="@color/scient_color"/>
+                    android:src="@drawable/backicon" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/scient_color"
+                    android:fontFamily="@font/karlaregular"
                     android:gravity="center_vertical"
                     android:padding="15dp"
-                    android:background="@color/scient_color"
+                    android:text="CONFRENCE HALL"
                     android:textColor="@android:color/black"
-                    android:textSize="22dp"
-                    android:fontFamily="@font/karlaregular"
-                    android:text="CONFRENCE HALL"/>
+                    android:textSize="22dp" />
             </LinearLayout>
         </android.support.v7.widget.Toolbar>
-        <View android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:background="@drawable/toolbar_dropshadow"/>
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingEnd="20dp"
-            android:paddingStart="20dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:text="Name"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:id="@+id/txt_hbname"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:id="@+id/edt_hbname"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="15dp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:text="Roll No"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:id="@+id/txt_hbrollno"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:id="@+id/edt_hbrollno"
-                android:paddingTop="10dp"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:textSize="15dp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:text="Department"
-                android:id="@+id/txt_hbdep"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:id="@+id/edt_hbdept"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="15dp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Contact Number"
-                android:textColor="@android:color/black"
-                android:id="@+id/txt_hbCno"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/edt_hbCno"
-                android:paddingRight="5dp"
-                android:textColor="@android:color/black"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="15dp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:text="Email Id"
-                android:id="@+id/txt_hbemail"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:id="@+id/edt_hbemail"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="15dp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:text="Number of attendees"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:id="@+id/txt_hbnatte"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
+            android:layout_height="5dp"
+            android:background="@drawable/toolbar_dropshadow" />
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:id="@+id/edt_hbnatte"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="15dp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:text="Purpose"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:id="@+id/txt_hbpurpose"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/edt_hbpurpose"
-                android:textColor="@android:color/black"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="15dp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:text="Date"
-                android:id="@+id/txt_hbdate"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:id="@+id/edt_hbdate"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="15dp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:text="Start Time"
-                android:id="@+id/txt_hbstart"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/edt_hbstart"
-                android:textColor="@android:color/black"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="15dp"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="End Time"
-                android:textColor="@android:color/black"
-                android:id="@+id/txt_hbend"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:id="@+id/edt_hbend"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="15dp" />
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp">
+
+                <TextView
+                    android:id="@+id/txt_hbname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Name"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edt_hbname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/txt_hbrollno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Roll No"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edt_hbrollno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/txt_hbdep"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Department"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edt_hbdept"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/txt_hbCno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Contact Number"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edt_hbCno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/txt_hbemail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Email Id"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edt_hbemail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/txt_hbnatte"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Number of attendees"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edt_hbnatte"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/txt_hbpurpose"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Purpose"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edt_hbpurpose"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/txt_hbdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Date"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edt_hbdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/txt_hbstart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Start Time"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edt_hbstart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/txt_hbend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="End Time"
+                    android:textColor="@android:color/black"
+
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edt_hbend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/chkac1"/>
+                    android:orientation="vertical">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" I have accepted the"/>
-                    <TextView
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/chkac1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" I have accepted the" />
+
+                        <TextView
+                            android:id="@+id/txt_tc1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Terms and Conditions"
+                            android:textColor="#00FFFF" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#00FFFF"
-                        android:text="Terms and Conditions"
-                        android:id="@+id/txt_tc1"/></LinearLayout>
-                <LinearLayout
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" and I have read the" />
+
+                        <TextView
+                            android:id="@+id/txt_rule1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" Rulebook"
+                            android:textColor="#00FFFF" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_hbsubmit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginBottom="20dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=" and I have read the"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=" Rulebook"
-                        android:textColor="#00FFFF"
-                        android:id="@+id/txt_rule1"/></LinearLayout>
-
+                    android:text="Register"
+                    android:textColor="@android:color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
             </LinearLayout>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:id="@+id/btn_hbsubmit"
-                android:textSize="20dp"
-                android:text="Register"
-                android:textStyle="bold"/>
-        </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+        </android.support.v4.widget.NestedScrollView>
     </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>
