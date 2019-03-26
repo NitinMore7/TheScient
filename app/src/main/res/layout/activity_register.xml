@@ -62,7 +62,7 @@
                         android:fontFamily="@font/karlaregular"
                         android:gravity="center_vertical"
                         android:padding="15dp"
-                        android:text="Projects"
+                        android:text="Registration"
                         android:textColor="@android:color/black"
                         android:textSize="22dp" />
                 </LinearLayout>

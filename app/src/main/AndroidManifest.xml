@@ -33,7 +33,7 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".confrence"
             android:configChanges="orientation"
-            android:windowSoftInputMode="adjustResize"
+            android:windowSoftInputMode="stateHidden|adjustResize"
             android:screenOrientation="portrait"/>
         <activity android:name=".Resources"
             android:configChanges="orientation"
@@ -46,18 +46,19 @@
         <activity
             android:name=".Accessreq"
             android:exported="true"
-            android:windowSoftInputMode="adjustResize"
+            android:windowSoftInputMode="stateHidden|adjustResize"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".contactus"
             android:exported="true"
             android:configChanges="orientation"
+            android:windowSoftInputMode="stateHidden|adjustResize"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".Rproject"
             android:exported="true"
-            android:windowSoftInputMode="adjustResize"
+            android:windowSoftInputMode="stateHidden|adjustResize"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
         <activity
