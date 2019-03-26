@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.lenovo.thescient">
+    package="com.spider.scient.scientapp">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -16,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity"
+        <activity android:name="com.spider.scient.scientapp.SplashActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -25,66 +25,66 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".imageshow"
+        <activity android:name="com.spider.scient.scientapp.imageshow"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
-        <activity android:name=".Announcement"
+        <activity android:name="com.spider.scient.scientapp.Announcement"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
-        <activity android:name=".confrence"
+        <activity android:name="com.spider.scient.scientapp.confrence"
             android:configChanges="orientation"
             android:windowSoftInputMode="adjustResize"
             android:screenOrientation="portrait"/>
-        <activity android:name=".Resources"
+        <activity android:name="com.spider.scient.scientapp.Resources"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".Events"
+            android:name="com.spider.scient.scientapp.Events"
             android:exported="true"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".Accessreq"
+            android:name="com.spider.scient.scientapp.Accessreq"
             android:exported="true"
             android:windowSoftInputMode="adjustResize"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".contactus"
+            android:name="com.spider.scient.scientapp.contactus"
             android:exported="true"
             android:configChanges="orientation"
             android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".Rproject"
+            android:name="com.spider.scient.scientapp.Rproject"
             android:exported="true"
             android:windowSoftInputMode="adjustResize"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".Register"
+            android:name="com.spider.scient.scientapp.Register"
             android:exported="true"
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme.NoActionBar"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".ideasub"
+            android:name="com.spider.scient.scientapp.ideasub"
             android:exported="true"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
-        <activity android:name=".project"
+        <activity android:name="com.spider.scient.scientapp.project"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".Gallery"
+            android:name="com.spider.scient.scientapp.Gallery"
             android:exported="true"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".faq"
+            android:name="com.spider.scient.scientapp.faq"
             android:exported="true" />
-        <activity android:name=".MainActivity"
+        <activity android:name="com.spider.scient.scientapp.MainActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
         </activity>
